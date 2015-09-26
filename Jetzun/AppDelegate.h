@@ -1,17 +1,22 @@
 //
 //  AppDelegate.h
-//  Jetzun
+//  UberScheduler
 //
-//  Created by Ted Hooban on 9/23/15.
+//  Created by Ted Hooban on 9/9/15.
 //  Copyright (c) 2015 Ted Hooban. All rights reserved.
 //
-
 #import <UIKit/UIKit.h>
+#import "LocationShareModel.h"
+#import "LocationTracker.h"
+
+@class SWRevealViewController;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) SWRevealViewController *viewController;
+@property (strong,nonatomic) LocationTracker *locationTracker;
 
-
+@property LocationShareModel *shareModel;
 @end
 

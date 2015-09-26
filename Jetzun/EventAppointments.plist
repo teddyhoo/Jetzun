@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationFullDate</key>
+		<string>15-10-2015</string>
+		<key>ReservationMonth</key>
+		<string>OCT</string>
+		<key>ReservationDay</key>
+		<string>2</string>
+		<key>ReservationYear</key>
+		<string>15</string>
+		<key>ReservationDayOfWeek</key>
+		<string>TUE</string>
+		<key>ReservationTime</key>
+		<string>10:15 AM</string>
+		<key>ReservationSegment</key>
+		<string>AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Bermuda Trip</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221902</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationMonth</key>
+		<string>OCT</string>
+		<key>ReservationDay</key>
+		<string>10</string>
+		<key>ReservationYear</key>
+		<string>15</string>
+		<key>ReservationDayOfWeek</key>
+		<string>FRI</string>
+		<key>ReservationTime</key>
+		<string>12:00 PM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationSegment</key>
+		<string>AM</string>
+		<key>PickupLocationAddr</key>
+		<string>2200 Broad Street</string>
+		<key>DropoffLocationAddr</key>
+		<string>Richmond International Airport</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Susie D.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Business Trip - New York</string>
+		<key>ReservationType</key>
+		<string>Single</string>
+		<key>ReservationSubtype</key>
+		<string>None</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>22.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationMonth</key>
+		<string>OCT</string>
+		<key>ReservationDay</key>
+		<string>27</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationDayOfWeek</key>
+		<string>SAT</string>
+		<key>ReservationTime</key>
+		<string>6:45 AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Susie G.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Baseball Game Ride Home</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Billy Q.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>ReservationID</key>
+		<string>103221901</string>
+		<key>Reservation Created</key>
+		<string>9-12-2015 10:43:00 AM</string>
+		<key>ReservationDate</key>
+		<string>10-1-15</string>
+		<key>ReservationTime</key>
+		<string>10:00AM</string>
+		<key>PickupLocationAddr</key>
+		<string>4006 Grove St</string>
+		<key>DropoffLocationAddr</key>
+		<string>716 Addison St.</string>
+		<key>CoordLatPick</key>
+		<string>37.56203300</string>
+		<key>CoordLonPick</key>
+		<string>-77.49158700</string>
+		<key>CoordLatDrop</key>
+		<string></string>
+		<key>CoordLonDrop</key>
+		<string></string>
+		<key>DriverID</key>
+		<string>10189</string>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>DriverPhoneNum</key>
+		<string>571-969-9075</string>
+		<key>isTextAvailDriver</key>
+		<string></string>
+		<key>ReservationEventName</key>
+		<string>Trip to Airport</string>
+		<key>ReservationType</key>
+		<string>Recurring</string>
+		<key>ReservationSubtype</key>
+		<string>M-W-F</string>
+		<key>TripLength</key>
+		<string>10</string>
+		<key>TripDistance</key>
+		<string>2.3</string>
+		<key>TripCost</key>
+		<string>12.00</string>
+		<key>PickupInstructions</key>
+		<string></string>
+		<key>DropOffInstructions</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

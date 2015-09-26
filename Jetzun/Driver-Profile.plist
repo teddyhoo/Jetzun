@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DriverName</key>
+		<string>Ismail B.</string>
+		<key>ImageID</key>
+		<string>avatar-1</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>VehicleYear</key>
+		<string>2008</string>
+		<key>VehiclePictureFileName</key>
+		<string>lamborghini</string>
+		<key>ProfileDescription</key>
+		<string>Safety is my paramount concern. I provide snacks on the ride and just ask that you clean up after yourself. There is an in-car TV and I have satellite radio. Those of you with children, I have a baby seat. There is ample trunk space but not too much. </string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Sue Ellen E.</string>
+		<key>ImageID</key>
+		<string>avatar-2</string>
+		<key>VehicleMake</key>
+		<string>BMW</string>
+		<key>VehicleModel</key>
+		<string>5 series</string>
+		<key>VehicleYear</key>
+		<string>2008</string>
+		<key>VehiclePictureFileName</key>
+		<string>BMW</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Mario Andretti</string>
+		<key>ImageID</key>
+		<string>avatar-3</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Sue Driver</string>
+		<key>PhotoID</key>
+		<string>avatar3</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+	<dict>
+		<key>DriverName</key>
+		<string>Joe Driver</string>
+		<key>VehicleMake</key>
+		<string>Lamborghini</string>
+		<key>VehicleModel</key>
+		<string>Testarossa</string>
+		<key>Location</key>
+		<string>{-37.000,77.000}</string>
+		<key>Monday</key>
+		<string>YES</string>
+		<key>Tuesday</key>
+		<string>YES</string>
+		<key>Wednesday</key>
+		<string>YES</string>
+		<key>Thursday</key>
+		<string>YES</string>
+		<key>Friday</key>
+		<string>YES</string>
+		<key>Saturday</key>
+		<string>YES</string>
+		<key>Sunday</key>
+		<string>YES</string>
+		<key>Service radius</key>
+		<string>50 km</string>
+		<key>EarlyMorning</key>
+		<string>YES</string>
+		<key>LateNight</key>
+		<string>NO</string>
+		<key>Holiday</key>
+		<string>NO</string>
+		<key>NumberClientFavorites</key>
+		<string>12</string>
+		<key>Rating</key>
+		<string>4 out of 5</string>
+	</dict>
+</array>
+</plist>

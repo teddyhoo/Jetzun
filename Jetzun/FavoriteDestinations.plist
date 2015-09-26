@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Name</key>
+		<string>Joe Sculley</string>
+		<key>Image</key>
+		<string>friend-pic-1</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Airport</string>
+		<key>Image</key>
+		<string>airplane-icon</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Train</string>
+		<key>Image</key>
+		<string>train-icon</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Medical</string>
+		<key>Image</key>
+		<string>medical-icon</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Calvin Smith</string>
+		<key>Image</key>
+		<string>friend-2-pic</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Joe Sculley</string>
+		<key>Image</key>
+		<string>friend-pic-5</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Joe Sculley</string>
+		<key>Image</key>
+		<string>friend-pic-6</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>Airport</string>
+		<key>Image</key>
+		<string>friend-pic-3</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>School</string>
+		<key>Image</key>
+		<string>friend-pic-4</string>
+		<key>Address</key>
+		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<key>Coordinates</key>
+		<string>{37.568848,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+</array>
+</plist>

@@ -1,24 +1,125 @@
 //
 //  AppDelegate.m
-//  Jetzun
+//  UberScheduler
 //
-//  Created by Ted Hooban on 9/23/15.
+//  Created by Ted Hooban on 9/9/15.
 //  Copyright (c) 2015 Ted Hooban. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "SWRevealViewController.h"
+#import "UberKit.h"
+#import <Parse/Parse.h>
 
-@interface AppDelegate ()
+#import "VisitsAndTracking.h"
+#import "LocationTracker.h"
+#import "FrontViewController.h"
+#import "RearViewController.h"
+#import "RightViewController.h"
+#import "CustomAnimationController.h"
+#import "PhotoGallery.h"
 
+
+@interface AppDelegate()<SWRevealViewControllerDelegate>
 @end
+
 
 @implementation AppDelegate
 
+#define IS_IPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+#define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_RETINA ([[UIScreen mainScreen] scale] >= 2.0)
+
+#define SCREEN_WIDTH ([[UIScreen mainScreen] bounds].size.width)
+#define SCREEN_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
+#define SCREEN_MAX_LENGTH (MAX(SCREEN_WIDTH, SCREEN_HEIGHT))
+#define SCREEN_MIN_LENGTH (MIN(SCREEN_WIDTH, SCREEN_HEIGHT))
+
+#define IS_IPHONE_4_OR_LESS (IS_IPHONE && SCREEN_MAX_LENGTH < 568.0)
+#define IS_IPHONE_5 (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
+#define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
+#define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+
+@synthesize window = _window;
+@synthesize viewController = _viewController;
+
+//- (BOOL)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    VisitsAndTracking *sharedVisitsTracking = [VisitsAndTracking sharedInstance];
+    
+    _locationTracker = [[LocationTracker alloc]init];
+    [_locationTracker startLocationTracking];
+    
+    [Parse enableLocalDatastore];
+    [Parse setApplicationId:@"ZKMMb0AGM6XqxBvoUeRx627R7OV5QuXpEv3YHAlA"
+                  clientKey:@"DbBSkhJiT0qqxPtSrDGKXDfEJ8Dq8IH6mRSkS8LY"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    if (IS_IPHONE_6P) {
+        [sharedVisitsTracking setDeviceType:@"iPhone6P"];
+        
+    } else if (IS_IPHONE_6) {
+        [sharedVisitsTracking setDeviceType:@"iPhone6"];
+        
+    } else if (IS_IPHONE_5) {
+        [sharedVisitsTracking setDeviceType:@"iPhone5"];
+        
+    } else if (IS_IPHONE_4_OR_LESS) {
+        
+        [sharedVisitsTracking setDeviceType:@"iPhone4"];
+        
+    }
+    
+    
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window = window;
+    
+    FrontViewController *frontViewController = [[FrontViewController alloc] init];
+    RearViewController *rearViewController = [[RearViewController alloc] init];
+    
+    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    
+    frontNavigationController.toolbarHidden = YES;
+    
+    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
+    
+    
+    SWRevealViewController *revealController = [[SWRevealViewController alloc]
+                                                initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
+    revealController.delegate = self;
+    
+    
+    RightViewController *rightViewController = rightViewController = [[RightViewController alloc] init];
+    rightViewController.view.backgroundColor = [UIColor greenColor];
+    
+    PhotoGallery *photoViewController = [[PhotoGallery alloc]init];
+    photoViewController.view.backgroundColor = [UIColor whiteColor];
+    //revealController.rightViewController = photoViewController;
+    revealController.rightViewController = nil;
+    
+    
+    self.viewController = revealController;
+    self.window.rootViewController = self.viewController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
+
+- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    if([[UberKit sharedInstance] handleLoginRedirectFromUrl:url sourceApplication:sourceApplication])
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -26,8 +127,12 @@
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    NSLog(@"application did enter background");
+    
+    [_locationTracker goingToBackgroundMode];
+    
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
