@@ -7,23 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD33887A1BBF39B00086F895 /* BG-plainBlue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD3388791BBF39B00086F895 /* BG-plainBlue@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD33889B1BBF3B860086F895 /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD33887E1BBF3B860086F895 /* JTCalendarDayView.m */; settings = {ASSET_TAGS = (); }; };
+		AD33889C1BBF3B860086F895 /* JTCalendarDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388811BBF3B860086F895 /* JTCalendarDelegateManager.m */; settings = {ASSET_TAGS = (); }; };
+		AD33889D1BBF3B860086F895 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388831BBF3B860086F895 /* JTCalendarManager.m */; settings = {ASSET_TAGS = (); }; };
+		AD33889E1BBF3B860086F895 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388851BBF3B860086F895 /* JTCalendarMenuView.m */; settings = {ASSET_TAGS = (); }; };
+		AD33889F1BBF3B860086F895 /* JTCalendarPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388881BBF3B860086F895 /* JTCalendarPageView.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A01BBF3B860086F895 /* JTCalendarScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD33888A1BBF3B860086F895 /* JTCalendarScrollManager.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A11BBF3B860086F895 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = AD33888C1BBF3B860086F895 /* JTCalendarSettings.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A21BBF3B860086F895 /* JTCalendarWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388901BBF3B860086F895 /* JTCalendarWeekDayView.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A31BBF3B860086F895 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388921BBF3B860086F895 /* JTCalendarWeekView.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A41BBF3B860086F895 /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388951BBF3B860086F895 /* JTDateHelper.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A51BBF3B860086F895 /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388971BBF3B860086F895 /* JTHorizontalCalendarView.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A61BBF3B860086F895 /* JTVerticalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD33889A1BBF3B860086F895 /* JTVerticalCalendarView.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388A91BBF3F4C0086F895 /* CustomCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388A81BBF3F4C0086F895 /* CustomCalendarDayView.m */; settings = {ASSET_TAGS = (); }; };
+		AD3388B21BBF48E50086F895 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3388B11BBF48E50086F895 /* CalendarViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AD5632F21BCC65A80096C1FC /* ReservationReview.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5632F11BCC65A80096C1FC /* ReservationReview.m */; settings = {ASSET_TAGS = (); }; };
+		AD5633701BCE8F5D0096C1FC /* left-arrow-white@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD56336F1BCE8F5D0096C1FC /* left-arrow-white@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD5633721BCEACBD0096C1FC /* fingerprint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD5633711BCEACBD0096C1FC /* fingerprint@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD5633761BCFDBB90096C1FC /* startAnnotationShadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD5633751BCFDBB90096C1FC /* startAnnotationShadow@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD5633781BCFE26C0096C1FC /* map-background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD5633771BCFE26C0096C1FC /* map-background@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD56337B1BCFE3260096C1FC /* TripMonitorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD56337A1BCFE3260096C1FC /* TripMonitorViewController.m */; settings = {ASSET_TAGS = (); }; };
+		AD56337D1BD01B190096C1FC /* fingerprint-icon-64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = AD56337C1BD01B190096C1FC /* fingerprint-icon-64x64.png */; settings = {ASSET_TAGS = (); }; };
+		AD5633811BD01B240096C1FC /* amtrak-train@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD5633801BD01B240096C1FC /* amtrak-train@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD5633831BD01B280096C1FC /* airplane-icon64x64@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD5633821BD01B280096C1FC /* airplane-icon64x64@3x.png */; settings = {ASSET_TAGS = (); }; };
+		AD5633851BD044D40096C1FC /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5633841BD044D40096C1FC /* LocalAuthentication.framework */; };
+		AD5633901BD166ED0096C1FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD56338F1BD166ED0096C1FC /* AVFoundation.framework */; };
+		AD5633921BD167F50096C1FC /* ruler_bottle.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AD5633911BD167F50096C1FC /* ruler_bottle.mp3 */; settings = {ASSET_TAGS = (); }; };
+		AD5633941BD16AEE0096C1FC /* ruler_bottle.caf in Resources */ = {isa = PBXBuildFile; fileRef = AD5633931BD16AEE0096C1FC /* ruler_bottle.caf */; settings = {ASSET_TAGS = (); }; };
 		AD8CBF381BB2E0D300D77241 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF371BB2E0D300D77241 /* main.m */; };
 		AD8CBF3E1BB2E0D300D77241 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF3D1BB2E0D300D77241 /* ViewController.m */; };
 		AD8CBF411BB2E0D300D77241 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD8CBF3F1BB2E0D300D77241 /* Main.storyboard */; };
 		AD8CBF431BB2E0D300D77241 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD8CBF421BB2E0D300D77241 /* Images.xcassets */; };
 		AD8CBF461BB2E0D300D77241 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD8CBF441BB2E0D300D77241 /* LaunchScreen.xib */; };
 		AD8CBF521BB2E0D300D77241 /* JetzunTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF511BB2E0D300D77241 /* JetzunTests.m */; };
-		AD8CBF781BB2E22800D77241 /* JTCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF621BB2E22800D77241 /* JTCalendar.m */; };
-		AD8CBF791BB2E22800D77241 /* JTCalendarAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF641BB2E22800D77241 /* JTCalendarAppearance.m */; };
-		AD8CBF7A1BB2E22800D77241 /* JTCalendarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF661BB2E22800D77241 /* JTCalendarContentView.m */; };
-		AD8CBF7B1BB2E22800D77241 /* JTCalendarDataCache.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF681BB2E22800D77241 /* JTCalendarDataCache.m */; };
-		AD8CBF7C1BB2E22800D77241 /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF6A1BB2E22800D77241 /* JTCalendarDayView.m */; };
-		AD8CBF7D1BB2E22800D77241 /* JTCalendarMenuMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF6C1BB2E22800D77241 /* JTCalendarMenuMonthView.m */; };
-		AD8CBF7E1BB2E22800D77241 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF6E1BB2E22800D77241 /* JTCalendarMenuView.m */; };
-		AD8CBF7F1BB2E22800D77241 /* JTCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF701BB2E22800D77241 /* JTCalendarMonthView.m */; };
-		AD8CBF801BB2E22800D77241 /* JTCalendarMonthWeekDaysView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF721BB2E22800D77241 /* JTCalendarMonthWeekDaysView.m */; };
-		AD8CBF811BB2E22800D77241 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF751BB2E22800D77241 /* JTCalendarWeekView.m */; };
-		AD8CBF821BB2E22800D77241 /* JTCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF771BB2E22800D77241 /* JTCircleView.m */; };
 		AD8CBF8A1BB2E27100D77241 /* FXForms.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF871BB2E27100D77241 /* FXForms.m */; };
 		AD8CBF8B1BB2E27100D77241 /* ISO3166CountryValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF891BB2E27100D77241 /* ISO3166CountryValueTransformer.m */; };
 		AD8CBF921BB2E27900D77241 /* RootForm.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CBF8D1BB2E27900D77241 /* RootForm.m */; };
@@ -79,10 +96,8 @@
 		AD8CC0331BB2EBEF00D77241 /* PhotoGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0301BB2EBEF00D77241 /* PhotoGallery.m */; };
 		AD8CC03E1BB2EBFA00D77241 /* RouteOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0351BB2EBFA00D77241 /* RouteOptionsView.m */; };
 		AD8CC03F1BB2EBFA00D77241 /* CalendarChooserView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0371BB2EBFA00D77241 /* CalendarChooserView.m */; };
-		AD8CC0401BB2EBFA00D77241 /* ChooseRouteView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0391BB2EBFA00D77241 /* ChooseRouteView.m */; };
 		AD8CC0411BB2EBFA00D77241 /* ChooseVisualRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC03B1BB2EBFA00D77241 /* ChooseVisualRoute.m */; };
 		AD8CC0421BB2EBFA00D77241 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC03D1BB2EBFA00D77241 /* MessageViewController.m */; };
-		AD8CC0491BB2EC0400D77241 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0441BB2EC0400D77241 /* CalendarViewController.m */; };
 		AD8CC04A1BB2EC0400D77241 /* ReservationPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0461BB2EC0400D77241 /* ReservationPickerView.m */; };
 		AD8CC04B1BB2EC0400D77241 /* ReservationTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0481BB2EC0400D77241 /* ReservationTableCell.m */; };
 		AD8CC05A1BB2EC2100D77241 /* Driver-Profile.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC04D1BB2EC2100D77241 /* Driver-Profile.plist */; };
@@ -90,7 +105,6 @@
 		AD8CC05C1BB2EC2100D77241 /* Reservations.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC04F1BB2EC2100D77241 /* Reservations.plist */; };
 		AD8CC05D1BB2EC2100D77241 /* EventAppointments.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0501BB2EC2100D77241 /* EventAppointments.plist */; };
 		AD8CC05E1BB2EC2100D77241 /* FavoriteDestinations.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0511BB2EC2100D77241 /* FavoriteDestinations.plist */; };
-		AD8CC05F1BB2EC2100D77241 /* DataClient.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0531BB2EC2100D77241 /* DataClient.m */; };
 		AD8CC0601BB2EC2100D77241 /* VisitDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0551BB2EC2100D77241 /* VisitDetails.m */; };
 		AD8CC0611BB2EC2100D77241 /* VisitsAndTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0571BB2EC2100D77241 /* VisitsAndTracking.m */; };
 		AD8CC0621BB2EC2100D77241 /* ReservationDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8CC0591BB2EC2100D77241 /* ReservationDetails.m */; };
@@ -127,13 +141,8 @@
 		AD8CC0C81BB2ECCA00D77241 /* dollar-sign-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A31BB2ECCA00D77241 /* dollar-sign-circle@2x.png */; };
 		AD8CC0C91BB2ECCA00D77241 /* DollarSymbol@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A41BB2ECCA00D77241 /* DollarSymbol@3x.png */; };
 		AD8CC0CA1BB2ECCA00D77241 /* envelope-128x128@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A51BB2ECCA00D77241 /* envelope-128x128@2x.png */; };
-		AD8CC0CB1BB2ECCA00D77241 /* file-folder64x64@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A61BB2ECCA00D77241 /* file-folder64x64@2x.png */; };
-		AD8CC0CC1BB2ECCA00D77241 /* filefolder-red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A71BB2ECCA00D77241 /* filefolder-red@2x.png */; };
 		AD8CC0CD1BB2ECCA00D77241 /* green-add-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A81BB2ECCA00D77241 /* green-add-button@2x.png */; };
 		AD8CC0CE1BB2ECCA00D77241 /* green-bg-new@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0A91BB2ECCA00D77241 /* green-bg-new@3x.png */; };
-		AD8CC0CF1BB2ECCA00D77241 /* left-arrow-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0AA1BB2ECCA00D77241 /* left-arrow-blue@2x.png */; };
-		AD8CC0D01BB2ECCA00D77241 /* left-arrow-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0AB1BB2ECCA00D77241 /* left-arrow-circle@2x.png */; };
-		AD8CC0D11BB2ECCA00D77241 /* map-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0AC1BB2ECCA00D77241 /* map-icon@2x.png */; };
 		AD8CC0D21BB2ECCA00D77241 /* message-bubble-2-64x64@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0AD1BB2ECCA00D77241 /* message-bubble-2-64x64@2x.png */; };
 		AD8CC0D31BB2ECCA00D77241 /* message-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0AE1BB2ECCA00D77241 /* message-icon@2x.png */; };
 		AD8CC0D41BB2ECCA00D77241 /* mobile-phone-icon-orange-back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0AF1BB2ECCA00D77241 /* mobile-phone-icon-orange-back@3x.png */; };
@@ -143,8 +152,6 @@
 		AD8CC0D81BB2ECCA00D77241 /* red-remove-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B31BB2ECCA00D77241 /* red-remove-button@2x.png */; };
 		AD8CC0D91BB2ECCA00D77241 /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B41BB2ECCA00D77241 /* reveal-icon.png */; };
 		AD8CC0DA1BB2ECCA00D77241 /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B51BB2ECCA00D77241 /* reveal-icon@2x.png */; };
-		AD8CC0DB1BB2ECCA00D77241 /* right-arrow-circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B61BB2ECCA00D77241 /* right-arrow-circle@2x.png */; };
-		AD8CC0DC1BB2ECCA00D77241 /* right-box-blue-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B71BB2ECCA00D77241 /* right-box-blue-arrow@2x.png */; };
 		AD8CC0DD1BB2ECCA00D77241 /* settings-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B81BB2ECCA00D77241 /* settings-icon@2x.png */; };
 		AD8CC0DE1BB2ECCA00D77241 /* star-icon-cartoon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0B91BB2ECCA00D77241 /* star-icon-cartoon@2x.png */; };
 		AD8CC0DF1BB2ECCA00D77241 /* table-cell-back-orange@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0BA1BB2ECCA00D77241 /* table-cell-back-orange@3x.png */; };
@@ -169,7 +176,6 @@
 		AD8CC1071BB2ECE300D77241 /* friend-pic-4@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0FE1BB2ECE300D77241 /* friend-pic-4@3x.png */; };
 		AD8CC1081BB2ECE300D77241 /* friend-pic-3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC0FF1BB2ECE300D77241 /* friend-pic-3@3x.png */; };
 		AD8CC1091BB2ECE300D77241 /* airplane-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC1001BB2ECE300D77241 /* airplane-icon@3x.png */; };
-		AD8CC10A1BB2ECE300D77241 /* train-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC1011BB2ECE300D77241 /* train-icon@3x.png */; };
 		AD8CC10B1BB2ECE300D77241 /* medical-icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC1021BB2ECE300D77241 /* medical-icon@3x.png */; };
 		AD8CC10E1BB2ECEF00D77241 /* BMW@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC10C1BB2ECEF00D77241 /* BMW@3x.png */; };
 		AD8CC10F1BB2ECEF00D77241 /* lamborghini@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC10D1BB2ECEF00D77241 /* lamborghini@3x.png */; };
@@ -205,6 +211,43 @@
 		AD8CC15F1BB2F08800D77241 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC1571BB2F08800D77241 /* Lato-Bold.ttf */; };
 		AD8CC1601BB2F08800D77241 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD8CC1581BB2F08800D77241 /* Lato-Regular.ttf */; };
 		ADEE40451BB42E5D003F1444 /* UberLinkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADEE40441BB42E5D003F1444 /* UberLinkViewController.m */; };
+		ADFFA5331BD3EFD400E96B59 /* boyfriend-house@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5321BD3EFD400E96B59 /* boyfriend-house@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5351BD3EFD900E96B59 /* airplane-72x72@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5341BD3EFD900E96B59 /* airplane-72x72@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5371BD3EFDF00E96B59 /* office72@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5361BD3EFDF00E96B59 /* office72@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5391BD3EFE400E96B59 /* home72@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5381BD3EFE400E96B59 /* home72@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA53B1BD3EFE800E96B59 /* train-front-72x72@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA53A1BD3EFE800E96B59 /* train-front-72x72@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA53D1BD3F64D00E96B59 /* fingerprint-lo-detail@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA53C1BD3F64D00E96B59 /* fingerprint-lo-detail@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA53F1BD4107F00E96B59 /* driver-cert@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA53E1BD4107F00E96B59 /* driver-cert@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5411BD5A7E500E96B59 /* seethru-label196x58@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5401BD5A7E500E96B59 /* seethru-label196x58@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5471BD6604C00E96B59 /* YALSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA5461BD6604C00E96B59 /* YALSpringAnimation.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA54A1BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA5491BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA54D1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA54C1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5501BD6606800E96B59 /* YALAnimatingTabBarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA54F1BD6606800E96B59 /* YALAnimatingTabBarConstants.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5531BD6606F00E96B59 /* YALFoldingTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA5521BD6606F00E96B59 /* YALFoldingTabBarController.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5561BD6607700E96B59 /* YALTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA5551BD6607700E96B59 /* YALTabBarItem.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA55A1BD6608700E96B59 /* YALFoldingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA5591BD6608700E96B59 /* YALFoldingTabBar.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5601BD7B26E00E96B59 /* rocket1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA55B1BD7B26E00E96B59 /* rocket1@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5611BD7B26E00E96B59 /* placemark-icon1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA55C1BD7B26E00E96B59 /* placemark-icon1@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5621BD7B26E00E96B59 /* airplane-landing1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA55D1BD7B26E00E96B59 /* airplane-landing1@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5631BD7B26E00E96B59 /* helicopter-icon1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA55E1BD7B26E00E96B59 /* helicopter-icon1@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5641BD7B26E00E96B59 /* train-icon1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA55F1BD7B26E00E96B59 /* train-icon1@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5661BD7B30800E96B59 /* airplane-takeoff@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5651BD7B30800E96B59 /* airplane-takeoff@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA56A1BD7C33800E96B59 /* JuroTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFFA5691BD7C33800E96B59 /* JuroTextField.m */; settings = {ASSET_TAGS = (); }; };
+		ADFFA56C1BD7C34800E96B59 /* juro.gif in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA56B1BD7C34800E96B59 /* juro.gif */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5771BD8553600E96B59 /* num-6-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA56E1BD8553600E96B59 /* num-6-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5781BD8553600E96B59 /* num-0-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA56F1BD8553600E96B59 /* num-0-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5791BD8553600E96B59 /* num-7-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5701BD8553600E96B59 /* num-7-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA57A1BD8553600E96B59 /* num-8-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5711BD8553600E96B59 /* num-8-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA57B1BD8553600E96B59 /* num-9-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5721BD8553600E96B59 /* num-9-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA57C1BD8553600E96B59 /* num-2-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5731BD8553600E96B59 /* num-2-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA57D1BD8553600E96B59 /* num-3-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5741BD8553600E96B59 /* num-3-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA57E1BD8553600E96B59 /* num-4-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5751BD8553600E96B59 /* num-4-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA57F1BD8553600E96B59 /* num-5-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5761BD8553600E96B59 /* num-5-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5811BD8554C00E96B59 /* num-1-block@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5801BD8554C00E96B59 /* num-1-block@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5831BD8669E00E96B59 /* colon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5821BD8669E00E96B59 /* colon@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5851BD8688F00E96B59 /* num-0-score@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5841BD8688F00E96B59 /* num-0-score@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5871BD8689300E96B59 /* num-2-score@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5861BD8689300E96B59 /* num-2-score@3x.png */; settings = {ASSET_TAGS = (); }; };
+		ADFFA5891BD8689C00E96B59 /* num-1-score@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = ADFFA5881BD8689C00E96B59 /* num-1-score@3x.png */; settings = {ASSET_TAGS = (); }; };
 		FE8D499B87B3551B3C35E5ED /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A72FC6F45D77762EA91BC8B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -222,6 +265,58 @@
 		0A72FC6F45D77762EA91BC8B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		24E7222BEE0BC6386BF22815 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7CC9662B3F7CCEDC031DFA95 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AD3388791BBF39B00086F895 /* BG-plainBlue@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG-plainBlue@3x.png"; sourceTree = "<group>"; };
+		AD33887B1BBF3B860086F895 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
+		AD33887C1BBF3B860086F895 /* JTCalendarDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDay.h; sourceTree = "<group>"; };
+		AD33887D1BBF3B860086F895 /* JTCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDayView.h; sourceTree = "<group>"; };
+		AD33887E1BBF3B860086F895 /* JTCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDayView.m; sourceTree = "<group>"; };
+		AD33887F1BBF3B860086F895 /* JTCalendarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDelegate.h; sourceTree = "<group>"; };
+		AD3388801BBF3B860086F895 /* JTCalendarDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDelegateManager.h; sourceTree = "<group>"; };
+		AD3388811BBF3B860086F895 /* JTCalendarDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDelegateManager.m; sourceTree = "<group>"; };
+		AD3388821BBF3B860086F895 /* JTCalendarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarManager.h; sourceTree = "<group>"; };
+		AD3388831BBF3B860086F895 /* JTCalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarManager.m; sourceTree = "<group>"; };
+		AD3388841BBF3B860086F895 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuView.h; sourceTree = "<group>"; };
+		AD3388851BBF3B860086F895 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuView.m; sourceTree = "<group>"; };
+		AD3388861BBF3B860086F895 /* JTCalendarPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarPage.h; sourceTree = "<group>"; };
+		AD3388871BBF3B860086F895 /* JTCalendarPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarPageView.h; sourceTree = "<group>"; };
+		AD3388881BBF3B860086F895 /* JTCalendarPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarPageView.m; sourceTree = "<group>"; };
+		AD3388891BBF3B860086F895 /* JTCalendarScrollManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarScrollManager.h; sourceTree = "<group>"; };
+		AD33888A1BBF3B860086F895 /* JTCalendarScrollManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarScrollManager.m; sourceTree = "<group>"; };
+		AD33888B1BBF3B860086F895 /* JTCalendarSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarSettings.h; sourceTree = "<group>"; };
+		AD33888C1BBF3B860086F895 /* JTCalendarSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarSettings.m; sourceTree = "<group>"; };
+		AD33888D1BBF3B860086F895 /* JTCalendarWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeek.h; sourceTree = "<group>"; };
+		AD33888E1BBF3B860086F895 /* JTCalendarWeekDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekDay.h; sourceTree = "<group>"; };
+		AD33888F1BBF3B860086F895 /* JTCalendarWeekDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekDayView.h; sourceTree = "<group>"; };
+		AD3388901BBF3B860086F895 /* JTCalendarWeekDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekDayView.m; sourceTree = "<group>"; };
+		AD3388911BBF3B860086F895 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekView.h; sourceTree = "<group>"; };
+		AD3388921BBF3B860086F895 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekView.m; sourceTree = "<group>"; };
+		AD3388931BBF3B860086F895 /* JTContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTContent.h; sourceTree = "<group>"; };
+		AD3388941BBF3B860086F895 /* JTDateHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTDateHelper.h; sourceTree = "<group>"; };
+		AD3388951BBF3B860086F895 /* JTDateHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTDateHelper.m; sourceTree = "<group>"; };
+		AD3388961BBF3B860086F895 /* JTHorizontalCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTHorizontalCalendarView.h; sourceTree = "<group>"; };
+		AD3388971BBF3B860086F895 /* JTHorizontalCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTHorizontalCalendarView.m; sourceTree = "<group>"; };
+		AD3388981BBF3B860086F895 /* JTMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTMenu.h; sourceTree = "<group>"; };
+		AD3388991BBF3B860086F895 /* JTVerticalCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTVerticalCalendarView.h; sourceTree = "<group>"; };
+		AD33889A1BBF3B860086F895 /* JTVerticalCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTVerticalCalendarView.m; sourceTree = "<group>"; };
+		AD3388A71BBF3F4C0086F895 /* CustomCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCalendarDayView.h; sourceTree = "<group>"; };
+		AD3388A81BBF3F4C0086F895 /* CustomCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCalendarDayView.m; sourceTree = "<group>"; };
+		AD3388B01BBF48E50086F895 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = ../CalendarViewController.h; sourceTree = "<group>"; };
+		AD3388B11BBF48E50086F895 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = ../CalendarViewController.m; sourceTree = "<group>"; };
+		AD5632F01BCC65A80096C1FC /* ReservationReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationReview.h; sourceTree = "<group>"; };
+		AD5632F11BCC65A80096C1FC /* ReservationReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationReview.m; sourceTree = "<group>"; };
+		AD56336F1BCE8F5D0096C1FC /* left-arrow-white@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow-white@3x.png"; sourceTree = "<group>"; };
+		AD5633711BCEACBD0096C1FC /* fingerprint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fingerprint@3x.png"; sourceTree = "<group>"; };
+		AD5633751BCFDBB90096C1FC /* startAnnotationShadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startAnnotationShadow@3x.png"; sourceTree = "<group>"; };
+		AD5633771BCFE26C0096C1FC /* map-background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-background@3x.png"; sourceTree = "<group>"; };
+		AD5633791BCFE3260096C1FC /* TripMonitorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripMonitorViewController.h; sourceTree = "<group>"; };
+		AD56337A1BCFE3260096C1FC /* TripMonitorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripMonitorViewController.m; sourceTree = "<group>"; };
+		AD56337C1BD01B190096C1FC /* fingerprint-icon-64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fingerprint-icon-64x64.png"; sourceTree = "<group>"; };
+		AD5633801BD01B240096C1FC /* amtrak-train@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "amtrak-train@3x.png"; sourceTree = "<group>"; };
+		AD5633821BD01B280096C1FC /* airplane-icon64x64@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-icon64x64@3x.png"; sourceTree = "<group>"; };
+		AD5633841BD044D40096C1FC /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		AD56338F1BD166ED0096C1FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		AD5633911BD167F50096C1FC /* ruler_bottle.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ruler_bottle.mp3; sourceTree = "<group>"; };
+		AD5633931BD16AEE0096C1FC /* ruler_bottle.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ruler_bottle.caf; sourceTree = "<group>"; };
 		AD8CBF321BB2E0D300D77241 /* Jetzun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jetzun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8CBF361BB2E0D300D77241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD8CBF371BB2E0D300D77241 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -233,29 +328,6 @@
 		AD8CBF4B1BB2E0D300D77241 /* JetzunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JetzunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD8CBF501BB2E0D300D77241 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD8CBF511BB2E0D300D77241 /* JetzunTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JetzunTests.m; sourceTree = "<group>"; };
-		AD8CBF611BB2E22800D77241 /* JTCalendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendar.h; sourceTree = "<group>"; };
-		AD8CBF621BB2E22800D77241 /* JTCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendar.m; sourceTree = "<group>"; };
-		AD8CBF631BB2E22800D77241 /* JTCalendarAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarAppearance.h; sourceTree = "<group>"; };
-		AD8CBF641BB2E22800D77241 /* JTCalendarAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarAppearance.m; sourceTree = "<group>"; };
-		AD8CBF651BB2E22800D77241 /* JTCalendarContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarContentView.h; sourceTree = "<group>"; };
-		AD8CBF661BB2E22800D77241 /* JTCalendarContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarContentView.m; sourceTree = "<group>"; };
-		AD8CBF671BB2E22800D77241 /* JTCalendarDataCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDataCache.h; sourceTree = "<group>"; };
-		AD8CBF681BB2E22800D77241 /* JTCalendarDataCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDataCache.m; sourceTree = "<group>"; };
-		AD8CBF691BB2E22800D77241 /* JTCalendarDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarDayView.h; sourceTree = "<group>"; };
-		AD8CBF6A1BB2E22800D77241 /* JTCalendarDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarDayView.m; sourceTree = "<group>"; };
-		AD8CBF6B1BB2E22800D77241 /* JTCalendarMenuMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuMonthView.h; sourceTree = "<group>"; };
-		AD8CBF6C1BB2E22800D77241 /* JTCalendarMenuMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuMonthView.m; sourceTree = "<group>"; };
-		AD8CBF6D1BB2E22800D77241 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMenuView.h; sourceTree = "<group>"; };
-		AD8CBF6E1BB2E22800D77241 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMenuView.m; sourceTree = "<group>"; };
-		AD8CBF6F1BB2E22800D77241 /* JTCalendarMonthView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthView.h; sourceTree = "<group>"; };
-		AD8CBF701BB2E22800D77241 /* JTCalendarMonthView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthView.m; sourceTree = "<group>"; };
-		AD8CBF711BB2E22800D77241 /* JTCalendarMonthWeekDaysView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarMonthWeekDaysView.h; sourceTree = "<group>"; };
-		AD8CBF721BB2E22800D77241 /* JTCalendarMonthWeekDaysView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarMonthWeekDaysView.m; sourceTree = "<group>"; };
-		AD8CBF731BB2E22800D77241 /* JTCalendarViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarViewDataSource.h; sourceTree = "<group>"; };
-		AD8CBF741BB2E22800D77241 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCalendarWeekView.h; sourceTree = "<group>"; };
-		AD8CBF751BB2E22800D77241 /* JTCalendarWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCalendarWeekView.m; sourceTree = "<group>"; };
-		AD8CBF761BB2E22800D77241 /* JTCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTCircleView.h; sourceTree = "<group>"; };
-		AD8CBF771BB2E22800D77241 /* JTCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTCircleView.m; sourceTree = "<group>"; };
 		AD8CBF861BB2E27100D77241 /* FXForms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXForms.h; sourceTree = "<group>"; };
 		AD8CBF871BB2E27100D77241 /* FXForms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXForms.m; sourceTree = "<group>"; };
 		AD8CBF881BB2E27100D77241 /* ISO3166CountryValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO3166CountryValueTransformer.h; sourceTree = "<group>"; };
@@ -374,14 +446,10 @@
 		AD8CC0351BB2EBFA00D77241 /* RouteOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteOptionsView.m; sourceTree = "<group>"; };
 		AD8CC0361BB2EBFA00D77241 /* CalendarChooserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarChooserView.h; sourceTree = "<group>"; };
 		AD8CC0371BB2EBFA00D77241 /* CalendarChooserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarChooserView.m; sourceTree = "<group>"; };
-		AD8CC0381BB2EBFA00D77241 /* ChooseRouteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseRouteView.h; sourceTree = "<group>"; };
-		AD8CC0391BB2EBFA00D77241 /* ChooseRouteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseRouteView.m; sourceTree = "<group>"; };
 		AD8CC03A1BB2EBFA00D77241 /* ChooseVisualRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseVisualRoute.h; sourceTree = "<group>"; };
 		AD8CC03B1BB2EBFA00D77241 /* ChooseVisualRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseVisualRoute.m; sourceTree = "<group>"; };
 		AD8CC03C1BB2EBFA00D77241 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		AD8CC03D1BB2EBFA00D77241 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
-		AD8CC0431BB2EC0400D77241 /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		AD8CC0441BB2EC0400D77241 /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		AD8CC0451BB2EC0400D77241 /* ReservationPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationPickerView.h; sourceTree = "<group>"; };
 		AD8CC0461BB2EC0400D77241 /* ReservationPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationPickerView.m; sourceTree = "<group>"; };
 		AD8CC0471BB2EC0400D77241 /* ReservationTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationTableCell.h; sourceTree = "<group>"; };
@@ -391,8 +459,6 @@
 		AD8CC04F1BB2EC2100D77241 /* Reservations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Reservations.plist; sourceTree = "<group>"; };
 		AD8CC0501BB2EC2100D77241 /* EventAppointments.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = EventAppointments.plist; sourceTree = "<group>"; };
 		AD8CC0511BB2EC2100D77241 /* FavoriteDestinations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FavoriteDestinations.plist; sourceTree = "<group>"; };
-		AD8CC0521BB2EC2100D77241 /* DataClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataClient.h; sourceTree = "<group>"; };
-		AD8CC0531BB2EC2100D77241 /* DataClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataClient.m; sourceTree = "<group>"; };
 		AD8CC0541BB2EC2100D77241 /* VisitDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitDetails.h; sourceTree = "<group>"; };
 		AD8CC0551BB2EC2100D77241 /* VisitDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisitDetails.m; sourceTree = "<group>"; };
 		AD8CC0561BB2EC2100D77241 /* VisitsAndTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisitsAndTracking.h; sourceTree = "<group>"; };
@@ -432,13 +498,8 @@
 		AD8CC0A31BB2ECCA00D77241 /* dollar-sign-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dollar-sign-circle@2x.png"; sourceTree = "<group>"; };
 		AD8CC0A41BB2ECCA00D77241 /* DollarSymbol@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DollarSymbol@3x.png"; sourceTree = "<group>"; };
 		AD8CC0A51BB2ECCA00D77241 /* envelope-128x128@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "envelope-128x128@2x.png"; sourceTree = "<group>"; };
-		AD8CC0A61BB2ECCA00D77241 /* file-folder64x64@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "file-folder64x64@2x.png"; sourceTree = "<group>"; };
-		AD8CC0A71BB2ECCA00D77241 /* filefolder-red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "filefolder-red@2x.png"; sourceTree = "<group>"; };
 		AD8CC0A81BB2ECCA00D77241 /* green-add-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-add-button@2x.png"; sourceTree = "<group>"; };
 		AD8CC0A91BB2ECCA00D77241 /* green-bg-new@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-bg-new@3x.png"; sourceTree = "<group>"; };
-		AD8CC0AA1BB2ECCA00D77241 /* left-arrow-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow-blue@2x.png"; sourceTree = "<group>"; };
-		AD8CC0AB1BB2ECCA00D77241 /* left-arrow-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left-arrow-circle@2x.png"; sourceTree = "<group>"; };
-		AD8CC0AC1BB2ECCA00D77241 /* map-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-icon@2x.png"; sourceTree = "<group>"; };
 		AD8CC0AD1BB2ECCA00D77241 /* message-bubble-2-64x64@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-bubble-2-64x64@2x.png"; sourceTree = "<group>"; };
 		AD8CC0AE1BB2ECCA00D77241 /* message-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "message-icon@2x.png"; sourceTree = "<group>"; };
 		AD8CC0AF1BB2ECCA00D77241 /* mobile-phone-icon-orange-back@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mobile-phone-icon-orange-back@3x.png"; sourceTree = "<group>"; };
@@ -448,8 +509,6 @@
 		AD8CC0B31BB2ECCA00D77241 /* red-remove-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-remove-button@2x.png"; sourceTree = "<group>"; };
 		AD8CC0B41BB2ECCA00D77241 /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
 		AD8CC0B51BB2ECCA00D77241 /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
-		AD8CC0B61BB2ECCA00D77241 /* right-arrow-circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-arrow-circle@2x.png"; sourceTree = "<group>"; };
-		AD8CC0B71BB2ECCA00D77241 /* right-box-blue-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right-box-blue-arrow@2x.png"; sourceTree = "<group>"; };
 		AD8CC0B81BB2ECCA00D77241 /* settings-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings-icon@2x.png"; sourceTree = "<group>"; };
 		AD8CC0B91BB2ECCA00D77241 /* star-icon-cartoon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star-icon-cartoon@2x.png"; sourceTree = "<group>"; };
 		AD8CC0BA1BB2ECCA00D77241 /* table-cell-back-orange@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-cell-back-orange@3x.png"; sourceTree = "<group>"; };
@@ -474,7 +533,6 @@
 		AD8CC0FE1BB2ECE300D77241 /* friend-pic-4@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-pic-4@3x.png"; sourceTree = "<group>"; };
 		AD8CC0FF1BB2ECE300D77241 /* friend-pic-3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "friend-pic-3@3x.png"; sourceTree = "<group>"; };
 		AD8CC1001BB2ECE300D77241 /* airplane-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-icon@3x.png"; sourceTree = "<group>"; };
-		AD8CC1011BB2ECE300D77241 /* train-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train-icon@3x.png"; sourceTree = "<group>"; };
 		AD8CC1021BB2ECE300D77241 /* medical-icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "medical-icon@3x.png"; sourceTree = "<group>"; };
 		AD8CC10C1BB2ECEF00D77241 /* BMW@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BMW@3x.png"; sourceTree = "<group>"; };
 		AD8CC10D1BB2ECEF00D77241 /* lamborghini@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lamborghini@3x.png"; sourceTree = "<group>"; };
@@ -521,8 +579,54 @@
 		AD8CC1561BB2F08800D77241 /* CompassRoseCPC-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CompassRoseCPC-RegularItalic.otf"; sourceTree = "<group>"; };
 		AD8CC1571BB2F08800D77241 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		AD8CC1581BB2F08800D77241 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		ADEE40431BB42E5D003F1444 /* UberLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UberLinkViewController.h; path = Jetzun/UberLinkViewController.h; sourceTree = "<group>"; };
-		ADEE40441BB42E5D003F1444 /* UberLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UberLinkViewController.m; path = Jetzun/UberLinkViewController.m; sourceTree = "<group>"; };
+		ADEE40431BB42E5D003F1444 /* UberLinkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UberLinkViewController.h; sourceTree = "<group>"; };
+		ADEE40441BB42E5D003F1444 /* UberLinkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UberLinkViewController.m; sourceTree = "<group>"; };
+		ADFFA5321BD3EFD400E96B59 /* boyfriend-house@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boyfriend-house@3x.png"; sourceTree = "<group>"; };
+		ADFFA5341BD3EFD900E96B59 /* airplane-72x72@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-72x72@3x.png"; sourceTree = "<group>"; };
+		ADFFA5361BD3EFDF00E96B59 /* office72@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "office72@3x.png"; sourceTree = "<group>"; };
+		ADFFA5381BD3EFE400E96B59 /* home72@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home72@3x.png"; sourceTree = "<group>"; };
+		ADFFA53A1BD3EFE800E96B59 /* train-front-72x72@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train-front-72x72@3x.png"; sourceTree = "<group>"; };
+		ADFFA53C1BD3F64D00E96B59 /* fingerprint-lo-detail@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fingerprint-lo-detail@3x.png"; sourceTree = "<group>"; };
+		ADFFA53E1BD4107F00E96B59 /* driver-cert@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "driver-cert@3x.png"; sourceTree = "<group>"; };
+		ADFFA5401BD5A7E500E96B59 /* seethru-label196x58@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seethru-label196x58@3x.png"; sourceTree = "<group>"; };
+		ADFFA5451BD6604C00E96B59 /* YALSpringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALSpringAnimation.h; sourceTree = "<group>"; };
+		ADFFA5461BD6604C00E96B59 /* YALSpringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALSpringAnimation.m; sourceTree = "<group>"; };
+		ADFFA5481BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+YALTabBarViewAnimations.h"; sourceTree = "<group>"; };
+		ADFFA5491BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+YALTabBarViewAnimations.m"; sourceTree = "<group>"; };
+		ADFFA54B1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransaction+TransactionWithAnimationsAndCompletion.h"; sourceTree = "<group>"; };
+		ADFFA54C1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransaction+TransactionWithAnimationsAndCompletion.m"; sourceTree = "<group>"; };
+		ADFFA54E1BD6606800E96B59 /* YALAnimatingTabBarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALAnimatingTabBarConstants.h; sourceTree = "<group>"; };
+		ADFFA54F1BD6606800E96B59 /* YALAnimatingTabBarConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALAnimatingTabBarConstants.m; sourceTree = "<group>"; };
+		ADFFA5511BD6606F00E96B59 /* YALFoldingTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALFoldingTabBarController.h; sourceTree = "<group>"; };
+		ADFFA5521BD6606F00E96B59 /* YALFoldingTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALFoldingTabBarController.m; sourceTree = "<group>"; };
+		ADFFA5541BD6607700E96B59 /* YALTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALTabBarItem.h; sourceTree = "<group>"; };
+		ADFFA5551BD6607700E96B59 /* YALTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALTabBarItem.m; sourceTree = "<group>"; };
+		ADFFA5571BD6607E00E96B59 /* YALTabBarInteracting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YALTabBarInteracting.h; sourceTree = "<group>"; };
+		ADFFA5581BD6608700E96B59 /* YALFoldingTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALFoldingTabBar.h; sourceTree = "<group>"; };
+		ADFFA5591BD6608700E96B59 /* YALFoldingTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALFoldingTabBar.m; sourceTree = "<group>"; };
+		ADFFA55B1BD7B26E00E96B59 /* rocket1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rocket1@3x.png"; sourceTree = "<group>"; };
+		ADFFA55C1BD7B26E00E96B59 /* placemark-icon1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placemark-icon1@3x.png"; sourceTree = "<group>"; };
+		ADFFA55D1BD7B26E00E96B59 /* airplane-landing1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-landing1@3x.png"; sourceTree = "<group>"; };
+		ADFFA55E1BD7B26E00E96B59 /* helicopter-icon1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "helicopter-icon1@3x.png"; sourceTree = "<group>"; };
+		ADFFA55F1BD7B26E00E96B59 /* train-icon1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train-icon1@3x.png"; sourceTree = "<group>"; };
+		ADFFA5651BD7B30800E96B59 /* airplane-takeoff@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "airplane-takeoff@3x.png"; sourceTree = "<group>"; };
+		ADFFA5681BD7C33800E96B59 /* JuroTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JuroTextField.h; sourceTree = "<group>"; };
+		ADFFA5691BD7C33800E96B59 /* JuroTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JuroTextField.m; sourceTree = "<group>"; };
+		ADFFA56B1BD7C34800E96B59 /* juro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = juro.gif; sourceTree = "<group>"; };
+		ADFFA56E1BD8553600E96B59 /* num-6-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-6-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA56F1BD8553600E96B59 /* num-0-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-0-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5701BD8553600E96B59 /* num-7-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-7-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5711BD8553600E96B59 /* num-8-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-8-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5721BD8553600E96B59 /* num-9-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-9-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5731BD8553600E96B59 /* num-2-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-2-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5741BD8553600E96B59 /* num-3-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-3-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5751BD8553600E96B59 /* num-4-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-4-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5761BD8553600E96B59 /* num-5-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-5-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5801BD8554C00E96B59 /* num-1-block@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-1-block@3x.png"; sourceTree = "<group>"; };
+		ADFFA5821BD8669E00E96B59 /* colon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "colon@3x.png"; sourceTree = "<group>"; };
+		ADFFA5841BD8688F00E96B59 /* num-0-score@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-0-score@3x.png"; sourceTree = "<group>"; };
+		ADFFA5861BD8689300E96B59 /* num-2-score@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-2-score@3x.png"; sourceTree = "<group>"; };
+		ADFFA5881BD8689C00E96B59 /* num-1-score@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "num-1-score@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,6 +634,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD5633901BD166ED0096C1FC /* AVFoundation.framework in Frameworks */,
+				AD5633851BD044D40096C1FC /* LocalAuthentication.framework in Frameworks */,
 				FE8D499B87B3551B3C35E5ED /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,14 +653,37 @@
 		2B4EE6460FDB9ED1937AA8A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AD56338F1BD166ED0096C1FC /* AVFoundation.framework */,
+				AD5633841BD044D40096C1FC /* LocalAuthentication.framework */,
 				0A72FC6F45D77762EA91BC8B /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AD3388B31BC018A80086F895 /* Reservation Feed */ = {
+			isa = PBXGroup;
+			children = (
+				AD3388B01BBF48E50086F895 /* CalendarViewController.h */,
+				AD3388B11BBF48E50086F895 /* CalendarViewController.m */,
+			);
+			name = "Reservation Feed";
+			sourceTree = "<group>";
+		};
+		AD3388B41BC018CB0086F895 /* Uber Views */ = {
+			isa = PBXGroup;
+			children = (
+				ADEE40431BB42E5D003F1444 /* UberLinkViewController.h */,
+				ADEE40441BB42E5D003F1444 /* UberLinkViewController.m */,
+			);
+			name = "Uber Views";
+			sourceTree = "<group>";
+		};
 		AD8CBF291BB2E0D300D77241 = {
 			isa = PBXGroup;
 			children = (
+				ADFFA56D1BD8551E00E96B59 /* number-icons */,
+				ADFFA5671BD7C32900E96B59 /* Widget-TextEntry */,
+				ADFFA5441BD6602400E96B59 /* YALTabBarController */,
 				AD8CBFAA1BB2E2A600D77241 /* UberAPI Kit */,
 				AD8CBFEF1BB2EB2400D77241 /* Date Utils */,
 				AD8CBF831BB2E23700D77241 /* Graphics */,
@@ -579,8 +708,10 @@
 		AD8CBF341BB2E0D300D77241 /* Jetzun */ = {
 			isa = PBXGroup;
 			children = (
+				AD3388B41BC018CB0086F895 /* Uber Views */,
+				AD3388B31BC018A80086F895 /* Reservation Feed */,
 				AD8CC04C1BB2EC1600D77241 /* Data Models */,
-				AD8CC02A1BB2EBE400D77241 /* Profiles */,
+				AD8CC02A1BB2EBE400D77241 /* Reservation Cards */,
 				AD8CBF851BB2E24400D77241 /* MakeReservation */,
 				AD8CC0081BB2EB6500D77241 /* ReservationFeed */,
 				AD8CC0071BB2EB5600D77241 /* LocationMapping */,
@@ -588,6 +719,8 @@
 				AD8CC00A1BB2EB8900D77241 /* CustomAnimationController.m */,
 				AD8CC00B1BB2EB8900D77241 /* RearViewController.h */,
 				AD8CC00C1BB2EB8900D77241 /* RearViewController.m */,
+				AD5633791BCFE3260096C1FC /* TripMonitorViewController.h */,
+				AD56337A1BCFE3260096C1FC /* TripMonitorViewController.m */,
 				AD8CC00D1BB2EB8900D77241 /* RightViewController.h */,
 				AD8CC00E1BB2EB8900D77241 /* RightViewController.m */,
 				AD8CC00F1BB2EB8900D77241 /* FrontViewController.h */,
@@ -712,29 +845,38 @@
 		AD8CBF601BB2E20600D77241 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				AD8CBF611BB2E22800D77241 /* JTCalendar.h */,
-				AD8CBF621BB2E22800D77241 /* JTCalendar.m */,
-				AD8CBF631BB2E22800D77241 /* JTCalendarAppearance.h */,
-				AD8CBF641BB2E22800D77241 /* JTCalendarAppearance.m */,
-				AD8CBF651BB2E22800D77241 /* JTCalendarContentView.h */,
-				AD8CBF661BB2E22800D77241 /* JTCalendarContentView.m */,
-				AD8CBF671BB2E22800D77241 /* JTCalendarDataCache.h */,
-				AD8CBF681BB2E22800D77241 /* JTCalendarDataCache.m */,
-				AD8CBF691BB2E22800D77241 /* JTCalendarDayView.h */,
-				AD8CBF6A1BB2E22800D77241 /* JTCalendarDayView.m */,
-				AD8CBF6B1BB2E22800D77241 /* JTCalendarMenuMonthView.h */,
-				AD8CBF6C1BB2E22800D77241 /* JTCalendarMenuMonthView.m */,
-				AD8CBF6D1BB2E22800D77241 /* JTCalendarMenuView.h */,
-				AD8CBF6E1BB2E22800D77241 /* JTCalendarMenuView.m */,
-				AD8CBF6F1BB2E22800D77241 /* JTCalendarMonthView.h */,
-				AD8CBF701BB2E22800D77241 /* JTCalendarMonthView.m */,
-				AD8CBF711BB2E22800D77241 /* JTCalendarMonthWeekDaysView.h */,
-				AD8CBF721BB2E22800D77241 /* JTCalendarMonthWeekDaysView.m */,
-				AD8CBF731BB2E22800D77241 /* JTCalendarViewDataSource.h */,
-				AD8CBF741BB2E22800D77241 /* JTCalendarWeekView.h */,
-				AD8CBF751BB2E22800D77241 /* JTCalendarWeekView.m */,
-				AD8CBF761BB2E22800D77241 /* JTCircleView.h */,
-				AD8CBF771BB2E22800D77241 /* JTCircleView.m */,
+				AD3388821BBF3B860086F895 /* JTCalendarManager.h */,
+				AD3388831BBF3B860086F895 /* JTCalendarManager.m */,
+				AD33887F1BBF3B860086F895 /* JTCalendarDelegate.h */,
+				AD3388801BBF3B860086F895 /* JTCalendarDelegateManager.h */,
+				AD3388811BBF3B860086F895 /* JTCalendarDelegateManager.m */,
+				AD3388861BBF3B860086F895 /* JTCalendarPage.h */,
+				AD33888D1BBF3B860086F895 /* JTCalendarWeek.h */,
+				AD33888E1BBF3B860086F895 /* JTCalendarWeekDay.h */,
+				AD33887C1BBF3B860086F895 /* JTCalendarDay.h */,
+				AD3388871BBF3B860086F895 /* JTCalendarPageView.h */,
+				AD3388881BBF3B860086F895 /* JTCalendarPageView.m */,
+				AD33888F1BBF3B860086F895 /* JTCalendarWeekDayView.h */,
+				AD3388901BBF3B860086F895 /* JTCalendarWeekDayView.m */,
+				AD3388911BBF3B860086F895 /* JTCalendarWeekView.h */,
+				AD3388921BBF3B860086F895 /* JTCalendarWeekView.m */,
+				AD33887D1BBF3B860086F895 /* JTCalendarDayView.h */,
+				AD33887E1BBF3B860086F895 /* JTCalendarDayView.m */,
+				AD33887B1BBF3B860086F895 /* JTCalendar.h */,
+				AD3388841BBF3B860086F895 /* JTCalendarMenuView.h */,
+				AD3388851BBF3B860086F895 /* JTCalendarMenuView.m */,
+				AD3388891BBF3B860086F895 /* JTCalendarScrollManager.h */,
+				AD33888A1BBF3B860086F895 /* JTCalendarScrollManager.m */,
+				AD33888B1BBF3B860086F895 /* JTCalendarSettings.h */,
+				AD33888C1BBF3B860086F895 /* JTCalendarSettings.m */,
+				AD3388931BBF3B860086F895 /* JTContent.h */,
+				AD3388941BBF3B860086F895 /* JTDateHelper.h */,
+				AD3388951BBF3B860086F895 /* JTDateHelper.m */,
+				AD3388961BBF3B860086F895 /* JTHorizontalCalendarView.h */,
+				AD3388971BBF3B860086F895 /* JTHorizontalCalendarView.m */,
+				AD3388981BBF3B860086F895 /* JTMenu.h */,
+				AD3388991BBF3B860086F895 /* JTVerticalCalendarView.h */,
+				AD33889A1BBF3B860086F895 /* JTVerticalCalendarView.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -756,18 +898,18 @@
 		AD8CBF851BB2E24400D77241 /* MakeReservation */ = {
 			isa = PBXGroup;
 			children = (
+				AD3388A71BBF3F4C0086F895 /* CustomCalendarDayView.h */,
+				AD3388A81BBF3F4C0086F895 /* CustomCalendarDayView.m */,
 				AD8CC0341BB2EBFA00D77241 /* RouteOptionsView.h */,
 				AD8CC0351BB2EBFA00D77241 /* RouteOptionsView.m */,
 				AD8CC0361BB2EBFA00D77241 /* CalendarChooserView.h */,
 				AD8CC0371BB2EBFA00D77241 /* CalendarChooserView.m */,
-				AD8CC0381BB2EBFA00D77241 /* ChooseRouteView.h */,
-				AD8CC0391BB2EBFA00D77241 /* ChooseRouteView.m */,
 				AD8CC03A1BB2EBFA00D77241 /* ChooseVisualRoute.h */,
 				AD8CC03B1BB2EBFA00D77241 /* ChooseVisualRoute.m */,
 				AD8CC03C1BB2EBFA00D77241 /* MessageViewController.h */,
 				AD8CC03D1BB2EBFA00D77241 /* MessageViewController.m */,
-				ADEE40431BB42E5D003F1444 /* UberLinkViewController.h */,
-				ADEE40441BB42E5D003F1444 /* UberLinkViewController.m */,
+				AD5632F01BCC65A80096C1FC /* ReservationReview.h */,
+				AD5632F11BCC65A80096C1FC /* ReservationReview.m */,
 			);
 			name = MakeReservation;
 			path = ..;
@@ -885,8 +1027,6 @@
 		AD8CC0081BB2EB6500D77241 /* ReservationFeed */ = {
 			isa = PBXGroup;
 			children = (
-				AD8CC0431BB2EC0400D77241 /* CalendarViewController.h */,
-				AD8CC0441BB2EC0400D77241 /* CalendarViewController.m */,
 				AD8CC0451BB2EC0400D77241 /* ReservationPickerView.h */,
 				AD8CC0461BB2EC0400D77241 /* ReservationPickerView.m */,
 				AD8CC0471BB2EC0400D77241 /* ReservationTableCell.h */,
@@ -895,7 +1035,7 @@
 			name = ReservationFeed;
 			sourceTree = "<group>";
 		};
-		AD8CC02A1BB2EBE400D77241 /* Profiles */ = {
+		AD8CC02A1BB2EBE400D77241 /* Reservation Cards */ = {
 			isa = PBXGroup;
 			children = (
 				AD8CC02B1BB2EBEF00D77241 /* ReservationCards.h */,
@@ -905,7 +1045,7 @@
 				AD8CC02F1BB2EBEF00D77241 /* PhotoGallery.h */,
 				AD8CC0301BB2EBEF00D77241 /* PhotoGallery.m */,
 			);
-			name = Profiles;
+			name = "Reservation Cards";
 			sourceTree = "<group>";
 		};
 		AD8CC04C1BB2EC1600D77241 /* Data Models */ = {
@@ -916,8 +1056,6 @@
 				AD8CC04F1BB2EC2100D77241 /* Reservations.plist */,
 				AD8CC0501BB2EC2100D77241 /* EventAppointments.plist */,
 				AD8CC0511BB2EC2100D77241 /* FavoriteDestinations.plist */,
-				AD8CC0521BB2EC2100D77241 /* DataClient.h */,
-				AD8CC0531BB2EC2100D77241 /* DataClient.m */,
 				AD8CC0541BB2EC2100D77241 /* VisitDetails.h */,
 				AD8CC0551BB2EC2100D77241 /* VisitDetails.m */,
 				AD8CC0561BB2EC2100D77241 /* VisitsAndTracking.h */,
@@ -957,13 +1095,15 @@
 		AD8CC0651BB2EC5400D77241 /* MappingIcons */ = {
 			isa = PBXGroup;
 			children = (
-				AD8CC0801BB2ECA000D77241 /* destination-star-icon@3x.png */,
 				AD8CC0811BB2ECA000D77241 /* annotation-home-icon@3x.png */,
 				AD8CC0821BB2ECA000D77241 /* annotation-note-bubble-yellow@3x.png */,
 				AD8CC0831BB2ECA000D77241 /* annotation-note-bubble@3x.png */,
 				AD8CC0841BB2ECA000D77241 /* car-annotation@3x.png */,
+				AD8CC0801BB2ECA000D77241 /* destination-star-icon@3x.png */,
 				AD8CC0851BB2ECA000D77241 /* endAnnotation@3x.png */,
+				AD56337C1BD01B190096C1FC /* fingerprint-icon-64x64.png */,
 				AD8CC0861BB2ECA000D77241 /* startAnnotation@3x.png */,
+				AD5633751BCFDBB90096C1FC /* startAnnotationShadow@3x.png */,
 			);
 			name = MappingIcons;
 			sourceTree = "<group>";
@@ -971,14 +1111,19 @@
 		AD8CC0661BB2EC6400D77241 /* Backgrounds */ = {
 			isa = PBXGroup;
 			children = (
+				AD3388791BBF39B00086F895 /* BG-plainBlue@3x.png */,
 				AD8CC0E21BB2ECD900D77241 /* background-darkblue-lightblue@3x.png */,
 				AD8CC0E31BB2ECD900D77241 /* category-card-red@3x.png */,
 				AD8CC0E41BB2ECD900D77241 /* cream-1200x1900@3x.png */,
 				AD8CC0E51BB2ECD900D77241 /* green-bg@2x.png */,
+				AD56336F1BCE8F5D0096C1FC /* left-arrow-white@3x.png */,
 				AD8CC0E61BB2ECD900D77241 /* light-blue-box@2x.png */,
+				AD5633771BCFE26C0096C1FC /* map-background@3x.png */,
 				AD8CC0E71BB2ECD900D77241 /* ombol-logo@3x.png */,
 				AD8CC0E81BB2ECD900D77241 /* purple-button@3x.png */,
 				AD8CC0E91BB2ECD900D77241 /* purplebg-1250x200@3x.png */,
+				AD5633931BD16AEE0096C1FC /* ruler_bottle.caf */,
+				AD5633911BD167F50096C1FC /* ruler_bottle.mp3 */,
 				AD8CC0EA1BB2ECD900D77241 /* teal-bg@3x.png */,
 				AD8CC0EB1BB2ECD900D77241 /* tealbg1250x200.png */,
 				AD8CC0EC1BB2ECD900D77241 /* textbox1200x216@3x.png */,
@@ -990,27 +1135,43 @@
 		AD8CC0671BB2EC7700D77241 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				AD8CC1101BB2ECF600D77241 /* avatar-3@3x.png */,
+				ADFFA5651BD7B30800E96B59 /* airplane-takeoff@3x.png */,
+				ADFFA55B1BD7B26E00E96B59 /* rocket1@3x.png */,
+				ADFFA55C1BD7B26E00E96B59 /* placemark-icon1@3x.png */,
+				ADFFA55D1BD7B26E00E96B59 /* airplane-landing1@3x.png */,
+				ADFFA55E1BD7B26E00E96B59 /* helicopter-icon1@3x.png */,
+				ADFFA55F1BD7B26E00E96B59 /* train-icon1@3x.png */,
+				ADFFA5401BD5A7E500E96B59 /* seethru-label196x58@3x.png */,
+				ADFFA53E1BD4107F00E96B59 /* driver-cert@3x.png */,
+				ADFFA53C1BD3F64D00E96B59 /* fingerprint-lo-detail@3x.png */,
+				ADFFA53A1BD3EFE800E96B59 /* train-front-72x72@3x.png */,
+				ADFFA5381BD3EFE400E96B59 /* home72@3x.png */,
+				ADFFA5361BD3EFDF00E96B59 /* office72@3x.png */,
+				ADFFA5341BD3EFD900E96B59 /* airplane-72x72@3x.png */,
+				ADFFA5321BD3EFD400E96B59 /* boyfriend-house@3x.png */,
+				AD8CC1001BB2ECE300D77241 /* airplane-icon@3x.png */,
+				AD5633821BD01B280096C1FC /* airplane-icon64x64@3x.png */,
+				AD5633801BD01B240096C1FC /* amtrak-train@3x.png */,
 				AD8CC1111BB2ECF600D77241 /* avatar-1@3x.png */,
 				AD8CC1121BB2ECF600D77241 /* avatar-2@3x.png */,
-				AD8CC1131BB2ECF600D77241 /* photo-frame@2x.png */,
-				AD8CC1141BB2ECF600D77241 /* photo-stack@2x.png */,
-				AD8CC1151BB2ECF600D77241 /* image-frame@3x.png */,
-				AD8CC1161BB2ECF600D77241 /* photo-stack-4@2x.png */,
-				AD8CC1171BB2ECF600D77241 /* photo-frame-290x354@3x.png */,
-				AD8CC1181BB2ECF600D77241 /* special-effects@2x.png */,
-				AD8CC1191BB2ECF600D77241 /* take-pic@2x.png */,
+				AD8CC1101BB2ECF600D77241 /* avatar-3@3x.png */,
 				AD8CC10C1BB2ECEF00D77241 /* BMW@3x.png */,
-				AD8CC10D1BB2ECEF00D77241 /* lamborghini@3x.png */,
+				AD5633711BCEACBD0096C1FC /* fingerprint@3x.png */,
 				AD8CC0FA1BB2ECE300D77241 /* friend-pic-1@3x.png */,
 				AD8CC0FB1BB2ECE300D77241 /* friend-pic-2@3x.png */,
+				AD8CC0FF1BB2ECE300D77241 /* friend-pic-3@3x.png */,
+				AD8CC0FE1BB2ECE300D77241 /* friend-pic-4@3x.png */,
 				AD8CC0FC1BB2ECE300D77241 /* friend-pic-5@3x.png */,
 				AD8CC0FD1BB2ECE300D77241 /* friend-pic-6@3x.png */,
-				AD8CC0FE1BB2ECE300D77241 /* friend-pic-4@3x.png */,
-				AD8CC0FF1BB2ECE300D77241 /* friend-pic-3@3x.png */,
-				AD8CC1001BB2ECE300D77241 /* airplane-icon@3x.png */,
-				AD8CC1011BB2ECE300D77241 /* train-icon@3x.png */,
+				AD8CC1151BB2ECF600D77241 /* image-frame@3x.png */,
+				AD8CC10D1BB2ECEF00D77241 /* lamborghini@3x.png */,
 				AD8CC1021BB2ECE300D77241 /* medical-icon@3x.png */,
+				AD8CC1171BB2ECF600D77241 /* photo-frame-290x354@3x.png */,
+				AD8CC1131BB2ECF600D77241 /* photo-frame@2x.png */,
+				AD8CC1161BB2ECF600D77241 /* photo-stack-4@2x.png */,
+				AD8CC1141BB2ECF600D77241 /* photo-stack@2x.png */,
+				AD8CC1181BB2ECF600D77241 /* special-effects@2x.png */,
+				AD8CC1191BB2ECF600D77241 /* take-pic@2x.png */,
 			);
 			name = Photos;
 			sourceTree = "<group>";
@@ -1047,13 +1208,8 @@
 				AD8CC0A31BB2ECCA00D77241 /* dollar-sign-circle@2x.png */,
 				AD8CC0A41BB2ECCA00D77241 /* DollarSymbol@3x.png */,
 				AD8CC0A51BB2ECCA00D77241 /* envelope-128x128@2x.png */,
-				AD8CC0A61BB2ECCA00D77241 /* file-folder64x64@2x.png */,
-				AD8CC0A71BB2ECCA00D77241 /* filefolder-red@2x.png */,
 				AD8CC0A81BB2ECCA00D77241 /* green-add-button@2x.png */,
 				AD8CC0A91BB2ECCA00D77241 /* green-bg-new@3x.png */,
-				AD8CC0AA1BB2ECCA00D77241 /* left-arrow-blue@2x.png */,
-				AD8CC0AB1BB2ECCA00D77241 /* left-arrow-circle@2x.png */,
-				AD8CC0AC1BB2ECCA00D77241 /* map-icon@2x.png */,
 				AD8CC0AD1BB2ECCA00D77241 /* message-bubble-2-64x64@2x.png */,
 				AD8CC0AE1BB2ECCA00D77241 /* message-icon@2x.png */,
 				AD8CC0AF1BB2ECCA00D77241 /* mobile-phone-icon-orange-back@3x.png */,
@@ -1063,8 +1219,6 @@
 				AD8CC0B31BB2ECCA00D77241 /* red-remove-button@2x.png */,
 				AD8CC0B41BB2ECCA00D77241 /* reveal-icon.png */,
 				AD8CC0B51BB2ECCA00D77241 /* reveal-icon@2x.png */,
-				AD8CC0B61BB2ECCA00D77241 /* right-arrow-circle@2x.png */,
-				AD8CC0B71BB2ECCA00D77241 /* right-box-blue-arrow@2x.png */,
 				AD8CC0B81BB2ECCA00D77241 /* settings-icon@2x.png */,
 				AD8CC0B91BB2ECCA00D77241 /* star-icon-cartoon@2x.png */,
 				AD8CC0BA1BB2ECCA00D77241 /* table-cell-back-orange@3x.png */,
@@ -1093,6 +1247,59 @@
 			);
 			name = Wellness;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		ADFFA5441BD6602400E96B59 /* YALTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				ADFFA5581BD6608700E96B59 /* YALFoldingTabBar.h */,
+				ADFFA5591BD6608700E96B59 /* YALFoldingTabBar.m */,
+				ADFFA5571BD6607E00E96B59 /* YALTabBarInteracting.h */,
+				ADFFA5541BD6607700E96B59 /* YALTabBarItem.h */,
+				ADFFA5551BD6607700E96B59 /* YALTabBarItem.m */,
+				ADFFA5511BD6606F00E96B59 /* YALFoldingTabBarController.h */,
+				ADFFA5521BD6606F00E96B59 /* YALFoldingTabBarController.m */,
+				ADFFA54E1BD6606800E96B59 /* YALAnimatingTabBarConstants.h */,
+				ADFFA54F1BD6606800E96B59 /* YALAnimatingTabBarConstants.m */,
+				ADFFA5481BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.h */,
+				ADFFA5491BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.m */,
+				ADFFA5451BD6604C00E96B59 /* YALSpringAnimation.h */,
+				ADFFA5461BD6604C00E96B59 /* YALSpringAnimation.m */,
+				ADFFA54B1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.h */,
+				ADFFA54C1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.m */,
+			);
+			name = YALTabBarController;
+			sourceTree = "<group>";
+		};
+		ADFFA5671BD7C32900E96B59 /* Widget-TextEntry */ = {
+			isa = PBXGroup;
+			children = (
+				ADFFA56B1BD7C34800E96B59 /* juro.gif */,
+				ADFFA5681BD7C33800E96B59 /* JuroTextField.h */,
+				ADFFA5691BD7C33800E96B59 /* JuroTextField.m */,
+			);
+			name = "Widget-TextEntry";
+			sourceTree = "<group>";
+		};
+		ADFFA56D1BD8551E00E96B59 /* number-icons */ = {
+			isa = PBXGroup;
+			children = (
+				ADFFA5881BD8689C00E96B59 /* num-1-score@3x.png */,
+				ADFFA5861BD8689300E96B59 /* num-2-score@3x.png */,
+				ADFFA5841BD8688F00E96B59 /* num-0-score@3x.png */,
+				ADFFA5821BD8669E00E96B59 /* colon@3x.png */,
+				ADFFA56F1BD8553600E96B59 /* num-0-block@3x.png */,
+				ADFFA5801BD8554C00E96B59 /* num-1-block@3x.png */,
+				ADFFA5731BD8553600E96B59 /* num-2-block@3x.png */,
+				ADFFA5741BD8553600E96B59 /* num-3-block@3x.png */,
+				ADFFA5751BD8553600E96B59 /* num-4-block@3x.png */,
+				ADFFA5761BD8553600E96B59 /* num-5-block@3x.png */,
+				ADFFA56E1BD8553600E96B59 /* num-6-block@3x.png */,
+				ADFFA5701BD8553600E96B59 /* num-7-block@3x.png */,
+				ADFFA5711BD8553600E96B59 /* num-8-block@3x.png */,
+				ADFFA5721BD8553600E96B59 /* num-9-block@3x.png */,
+			);
+			name = "number-icons";
 			sourceTree = "<group>";
 		};
 		EAA6379649DE7D3B32839DC5 /* Pods */ = {
@@ -1187,10 +1394,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AD8CC07E1BB2EC9500D77241 /* omobol-signin-button@3x.png in Resources */,
-				AD8CC0CC1BB2ECCA00D77241 /* filefolder-red@2x.png in Resources */,
+				ADFFA5331BD3EFD400E96B59 /* boyfriend-house@3x.png in Resources */,
 				AD8CC0D71BB2ECCA00D77241 /* profile-icon@3x.png in Resources */,
 				AD8CC05B1BB2EC2100D77241 /* DriversAvailableNow.plist in Resources */,
-				AD8CC0CF1BB2ECCA00D77241 /* left-arrow-blue@2x.png in Resources */,
 				AD8CC0C31BB2ECCA00D77241 /* car-icon@2x.png in Resources */,
 				AD8CC0C01BB2ECCA00D77241 /* button-348x128@2x.png in Resources */,
 				AD8CC0891BB2ECA000D77241 /* annotation-note-bubble-yellow@3x.png in Resources */,
@@ -1199,14 +1405,22 @@
 				AD8CC05E1BB2EC2100D77241 /* FavoriteDestinations.plist in Resources */,
 				AD8CC05A1BB2EC2100D77241 /* Driver-Profile.plist in Resources */,
 				AD8CC11B1BB2ECF600D77241 /* avatar-1@3x.png in Resources */,
+				ADFFA5891BD8689C00E96B59 /* num-1-score@3x.png in Resources */,
 				AD8CC07C1BB2EC9500D77241 /* jetzun-back@3x.png in Resources */,
+				ADFFA5391BD3EFE400E96B59 /* home72@3x.png in Resources */,
 				AD8CBF411BB2E0D300D77241 /* Main.storyboard in Resources */,
 				AD8CC0D31BB2ECCA00D77241 /* message-icon@2x.png in Resources */,
 				AD8CC0DF1BB2ECCA00D77241 /* table-cell-back-orange@3x.png in Resources */,
+				ADFFA5851BD8688F00E96B59 /* num-0-score@3x.png in Resources */,
 				AD8CC05C1BB2EC2100D77241 /* Reservations.plist in Resources */,
 				AD8CC0C11BB2ECCA00D77241 /* cal-icon-nohooks@3x.png in Resources */,
+				ADFFA5351BD3EFD900E96B59 /* airplane-72x72@3x.png in Resources */,
 				AD8CC0C61BB2ECCA00D77241 /* clock-icon@3x.png in Resources */,
 				AD8CC0D21BB2ECCA00D77241 /* message-bubble-2-64x64@2x.png in Resources */,
+				ADFFA5811BD8554C00E96B59 /* num-1-block@3x.png in Resources */,
+				AD5633921BD167F50096C1FC /* ruler_bottle.mp3 in Resources */,
+				AD5633721BCEACBD0096C1FC /* fingerprint@3x.png in Resources */,
+				ADFFA57E1BD8553600E96B59 /* num-4-block@3x.png in Resources */,
 				AD8CC1041BB2ECE300D77241 /* friend-pic-2@3x.png in Resources */,
 				AD8CC08C1BB2ECA000D77241 /* endAnnotation@3x.png in Resources */,
 				AD8CC1211BB2ECF600D77241 /* photo-frame-290x354@3x.png in Resources */,
@@ -1218,18 +1432,26 @@
 				AD8CC0C81BB2ECCA00D77241 /* dollar-sign-circle@2x.png in Resources */,
 				AD8CC15A1BB2F08800D77241 /* CompassRoseCPC-Light.otf in Resources */,
 				AD8CC0E11BB2ECCA00D77241 /* yellow-bg-800x100@2x.png in Resources */,
+				ADFFA5371BD3EFDF00E96B59 /* office72@3x.png in Resources */,
 				AD8CC11C1BB2ECF600D77241 /* avatar-2@3x.png in Resources */,
 				AD8CC11E1BB2ECF600D77241 /* photo-stack@2x.png in Resources */,
 				AD8CC1081BB2ECE300D77241 /* friend-pic-3@3x.png in Resources */,
 				AD8CC1221BB2ECF600D77241 /* special-effects@2x.png in Resources */,
 				AD8CC0DD1BB2ECCA00D77241 /* settings-icon@2x.png in Resources */,
+				ADFFA5611BD7B26E00E96B59 /* placemark-icon1@3x.png in Resources */,
+				ADFFA53B1BD3EFE800E96B59 /* train-front-72x72@3x.png in Resources */,
+				ADFFA5601BD7B26E00E96B59 /* rocket1@3x.png in Resources */,
 				AD8CC0D61BB2ECCA00D77241 /* pink-bg-800x100@3x.png in Resources */,
+				ADFFA5871BD8689300E96B59 /* num-2-score@3x.png in Resources */,
 				AD8CC0741BB2EC8400D77241 /* map-vehicle-icon-black@3x.png in Resources */,
+				AD33887A1BBF39B00086F895 /* BG-plainBlue@3x.png in Resources */,
 				AD8CC0CA1BB2ECCA00D77241 /* envelope-128x128@2x.png in Resources */,
 				AD8CC0721BB2EC8400D77241 /* trip-summary-time@3x.png in Resources */,
+				AD5633941BD16AEE0096C1FC /* ruler_bottle.caf in Resources */,
+				ADFFA53D1BD3F64D00E96B59 /* fingerprint-lo-detail@3x.png in Resources */,
+				ADFFA5631BD7B26E00E96B59 /* helicopter-icon1@3x.png in Resources */,
+				AD5633811BD01B240096C1FC /* amtrak-train@3x.png in Resources */,
 				AD8CC0CE1BB2ECCA00D77241 /* green-bg-new@3x.png in Resources */,
-				AD8CC0DC1BB2ECCA00D77241 /* right-box-blue-arrow@2x.png in Resources */,
-				AD8CC0D01BB2ECCA00D77241 /* left-arrow-circle@2x.png in Resources */,
 				AD8CC0BF1BB2ECCA00D77241 /* broom-sweep@2x.png in Resources */,
 				AD8CC0DE1BB2ECCA00D77241 /* star-icon-cartoon@2x.png in Resources */,
 				AD8CC0EF1BB2ECD900D77241 /* category-card-red@3x.png in Resources */,
@@ -1241,11 +1463,13 @@
 				AD8CC0731BB2EC8400D77241 /* trip-summary@3x.png in Resources */,
 				AD8CC08B1BB2ECA000D77241 /* car-annotation@3x.png in Resources */,
 				AD8CC0711BB2EC8400D77241 /* trip-summary-cost@3x.png in Resources */,
+				ADFFA57F1BD8553600E96B59 /* num-5-block@3x.png in Resources */,
+				ADFFA5411BD5A7E500E96B59 /* seethru-label196x58@3x.png in Resources */,
 				AD8CC0771BB2EC8400D77241 /* map-vehicle-icon-xl@3x.png in Resources */,
 				AD8CBF461BB2E0D300D77241 /* LaunchScreen.xib in Resources */,
-				AD8CC10A1BB2ECE300D77241 /* train-icon@3x.png in Resources */,
 				AD8CC0DA1BB2ECCA00D77241 /* reveal-icon@2x.png in Resources */,
 				AD8CC15B1BB2F08800D77241 /* CompassRoseCPC-Regular.otf in Resources */,
+				ADFFA5791BD8553600E96B59 /* num-7-block@3x.png in Resources */,
 				AD8CC08D1BB2ECA000D77241 /* startAnnotation@3x.png in Resources */,
 				AD8CC0F71BB2ECD900D77241 /* tealbg1250x200.png in Resources */,
 				AD8CC0F51BB2ECD900D77241 /* purplebg-1250x200@3x.png in Resources */,
@@ -1253,7 +1477,6 @@
 				AD8CC0E01BB2ECCA00D77241 /* train-icon@2x.png in Resources */,
 				AD8CC0D41BB2ECCA00D77241 /* mobile-phone-icon-orange-back@3x.png in Resources */,
 				AD8CC15E1BB2F08800D77241 /* CompassRoseCPC-RegularItalic.otf in Resources */,
-				AD8CC0D11BB2ECCA00D77241 /* map-icon@2x.png in Resources */,
 				AD8CC0F41BB2ECD900D77241 /* purple-button@3x.png in Resources */,
 				AD8CC11D1BB2ECF600D77241 /* photo-frame@2x.png in Resources */,
 				AD8CC0761BB2EC8400D77241 /* map-vehicle-icon-uberX.png in Resources */,
@@ -1262,36 +1485,51 @@
 				AD8CC0C41BB2ECCA00D77241 /* clock-icon-hands@3x.png in Resources */,
 				AD8CC0F81BB2ECD900D77241 /* textbox1200x216@3x.png in Resources */,
 				AD8CC0CD1BB2ECCA00D77241 /* green-add-button@2x.png in Resources */,
+				AD5633831BD01B280096C1FC /* airplane-icon64x64@3x.png in Resources */,
 				AD8CC10B1BB2ECE300D77241 /* medical-icon@3x.png in Resources */,
 				AD8CC07F1BB2EC9500D77241 /* omobol-login@3x.png in Resources */,
 				AD8CC08A1BB2ECA000D77241 /* annotation-note-bubble@3x.png in Resources */,
 				AD8CC0751BB2EC8400D77241 /* map-vehicle-icon-suv@3x.png in Resources */,
-				AD8CC0DB1BB2ECCA00D77241 /* right-arrow-circle@2x.png in Resources */,
 				AD8CC11A1BB2ECF600D77241 /* avatar-3@3x.png in Resources */,
 				AD8CC0881BB2ECA000D77241 /* annotation-home-icon@3x.png in Resources */,
+				ADFFA5781BD8553600E96B59 /* num-0-block@3x.png in Resources */,
+				ADFFA57B1BD8553600E96B59 /* num-9-block@3x.png in Resources */,
 				AD8CC0D91BB2ECCA00D77241 /* reveal-icon.png in Resources */,
 				AD8CC1031BB2ECE300D77241 /* friend-pic-1@3x.png in Resources */,
+				ADFFA56C1BD7C34800E96B59 /* juro.gif in Resources */,
+				AD5633701BCE8F5D0096C1FC /* left-arrow-white@3x.png in Resources */,
 				AD8CC15D1BB2F08800D77241 /* CompassRoseCPC-LightItalic.otf in Resources */,
+				ADFFA57D1BD8553600E96B59 /* num-3-block@3x.png in Resources */,
+				AD5633761BCFDBB90096C1FC /* startAnnotationShadow@3x.png in Resources */,
 				AD8CC1051BB2ECE300D77241 /* friend-pic-5@3x.png in Resources */,
 				AD8CC0D81BB2ECCA00D77241 /* red-remove-button@2x.png in Resources */,
 				AD8CC1091BB2ECE300D77241 /* airplane-icon@3x.png in Resources */,
+				ADFFA57A1BD8553600E96B59 /* num-8-block@3x.png in Resources */,
 				AD8CC0F91BB2ECD900D77241 /* white-blue-bg-1136x640@3x.png in Resources */,
-				AD8CC0CB1BB2ECCA00D77241 /* file-folder64x64@2x.png in Resources */,
+				AD5633781BCFE26C0096C1FC /* map-background@3x.png in Resources */,
 				AD8CC15F1BB2F08800D77241 /* Lato-Bold.ttf in Resources */,
 				AD8CC0C21BB2ECCA00D77241 /* calendar-red-head-larger@3x.png in Resources */,
+				ADFFA5621BD7B26E00E96B59 /* airplane-landing1@3x.png in Resources */,
+				ADFFA57C1BD8553600E96B59 /* num-2-block@3x.png in Resources */,
 				AD8CC1601BB2F08800D77241 /* Lato-Regular.ttf in Resources */,
 				AD8CC1231BB2ECF600D77241 /* take-pic@2x.png in Resources */,
+				ADFFA53F1BD4107F00E96B59 /* driver-cert@3x.png in Resources */,
+				AD56337D1BD01B190096C1FC /* fingerprint-icon-64x64.png in Resources */,
 				AD8CBF431BB2E0D300D77241 /* Images.xcassets in Resources */,
+				ADFFA5661BD7B30800E96B59 /* airplane-takeoff@3x.png in Resources */,
 				AD8CC0F11BB2ECD900D77241 /* green-bg@2x.png in Resources */,
 				AD8CC10E1BB2ECEF00D77241 /* BMW@3x.png in Resources */,
 				AD8CC0F21BB2ECD900D77241 /* light-blue-box@2x.png in Resources */,
 				AD8CC05D1BB2EC2100D77241 /* EventAppointments.plist in Resources */,
 				AD8CC0BD1BB2ECCA00D77241 /* alarm-bell-64x64@2x.png in Resources */,
 				AD8CC0F61BB2ECD900D77241 /* teal-bg@3x.png in Resources */,
+				ADFFA5641BD7B26E00E96B59 /* train-icon1@3x.png in Resources */,
 				AD8CC0BE1BB2ECCA00D77241 /* appointments-icon@3x.png in Resources */,
 				AD8CC07D1BB2EC9500D77241 /* logo-jetzun800@3x.png in Resources */,
 				AD8CC1071BB2ECE300D77241 /* friend-pic-4@3x.png in Resources */,
+				ADFFA5831BD8669E00E96B59 /* colon@3x.png in Resources */,
 				AD8CC14A1BB2ED6500D77241 /* Wellness-Data.plist in Resources */,
+				ADFFA5771BD8553600E96B59 /* num-6-block@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1342,68 +1580,73 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD8CC0401BB2EBFA00D77241 /* ChooseRouteView.m in Sources */,
 				AD8CC0611BB2EC2100D77241 /* VisitsAndTracking.m in Sources */,
 				AD8CBFC11BB2EAFA00D77241 /* UberPromotion.m in Sources */,
+				AD33889B1BBF3B860086F895 /* JTCalendarDayView.m in Sources */,
 				AD8CC0601BB2EC2100D77241 /* VisitDetails.m in Sources */,
+				ADFFA5471BD6604C00E96B59 /* YALSpringAnimation.m in Sources */,
 				AD8CC0061BB2EB3700D77241 /* OrderedDictionary.m in Sources */,
 				AD8CC0421BB2EBFA00D77241 /* MessageViewController.m in Sources */,
-				AD8CBF7A1BB2E22800D77241 /* JTCalendarContentView.m in Sources */,
+				AD33889E1BBF3B860086F895 /* JTCalendarMenuView.m in Sources */,
 				AD8CC1491BB2ED6500D77241 /* WellnessViewController.m in Sources */,
-				AD8CBF7F1BB2E22800D77241 /* JTCalendarMonthView.m in Sources */,
 				AD8CC0031BB2EB3700D77241 /* DTTimePeriodChain.m in Sources */,
+				AD5632F21BCC65A80096C1FC /* ReservationReview.m in Sources */,
 				AD8CC0021BB2EB3700D77241 /* DTTimePeriod.m in Sources */,
 				AD8CC0291BB2EBDD00D77241 /* VisitAnnotationView.m in Sources */,
 				AD8CC0051BB2EB3700D77241 /* DTTimePeriodGroup.m in Sources */,
 				AD8CC03F1BB2EBFA00D77241 /* CalendarChooserView.m in Sources */,
 				AD8CC0411BB2EBFA00D77241 /* ChooseVisualRoute.m in Sources */,
-				AD8CBF7B1BB2E22800D77241 /* JTCalendarDataCache.m in Sources */,
 				AD8CBFBC1BB2EAFA00D77241 /* UberPrice.m in Sources */,
 				AD8CC1441BB2ED6500D77241 /* UIImage+ImageEffects.m in Sources */,
 				AD8CC0321BB2EBEF00D77241 /* GalleryView.m in Sources */,
 				AD8CBFE31BB2EB0300D77241 /* NSString+NXOAuth2.m in Sources */,
 				AD8CC0011BB2EB3700D77241 /* DTError.m in Sources */,
-				AD8CBF811BB2E22800D77241 /* JTCalendarWeekView.m in Sources */,
 				AD8CBF8B1BB2E27100D77241 /* ISO3166CountryValueTransformer.m in Sources */,
 				AD8CBFBE1BB2EAFA00D77241 /* UberTime.m in Sources */,
 				AD8CBFC01BB2EAFA00D77241 /* UberProfile.m in Sources */,
 				AD8CBFA91BB2E29900D77241 /* HMSegmentedControl.m in Sources */,
 				ADEE40451BB42E5D003F1444 /* UberLinkViewController.m in Sources */,
 				AD8CBFE81BB2EB0300D77241 /* NXOAuth2Client.m in Sources */,
+				AD3388A91BBF3F4C0086F895 /* CustomCalendarDayView.m in Sources */,
 				AD8CBF3E1BB2E0D300D77241 /* ViewController.m in Sources */,
-				AD8CBF7D1BB2E22800D77241 /* JTCalendarMenuMonthView.m in Sources */,
 				AD8CBFE71BB2EB0300D77241 /* NXOAuth2AccountStore.m in Sources */,
 				AD8CC12E1BB2ED2300D77241 /* MCSwipeTableViewCell.m in Sources */,
-				AD8CC05F1BB2EC2100D77241 /* DataClient.m in Sources */,
+				ADFFA54A1BD6605600E96B59 /* CAAnimation+YALTabBarViewAnimations.m in Sources */,
 				AD8CBFE91BB2EB0300D77241 /* NXOAuth2Connection.m in Sources */,
 				AD8CC12C1BB2ED2300D77241 /* MGSwipeButton.m in Sources */,
 				AD8CC0151BB2EB8900D77241 /* RightViewController.m in Sources */,
-				AD8CC0491BB2EC0400D77241 /* CalendarViewController.m in Sources */,
+				AD3388A51BBF3B860086F895 /* JTHorizontalCalendarView.m in Sources */,
 				AD8CBFA11BB2E28800D77241 /* PSPDFTextView.m in Sources */,
 				AD8CC04A1BB2EC0400D77241 /* ReservationPickerView.m in Sources */,
+				ADFFA55A1BD6608700E96B59 /* YALFoldingTabBar.m in Sources */,
+				AD3388B21BBF48E50086F895 /* CalendarViewController.m in Sources */,
 				AD8CC0171BB2EB8900D77241 /* SWRevealViewController.m in Sources */,
 				AD8CC1341BB2ED3E00D77241 /* TermsViewController.m in Sources */,
 				AD8CBF941BB2E27900D77241 /* RegistrationForm.m in Sources */,
 				AD8CBFE41BB2EB0300D77241 /* NSURL+NXOAuth2.m in Sources */,
+				AD3388A11BBF3B860086F895 /* JTCalendarSettings.m in Sources */,
 				AD8CBFED1BB2EB0300D77241 /* NXOAuth2PostBodyStream.m in Sources */,
 				AD8CBFE61BB2EB0300D77241 /* NXOAuth2Account.m in Sources */,
 				AD8CBFA41BB2E28800D77241 /* AKPickerView.m in Sources */,
 				AD8CC0131BB2EB8900D77241 /* CustomAnimationController.m in Sources */,
+				AD3388A41BBF3B860086F895 /* JTDateHelper.m in Sources */,
 				AD8CBFEB1BB2EB0300D77241 /* NXOAuth2FileStreamWrapper.m in Sources */,
+				ADFFA5531BD6606F00E96B59 /* YALFoldingTabBarController.m in Sources */,
+				AD3388A61BBF3B860086F895 /* JTVerticalCalendarView.m in Sources */,
 				AD8CC1351BB2ED3E00D77241 /* PrivacyPolicyViewController.m in Sources */,
+				AD3388A21BBF3B860086F895 /* JTCalendarWeekDayView.m in Sources */,
 				AD8CBF8A1BB2E27100D77241 /* FXForms.m in Sources */,
 				AD8CBFAD1BB2E2F100D77241 /* UberKit.m in Sources */,
 				AD8CC12F1BB2ED2300D77241 /* VisitTableCell.m in Sources */,
 				AD8CBFA31BB2E28800D77241 /* UIImageView+Rotate.m in Sources */,
+				ADFFA5501BD6606800E96B59 /* YALAnimatingTabBarConstants.m in Sources */,
 				AD8CC0271BB2EBDD00D77241 /* LocationShareModel.m in Sources */,
+				AD3388A31BBF3B860086F895 /* JTCalendarWeekView.m in Sources */,
 				AD8CC04B1BB2EC0400D77241 /* ReservationTableCell.m in Sources */,
 				AD8CBFE51BB2EB0300D77241 /* NXOAuth2AccessToken.m in Sources */,
 				AD8CC12D1BB2ED2300D77241 /* MGSwipeTableCell.m in Sources */,
 				AD8CBFBD1BB2EAFA00D77241 /* UberProduct.m in Sources */,
 				AD8CC1481BB2ED6500D77241 /* WellnessEvent.m in Sources */,
-				AD8CBF801BB2E22800D77241 /* JTCalendarMonthWeekDaysView.m in Sources */,
-				AD8CBF7E1BB2E22800D77241 /* JTCalendarMenuView.m in Sources */,
-				AD8CBF791BB2E22800D77241 /* JTCalendarAppearance.m in Sources */,
 				AD8CC0001BB2EB3700D77241 /* NSDate+DateTools.m in Sources */,
 				AD8CC1451BB2ED6500D77241 /* EMAccordionTableParallaxHeaderView.m in Sources */,
 				AD8CC0261BB2EBDD00D77241 /* BackgroundTaskManager.m in Sources */,
@@ -1412,6 +1655,8 @@
 				AD8CBFEE1BB2EB0300D77241 /* NXOAuth2Request.m in Sources */,
 				AD8CC0161BB2EB8900D77241 /* FrontViewController.m in Sources */,
 				AD8CC0251BB2EBDD00D77241 /* LocationTracker.m in Sources */,
+				ADFFA54D1BD6606200E96B59 /* CATransaction+TransactionWithAnimationsAndCompletion.m in Sources */,
+				AD33889D1BBF3B860086F895 /* JTCalendarManager.m in Sources */,
 				AD8CC0041BB2EB3700D77241 /* DTTimePeriodCollection.m in Sources */,
 				AD8CBF921BB2E27900D77241 /* RootForm.m in Sources */,
 				AD8CC0621BB2EC2100D77241 /* ReservationDetails.m in Sources */,
@@ -1420,7 +1665,6 @@
 				AD8CBF381BB2E0D300D77241 /* main.m in Sources */,
 				AD8CC03E1BB2EBFA00D77241 /* RouteOptionsView.m in Sources */,
 				AD8CC01A1BB2EBBE00D77241 /* AppDelegate.m in Sources */,
-				AD8CBF781BB2E22800D77241 /* JTCalendar.m in Sources */,
 				AD8CC1471BB2ED6500D77241 /* EMAccordionTableViewController.m in Sources */,
 				AD8CBF931BB2E27900D77241 /* LoginForm.m in Sources */,
 				AD8CC1461BB2ED6500D77241 /* EMAccordionSection.m in Sources */,
@@ -1428,11 +1672,15 @@
 				AD8CBFA51BB2E28800D77241 /* UPCardsCarousel.m in Sources */,
 				AD8CBFEC1BB2EB0300D77241 /* NXOAuth2PostBodyPart.m in Sources */,
 				AD8CBFE21BB2EB0300D77241 /* NSData+NXOAuth2.m in Sources */,
+				AD3388A01BBF3B860086F895 /* JTCalendarScrollManager.m in Sources */,
+				AD56337B1BCFE3260096C1FC /* TripMonitorViewController.m in Sources */,
+				AD33889C1BBF3B860086F895 /* JTCalendarDelegateManager.m in Sources */,
+				ADFFA56A1BD7C33800E96B59 /* JuroTextField.m in Sources */,
+				ADFFA5561BD6607700E96B59 /* YALTabBarItem.m in Sources */,
 				AD8CBFBF1BB2EAFA00D77241 /* UberActivity.m in Sources */,
-				AD8CBF821BB2E22800D77241 /* JTCircleView.m in Sources */,
-				AD8CBF7C1BB2E22800D77241 /* JTCalendarDayView.m in Sources */,
 				AD8CBFEA1BB2EB0300D77241 /* NXOAuth2Constants.m in Sources */,
 				AD8CBFA21BB2E28800D77241 /* UIImage+Resize.m in Sources */,
+				AD33889F1BBF3B860086F895 /* JTCalendarPageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

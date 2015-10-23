@@ -25,7 +25,15 @@
         VisitsAndTracking *sharedInstance = [VisitsAndTracking sharedInstance];
         NSString *theDeviceType = sharedInstance.deviceType;
         
+        UIView *backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        backView.backgroundColor = [UIColor blackColor];
+        backView.alpha = 0.3;
+        [self addSubview:backView];
         
+ 
+        UIImageView *startAnnotation;
+        UIImageView *endAnnotation;
+        _makeReservation = [UIButton buttonWithType:UIButtonTypeCustom];
         
         
         if ([theDeviceType isEqualToString:@"iPhone6P"]) {
@@ -33,41 +41,50 @@
             _backgroundChooseRoute = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0 , frame.size.width, frame.size.height)];
             _startLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, 300, 20)];
             _endLabel = [[UILabel alloc]initWithFrame:CGRectMake(40,25, 300, 20)];
+            startAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,0, 20, 20)];
+            endAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,25, 20, 20)];
+            _makeReservation.frame = CGRectMake(0,self.frame.size.height - 60, self.frame.size.width, 60);
 
         } else if ([theDeviceType isEqualToString:@"iPhone6"]) {
             
             _backgroundChooseRoute = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0 , frame.size.width, frame.size.height)];
             _startLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, 300, 20)];
             _endLabel = [[UILabel alloc]initWithFrame:CGRectMake(40,25, 300, 20)];
-
+            startAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,0, 20, 20)];
+            endAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,25, 20, 20)];
+            _makeReservation.frame = CGRectMake(0,self.frame.size.height - 50, self.frame.size.width, 50);
             
         } else if ([theDeviceType isEqualToString:@"iPhone5"]) {
             
             _backgroundChooseRoute = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0 , frame.size.width, frame.size.height)];
             _startLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, 300, 20)];
             _endLabel = [[UILabel alloc]initWithFrame:CGRectMake(40,25, 300, 20)];
+            startAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,0, 20, 20)];
+            endAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,25, 20, 20)];
+            _makeReservation.frame = CGRectMake(0,self.frame.size.height - 50, self.frame.size.width, 50);
+            
+        } else if ([theDeviceType isEqualToString:@"iPhone4"]) {
+            _backgroundChooseRoute = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0 , frame.size.width, frame.size.height)];
+            _startLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, 300, 20)];
+            _endLabel = [[UILabel alloc]initWithFrame:CGRectMake(40,25, 300, 20)];
+            startAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,0, 20, 20)];
+            endAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,25, 20, 20)];
+            _makeReservation.frame = CGRectMake(0,self.frame.size.height - 50, self.frame.size.width, 50);
 
         }
         
-        [_backgroundChooseRoute setImage:[UIImage imageNamed:@"teal-bg"]];
-        [self addSubview:_backgroundChooseRoute];
-        
-        UIImageView *startAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,0, 20, 20)];
-        [startAnnotation setImage:[UIImage imageNamed:@"annotation-home-icon"]];
+        [startAnnotation setImage:[UIImage imageNamed:@"startAnnotationShadow"]];
         [self addSubview:startAnnotation];
         
-        UIImageView *endAnnotation = [[UIImageView alloc]initWithFrame:CGRectMake(10,25, 20, 20)];
         [endAnnotation setImage:[UIImage imageNamed:@"destination-star-icon"]];
         [self addSubview:endAnnotation];
         
         [_startLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:14]];
-        [_startLabel setTextColor:[UIColor blackColor]];
-        
+        [_startLabel setTextColor:[UIColor whiteColor]];
         [self addSubview:_startLabel];
         
         [_endLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:14]];
-        [_endLabel setTextColor:[UIColor blackColor]];
-
+        [_endLabel setTextColor:[UIColor whiteColor]];
         [self addSubview:_endLabel];
         
         
@@ -77,13 +94,15 @@
                              @"Uber SUV",
                              @"Ultra Lux",];
         
-        self.hourTime = @[@"11",@"12",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"];
-        self.minutesTime = @[@":00a",@":05a",@":10a",@":15a",@":20a",@":25a",@":30a",@":35a",@":40a",@":45a",@":50a",@":55a",@":00p",@":05p",@":10p",@":15p",@":20p",@":25p",@":30p",@":35p",@":40p",@":45p",@":50p",@":55p"];
-        
+        self.hourTime = @[@"12:00",@"12:15",@"12:30",@"12:45",@"1:00",@"1:15",@"1:30",@"1:45",@"2:00",@"2:15",@"2:30",
+                          @"2:45",@"3:00",@"3:15",@"3:30",@"3:45",@"4:00",@"4:15",@"4:30",@"4:45",@"5:00",@"6:00",
+                          @"6:15",@"6:30",@"6:45",@"7:00",@"7:15",@"7:30",@"7:45",@"8:00",@"8:15",@"8:30",@"8:45",
+                          @"9:00",@"9:15",@"9:30",@"9:45",@"10:00",@"10:15",@"10:30",@"10:45",@"11:00",@"11:15",
+                          @"11:30",@"11:45"];
+
         
         _typeOfProduct = _typeOfCars[0];
         _timeHour = _hourTime[0];
-        _timeMinute = _minutesTime[0];
         
         _estimatedDistance = @"20";
         _costEstimate = @"20.00";
@@ -91,10 +110,10 @@
         
         [self setupPickerViews];
         
-        _makeReservation = [UIButton buttonWithType:UIButtonTypeCustom];
-        _makeReservation.frame = CGRectMake(0,self.frame.size.height - 40, self.frame.size.width, 40);
-        [_makeReservation setBackgroundImage:[UIImage imageNamed:@"purple-button"] forState:UIControlStateNormal];
+        
+        [_makeReservation setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
         [_makeReservation addTarget:self action:@selector(optionsButton) forControlEvents:UIControlEventTouchUpInside];
+        _makeReservation.alpha = 0.8;
         [self addSubview:_makeReservation];
         
         UILabel *makeReservationLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, _makeReservation.frame.size.width, 40)];
@@ -112,10 +131,8 @@
     
     [_backDial removeFromSuperview];
     [_backDial2 removeFromSuperview];
-    [_backDial3 removeFromSuperview];
     [_typeOfCar removeFromSuperview];
     [_pickUpTimeHour removeFromSuperview];
-    [_pickUpTimeMinute removeFromSuperview];
     [_makeReservation removeFromSuperview];
     
     CGRect newFrame = CGRectMake(30,200, self.frame.size.width, 30);
@@ -144,41 +161,6 @@
         
     }];
     
-    UIImageView *backTime = [[UIImageView alloc]initWithFrame:CGRectMake(0, 160, 60, 40)];
-    [backTime setImage:[UIImage imageNamed:@"trip-summary-miles"]];
-    [self addSubview:backTime];
-    
-    
-    UIImageView *backCost = [[UIImageView alloc]initWithFrame:CGRectMake(60, 160, 60, 40)];
-    [backCost setImage:[UIImage imageNamed:@"trip-summary-cost"]];
-    [self addSubview:backCost];
-    
-    UIImageView *backPickup = [[UIImageView alloc]initWithFrame:CGRectMake(120, 160, 60, 40)];
-    [backPickup setImage:[UIImage imageNamed:@"trip-summary-time"]];
-    [self addSubview:backPickup];
-    
-    
-    
-    
-    
-    _totalDistance = [[UILabel alloc]initWithFrame:CGRectMake(10,160, 100,30)];
-    _estimatedCost = [[UILabel alloc]initWithFrame:CGRectMake(70,160, self.frame.size.width,30)];
-    _totalTime = [[UILabel alloc]initWithFrame:CGRectMake(130,160, 100,30)];
-
-    [_totalDistance setFont:[UIFont fontWithName:@"CompassRoseCPC-Light" size:12]];
-    [_totalDistance setText:@"10"];
-    [self addSubview:_totalDistance];
-    
-    NSString *timeHour = [NSString  stringWithFormat:@"%@%@",_timeHour,_timeMinute];
-    [_totalTime setFont:[UIFont fontWithName:@"CompassRoseCPC-Light" size:12]];
-    [_totalTime setTextColor:[UIColor redColor]];
-    [_totalTime setText:timeHour];
-    [self addSubview:_totalTime];
-    
-    [_estimatedCost setFont:[UIFont fontWithName:@"CompassRoseCPC-Light" size:12]];
-    [_estimatedCost setText:@"$23.47"];
-    [self addSubview:_estimatedCost];
-    
     [[NSNotificationCenter defaultCenter]postNotificationName:@"tripOptions" object:self];
     
 }
@@ -188,44 +170,77 @@
     VisitsAndTracking *sharedInstance = [VisitsAndTracking sharedInstance];
     NSString *theDeviceType = sharedInstance.deviceType;
     
+    UILabel *amLabel;
+    UILabel *pmLabel;
+    _AMbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _PMbutton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
     if ([theDeviceType isEqualToString:@"iPhone6P"]) {
-        _backDial = [[UIImageView alloc]initWithFrame:CGRectMake(0, 50, 420, 50)];
-        _backDial2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 100, 420, 50)];
-        _backDial3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 150, 420, 50)];
-        self.typeOfCar = [[AKPickerView alloc]initWithFrame:CGRectMake(30,50, 420, 30)];
-        self.pickUpTimeHour = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 100 ,360, 30)];
-        self.pickUpTimeMinute = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 150 ,360, 30)];
+        _backDial = [[UIImageView alloc]initWithFrame:CGRectMake(0, 50, 420, 60)];
+        _backDial2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 110, 420, 60)];
+        self.typeOfCar = [[AKPickerView alloc]initWithFrame:CGRectMake(30,50, 420, 60)];
+        self.pickUpTimeHour = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 100 ,360, 60)];
+        
+        
+        amLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        pmLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
 
+        _AMbutton.frame = CGRectMake(self.frame.size.width-30, _backDial2.frame.origin.y+30, 30, 30);
+        _PMbutton.frame = CGRectMake(self.frame.size.width-30, _backDial2.frame.origin.y, 30, 30);
 
     } else if ([theDeviceType isEqualToString:@"iPhone6"]) {
-        _backDial = [[UIImageView alloc]initWithFrame:CGRectMake(0, 50, 420, 50)];
-        _backDial2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 100, 420, 50)];
-        _backDial3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 150, 420, 50)];
-        self.typeOfCar = [[AKPickerView alloc]initWithFrame:CGRectMake(30,50, 420, 30)];
-        self.pickUpTimeHour = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 100 ,360, 30)];
-        self.pickUpTimeMinute = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 150 ,360, 30)];
-
+        _backDial = [[UIImageView alloc]initWithFrame:CGRectMake(0, 50, 380, 60)];
+        _backDial2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 120, 380, 60)];
+        self.typeOfCar = [[AKPickerView alloc]initWithFrame:CGRectMake(30,50, 420, 60)];
+        self.pickUpTimeHour = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 100 ,360, 60)];
+        amLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        pmLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        
+        _AMbutton.frame = CGRectMake(self.frame.size.width-30, _backDial2.frame.origin.y+30, 30, 30);
+        _PMbutton.frame = CGRectMake(self.frame.size.width-30, _backDial2.frame.origin.y, 30, 30);
 
     } else if ([theDeviceType isEqualToString:@"iPhone5"]) {
-        _backDial = [[UIImageView alloc]initWithFrame:CGRectMake(0, 50, 320, 30)];
-        _backDial2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 80, 320, 30)];
-        _backDial3 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 110, 320, 30)];
-        self.typeOfCar = [[AKPickerView alloc]initWithFrame:CGRectMake(30,50, 270, 30)];
-        self.pickUpTimeHour = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 80 ,270, 30)];
-        self.pickUpTimeMinute = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 110 ,270, 30)];
+        _backDial = [[UIImageView alloc]initWithFrame:CGRectMake(0, 50, 420, 60)];
+        _backDial2 = [[UIImageView alloc]initWithFrame:CGRectMake(0, 110, 420, 60)];
+        self.typeOfCar = [[AKPickerView alloc]initWithFrame:CGRectMake(30,50, 420, 60)];
+        self.pickUpTimeHour = [[AKPickerView alloc]initWithFrame:CGRectMake(30, 100 ,360, 60)];
+        amLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        pmLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 30, 30)];
+        
+        _AMbutton.frame = CGRectMake(self.frame.size.width-30, _backDial2.frame.origin.y+30, 30, 30);
+        _PMbutton.frame = CGRectMake(self.frame.size.width-30, _backDial2.frame.origin.y, 30, 30);
 
     }
     
+    [amLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
+    [amLabel setTextColor:[UIColor whiteColor]];
+    [amLabel setText:@"AM"];
     
+    [pmLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
+    [pmLabel setTextColor:[UIColor whiteColor]];
+    [pmLabel setText:@"PM"];
+    
+    [_AMbutton addSubview:amLabel];
+    [_PMbutton addSubview:pmLabel];
+    [_AMbutton setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
+    [_PMbutton setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
+    
+    [_AMbutton addTarget:self action:@selector(changeAM) forControlEvents:UIControlEventTouchUpInside];
+    [_PMbutton addTarget:self action:@selector(changePM) forControlEvents:UIControlEventTouchUpInside];
     
     [_backDial setImage:[UIImage imageNamed:@"light-blue-box"]];
+    _AMbutton.alpha = 0.3;
+    
+    _amOrPm = @"PM";
+    
     [self addSubview:_backDial];
     
     [_backDial2 setImage:[UIImage imageNamed:@"light-blue-box"]];
     [self addSubview:_backDial2];
+
+    [self addSubview:_AMbutton];
+    [self addSubview:_PMbutton];
     
-    [_backDial3 setImage:[UIImage imageNamed:@"light-blue-box"]];
-    [self addSubview:_backDial3];
     
     self.typeOfCar.delegate = self;
     self.typeOfCar.dataSource = self;
@@ -249,19 +264,20 @@
     self.pickUpTimeHour.pickerViewStyle = AKPickerViewStyle3D;
     [self addSubview:self.pickUpTimeHour];
     
-    self.pickUpTimeMinute.delegate = self;
-    self.pickUpTimeMinute.dataSource = self;
-    self.pickUpTimeMinute.tag  = 3;
-    //self.pickUpTimeMinute.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.pickUpTimeMinute.font = [UIFont fontWithName:@"Lato-Regular" size:20];
-    self.pickUpTimeMinute.highlightedFont = [UIFont fontWithName:@"Lato-Regular" size:20];
-    self.pickUpTimeMinute.interitemSpacing = 20.0;
-    self.pickUpTimeMinute.fisheyeFactor = 0.0001;
-    self.pickUpTimeMinute.pickerViewStyle = AKPickerViewStyle3D;
-    [self addSubview:self.pickUpTimeMinute];
-    
 }
 
+-(void) changeAM {
+    _PMbutton.alpha = 0.5;
+    _AMbutton.alpha = 1.0;
+    _amOrPm = @"AM";
+}
+
+
+-(void) changePM {
+    _AMbutton.alpha = 0.5;
+    _PMbutton.alpha = 1.0;
+    _amOrPm = @"PM";
+}
 
 - (NSUInteger)numberOfItemsInPickerView:(AKPickerView *)pickerView
 {
@@ -271,9 +287,6 @@
         
     } else if (pickerView.tag == 2) {
         return [self.hourTime count];
-        
-    } else if (pickerView.tag == 3) {
-        return [self.minutesTime count];
         
     } else {
         return 0;
@@ -289,8 +302,6 @@
         return self.typeOfCars[item];
     } else if (pickerView.tag == 2) {
         return self.hourTime[item];
-    } else if (pickerView.tag == 3) {
-        return self.minutesTime[item];
     } else {
         return 0;
     }
@@ -303,8 +314,6 @@
         _typeOfProduct = _typeOfCars[item];
     } else if (pickerView.tag == 2) {
         _timeHour = _hourTime[item];
-    } else if (pickerView.tag == 3) {
-        _timeMinute = _minutesTime[item];
     }
 }
 

@@ -30,9 +30,9 @@
 #import "SWRevealViewController.h"
 #import "FrontViewController.h"
 #import "PhotoGallery.h"
-#import "WellnessViewController.h"
-#import "CalendarViewController.h"
 #import "MessageViewController.h"
+#import "CalendarViewController.h"
+#import "TripMonitorViewController.h"
 #import <GPUberViewController.h>
 
 @interface RearViewController()
@@ -104,7 +104,7 @@
     
     if (row == 0)
     {
-        text = @"Logout";
+        text = @"ACCOUNT";
         
         UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
         [iconView setImage:[UIImage imageNamed:@"profile-icon"]];
@@ -112,7 +112,7 @@
     }
     else if (row == 1)
     {
-        text = @"Make Reservation";
+        text = @"RESERVE";
         UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
         [iconView setImage:[UIImage imageNamed:@"clock-icon-hands"]];
         [cell.contentView addSubview:iconView];
@@ -120,48 +120,29 @@
     }
     else if (row == 2)
     {
-        text = @"Pending Reservations";
+        text = @"TRIPS";
         UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
         [iconView setImage:[UIImage imageNamed:@"appointments-icon"]];
         [cell.contentView addSubview:iconView];
     }
     else if (row == 3)
     {
-        text = @"Feed";
+        text = @"FEED";
         UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
         [iconView setImage:[UIImage imageNamed:@"cal-icon-nohooks"]];
         [cell.contentView addSubview:iconView];
     }
     else if (row == 4)
     {
-        text = @"Uber Live";
+        text = @"SAFETY";
         UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
         [iconView setImage:[UIImage imageNamed:@"profile-icon"]];
         [cell.contentView addSubview:iconView];
     }
-    else if (row == 5)
-    {
-        
-        text = @"Billing";
-        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
-        [iconView setImage:[UIImage imageNamed:@"dollar-sign-circle"]];
-        [cell.contentView addSubview:iconView];
-    }
-    else if (row == 6)
-    {
-        text = @"Expense";
-        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
-        [iconView setImage:[UIImage imageNamed:@"dollar-sign-circle"]];
-        [cell.contentView addSubview:iconView];
-    } else if (row == 7)
-    {
-        text = @"Group";
-        UIImageView *iconView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 25, 20, 20)];
-        [iconView setImage:[UIImage imageNamed:@"settings-icon"]];
-        [cell.contentView addSubview:iconView];
-    }
+    
 
     cell.textLabel.font = [UIFont fontWithName:@"Lato-Bold" size:14];
+    cell.textLabel.frame = CGRectMake(20,90,100,20);
     cell.textLabel.text = NSLocalizedString(text,nil );
     cell.layer.borderWidth = 0.5;
     cell.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -172,9 +153,7 @@
     [cellForTable addSubview:cell];
     
     
-    return cell;
-    //return cellForTable;
-    
+    return cell;    
 }
 
 
@@ -236,7 +215,7 @@
     else if (row == 4)
     {
     
-        newFrontController = [[GPUberViewController alloc]init]; //Profile
+        newFrontController = [[TripMonitorViewController alloc]init]; //Profile
         UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
         [revealController pushFrontViewController:navigationController animated:YES];
         _presentedRow = row;  // <- store the presented row
@@ -244,31 +223,6 @@
 
     
     }
-    else if (row == 5)
-    {
-        newFrontController = [[RearViewController alloc]init];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-        [revealController pushFrontViewController:navigationController animated:YES];
-        _presentedRow = row;  // <- store the presented row
-
-    }
-    
-    else if (row == 6)
-    {
-
-        
-        
-    } else if (row == 7)
-    {
-        
-        newFrontController = [[MessageViewController alloc]init];
-        UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:newFrontController];
-        [revealController pushFrontViewController:navigationController animated:YES];
-        _presentedRow = row;  // <- store the presented row
-
-    }
-
-    
     
 }
 

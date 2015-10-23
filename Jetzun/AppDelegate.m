@@ -15,7 +15,6 @@
 #import "LocationTracker.h"
 #import "FrontViewController.h"
 #import "RearViewController.h"
-#import "RightViewController.h"
 #import "CustomAnimationController.h"
 #import "PhotoGallery.h"
 
@@ -46,6 +45,8 @@
 //- (BOOL)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [application setStatusBarHidden:YES];
     VisitsAndTracking *sharedVisitsTracking = [VisitsAndTracking sharedInstance];
     
     _locationTracker = [[LocationTracker alloc]init];
@@ -79,26 +80,20 @@
     FrontViewController *frontViewController = [[FrontViewController alloc] init];
     RearViewController *rearViewController = [[RearViewController alloc] init];
     
-    UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
+    //UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
     
-    frontNavigationController.toolbarHidden = YES;
-    
-    UINavigationController *rearNavigationController = [[UINavigationController alloc] initWithRootViewController:rearViewController];
+    //frontNavigationController.toolbarHidden = YES;
     
     
     SWRevealViewController *revealController = [[SWRevealViewController alloc]
-                                                initWithRearViewController:rearNavigationController frontViewController:frontNavigationController];
+                                                initWithRearViewController:rearViewController
+                                                frontViewController:frontViewController];
+   // revealController.automaticallyAdjustsScrollViewInsets = FALSE;
     revealController.delegate = self;
-    
-    
-    RightViewController *rightViewController = rightViewController = [[RightViewController alloc] init];
-    rightViewController.view.backgroundColor = [UIColor greenColor];
-    
-    PhotoGallery *photoViewController = [[PhotoGallery alloc]init];
-    photoViewController.view.backgroundColor = [UIColor whiteColor];
-    //revealController.rightViewController = photoViewController;
     revealController.rightViewController = nil;
     
+   // frontViewController.automaticallyAdjustsScrollViewInsets = FALSE;
+
     
     self.viewController = revealController;
     self.window.rootViewController = self.viewController;

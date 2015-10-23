@@ -7,18 +7,27 @@
 
 #import <UIKit/UIKit.h>
 
-#import "JTCalendar.h"
+#import "JTCalendarDay.h"
 
-@interface JTCalendarDayView : UIView
+@interface JTCalendarDayView : UIView<JTCalendarDay>
 
-@property (weak, nonatomic) JTCalendar *calendarManager;
+@property (nonatomic, weak) JTCalendarManager *manager;
 
-@property (strong, nonatomic) NSDate *date;
-@property (assign, nonatomic) BOOL isOtherMonth;
-@property (strong,nonatomic) NSDate *startDate;
-@property (strong,nonatomic) NSDate *endDate;
+@property (nonatomic) NSDate *date;
 
-- (void)reloadData;
-- (void)reloadAppearance;
+@property (nonatomic, readonly) UIView *circleView;
+@property (nonatomic, readonly) UIView *dotView;
+
+@property (nonatomic, readonly) UILabel *textLabel;
+
+@property (nonatomic) CGFloat circleRatio;
+@property (nonatomic) CGFloat dotRatio;
+
+@property (nonatomic) BOOL isFromAnotherMonth;
+
+/*!
+ * Must be call if override the class
+ */
+- (void)commonInit;
 
 @end

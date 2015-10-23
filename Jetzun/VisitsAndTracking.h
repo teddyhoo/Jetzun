@@ -49,20 +49,7 @@ extern NSString *const pollingFailed;
 -(NSMutableArray *)getTodayVisits;
 -(NSMutableArray *)getClientData;
 -(NSMutableArray *)getVisitData;
--(void)addReservationDetails:(NSString*)reservationID;
 -(void)changePollingFrequency:(NSNumber*)changePollingFrequencyTo;
 -(void)turnOffGPSTracking;
-
--(void)newReservationWithDetails:(NSString *)reservationDate
-                          status:(NSString*)status
-                  pickupLocation:(NSString*)pickup
-                 dropoffLocation:(NSString*)dropoff
-                    pickupMinute:(NSString*)minutePick
-                      pickupHour:(NSString*)hourPick
-                     productType:(NSString*)product
-                 estimatedCharge:(NSString*)charge
-               estimatedDistance:(NSString*)distance
-                   estimatedTime:(NSString*)time;
-
 
 @end

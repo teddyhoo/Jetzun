@@ -25,11 +25,14 @@
 */
 
 #import <CoreLocation/CoreLocation.h> 
+
+#import <Parse/Parse.h>
 #import "FrontViewController.h"
 #import "SWRevealViewController.h"
 #import "VisitsAndTracking.h"
+#import "JuroTextField.h"
 
-@interface FrontViewController() <NSURLSessionDelegate> {
+@interface FrontViewController() <NSURLSessionDelegate,UITextViewDelegate,UITextFieldDelegate> {
     
     NSMutableData *_responseData;
     CLLocationManager *locationManager;
@@ -38,7 +41,13 @@
 @property (nonatomic,strong) UIButton *loginButton;
 @property (nonatomic,strong) UITextField *userName;
 @property (nonatomic,strong) UITextField *passWord;
-
+@property (nonatomic,strong) UILabel *createAccount;
+@property (nonatomic,strong) UITextField *pickUserName;
+@property (nonatomic,strong) UITextField *pickPassword;
+@property (nonatomic,strong) UITextField *pickPasswordConfirm;
+@property (nonatomic,strong) UITextField *emailAccount;
+@property (nonatomic,strong) UIImageView *loginField;
+@property (nonatomic,strong) UIButton *createAccountButton;
 @end
 
 
@@ -54,6 +63,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self.navigationController setNavigationBarHidden:YES];
     [self callClientAuthenticationMethods];
 
     NSLog(@"calling Front View: %f, %f",self.view.frame.size.width,self.view.frame.size.height);
@@ -140,19 +151,44 @@
         [backgroundView setImage:[UIImage imageNamed:@"logo-jetzun800"]];
         [self.view addSubview:backgroundView];
         
-        _userName = [[UITextField alloc]initWithFrame:CGRectMake(100,80,160,46)];
+        _userName = [[UITextField alloc]initWithFrame:CGRectMake(100,60,260,40)];
         [_userName setClearsOnBeginEditing:YES];
-        [_userName setTextColor:[UIColor whiteColor]];
+        [_userName setFont:[UIFont fontWithName:@"Lato-Light" size:18]];
+        [_userName setText:@"Username"];
+        [_userName setTextColor:[UIColor blackColor]];
+        [_userName setBackgroundColor:[UIColor whiteColor]];
+        [_userName setAlpha:0.8];
         
         [self.view addSubview:_userName];
         
-        _passWord = [[UITextField alloc]initWithFrame:CGRectMake(100, 120, 160, 46)];
+        _passWord = [[UITextField alloc]initWithFrame:CGRectMake(100, 120, 260, 40)];
         [_passWord setClearsOnBeginEditing:YES];
         [_passWord setSecureTextEntry:YES];
+        [_passWord setBackgroundColor:[UIColor whiteColor]];
+        [_passWord setFont:[UIFont fontWithName:@"Lato-Light" size:18]];
+        [_passWord setTextColor:[UIColor blackColor]];
+        [_passWord setAlpha:0.8];
+        
         [self.view addSubview:_passWord];
         
-        _loginButton.frame = CGRectMake(0, 240, width,70);
+        _loginButton.frame = CGRectMake(0, 200, width,60);
         [self.view addSubview:_loginButton];
+        
+        
+         _createAccountButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _createAccountButton.frame = CGRectMake(0, 260, width, 60);
+        [_createAccountButton setBackgroundColor:[UIColor blueColor]];
+        _createAccountButton.alpha = 0.2;
+        
+        [_createAccountButton addTarget:self action:@selector(createNewAccount) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_createAccountButton];
+        
+        _createAccount = [[UILabel alloc]initWithFrame:CGRectMake(0, 260, width, 24)];
+        _createAccount.textAlignment = NSTextAlignmentCenter;
+        [_createAccount setFont:[UIFont fontWithName:@"Lato-Light" size:22]];
+        [_createAccount setTextColor:[UIColor whiteColor]];
+        [_createAccount setText:@"NEED ACCOUNT?"];
+        [self.view addSubview:_createAccount];
         
     } else if ([deviceType isEqualToString:@"iPhone6"]) {
         NSLog(@"adding view for 6");
@@ -194,7 +230,7 @@
         
     }
 
-	self.title = NSLocalizedString(@"omobol for uber - scheduling", nil);
+	self.title = NSLocalizedString(@"JETZUN for uber - scheduling", nil);
     
     SWRevealViewController *revealController = [self revealViewController];
     [revealController panGestureRecognizer];
@@ -207,6 +243,105 @@
 
 
 }
+
+-(void) createNewAccount {
+
+    CGRect newFrame = CGRectMake(-400, _userName.frame.origin.y, _userName.frame.size.width, _userName.frame.size.height);
+ 
+    _pickUserName = [[UITextField alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2,60,260,40)];
+    _pickPassword = [[UITextField  alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2,120, 260, 40)];
+    _pickPasswordConfirm = [[UITextField alloc]initWithFrame:CGRectMake(self.view.frame.size.width*2, 180, 260, 40)];
+    
+    CGRect newFrame2 = CGRectMake(100, _pickUserName.frame.origin.y, _pickUserName.frame.size.width, _pickUserName.frame.size.height);
+    
+    CGRect newFrame3 = CGRectMake(100, _pickPassword.frame.origin.y, _pickPassword.frame.size.width, _pickPassword.frame.size.height);
+    
+    CGRect newFrame4 = CGRectMake(100, _pickPasswordConfirm.frame.origin.y, _pickPasswordConfirm.frame.size.width, _pickPasswordConfirm.frame.size.height);
+    
+    [_pickUserName setClearsOnBeginEditing:YES];
+    [_pickUserName setFont:[UIFont fontWithName:@"Lato-Light" size:18]];
+    [_pickUserName setText:@"Enter email address"];
+    [_pickUserName setTextColor:[UIColor blackColor]];
+    [_pickUserName setBackgroundColor:[UIColor whiteColor]];
+    [_pickUserName setAlpha:0.8];
+    [self.view addSubview:_pickUserName];
+    
+    [_pickPassword setClearsOnBeginEditing:YES];
+    [_pickPassword setFont:[UIFont fontWithName:@"Lato-Light" size:18]];
+    [_pickPassword setText:@"Password"];
+    [_pickPassword setTextColor:[UIColor blackColor]];
+    [_pickPassword setBackgroundColor:[UIColor whiteColor]];
+    [_pickPassword setAlpha:0.8];
+    [self.view addSubview:_pickPassword];
+    
+    [_pickPasswordConfirm setClearsOnBeginEditing:YES];
+    [_pickPasswordConfirm setFont:[UIFont fontWithName:@"Lato-Light" size:18]];
+    [_pickPasswordConfirm setText:@"Confirm Pass"];
+    [_pickPasswordConfirm setTextColor:[UIColor blackColor]];
+    [_pickPasswordConfirm setBackgroundColor:[UIColor whiteColor]];
+    [_pickPasswordConfirm setAlpha:0.8];
+    [self.view addSubview:_pickPasswordConfirm];
+    
+    [UIView animateWithDuration:0.5 delay:0.1 usingSpringWithDamping:0.3 initialSpringVelocity:0.4 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        
+        _userName.frame = newFrame;
+        _passWord.frame = newFrame;
+        _createAccount.frame = newFrame;
+        _createAccountButton.frame = newFrame;
+        _loginButton.frame = newFrame;
+        
+    } completion:^(BOOL finished) {
+        
+        _pickUserName.frame = newFrame2;
+        _pickPassword.frame = newFrame3;
+        _pickPasswordConfirm.frame = newFrame4;
+        
+        UIButton *makeAccountButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        makeAccountButton.frame  = CGRectMake(_pickPasswordConfirm.frame.origin.x, _pickPassword.frame.origin.y +40, 120,40);
+        [makeAccountButton setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
+        [makeAccountButton addTarget:self action:@selector(createNewAccountInfo) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:makeAccountButton];
+        
+        
+    }];
+    
+    /*JuroTextField *userNameNewAccount = [[JuroTextField alloc]initWithFrame:CGRectMake(100, self.view.frame.size.height - 100, 200, 80)];
+    [userNameNewAccount setPlaceholder:@"DESIRED USER NAME"];
+    [self.view addSubview:userNameNewAccount];*/
+    
+    
+    
+    
+    
+    
+}
+
+
+-(void) cereateNewAccountInfo {
+    
+    [self createNewUserAccountWithName:_pickUserName.text andPassword:_pickPasswordConfirm.text andEmail:_pickUserName.text];
+    
+}
+
+
+-(void) createNewUserAccountWithName:(NSString*)name
+                         andPassword:(NSString*)password
+                            andEmail:(NSString*)email {
+    
+    PFUser *user = [PFUser user];
+    user.username = name;
+    user.password = password;
+    user.email = email;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            NSLog(@"Account successfully created");
+        } else {
+            NSLog(@"Failed to create account");
+        }
+    }];
+}
+
 
 - (void) uberKit:(UberKit *)uberKit didReceiveAccessToken:(NSString *)accessToken
 {
@@ -268,11 +403,11 @@
              UberProduct *product = [products objectAtIndex:0];
              
              for (UberProduct *product in products) {
-                 NSLog(@"-------------------------------------------");
+                 /*NSLog(@"-------------------------------------------");
                  NSLog(@"Product: %@",product.display_name);
                  NSLog(@"-------------------------------------------");
                  NSLog(@"Description: %@",product.product_description);
-                 NSLog(@"Capacity: %d",product.capacity);
+                 NSLog(@"Capacity: %d",product.capacity);*/
 
              }
          }
@@ -368,6 +503,40 @@
                                              selector:@selector(pollingFailed)
                                                  name:@"pollingFailed"
                                                object:nil];
+}
+
+
+- (BOOL)textViewShouldEndEditing:(UITextView *)aTextView {
+    NSLog(@"Called %@", NSStringFromSelector(_cmd));
+    return YES;
+}
+
+- (void)keyboardWillShowNotification:(NSNotification *)notification {
+
+}
+
+- (void)keyboardWillHideNotification:(NSNotification *)notification {
+
+}
+
+- (void)updateTextViewContentInset {
+    
+}
+
+- (void)keyboardDidShow:(NSNotification *)note {
+    
+    
+}
+
+- (void)textViewDidChangeSelection:(UITextView *)textView {
+    
+    
+}
+
+- (void)dismissKeyboard {
+    
+    
+    
 }
 
 

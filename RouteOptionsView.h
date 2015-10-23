@@ -33,11 +33,16 @@
 @property (nonatomic,strong) UILabel *totalTime;
 @property (nonatomic,strong) UILabel *estimatedCost;
 
+
+@property (nonatomic,strong) UIButton *AMbutton;
+@property (nonatomic,strong) UIButton *PMbutton;
+
 @property (nonatomic,copy) NSString *pickupLocation;
 @property (nonatomic,copy) NSString *dropOffLocation;
 @property (nonatomic,copy) NSString *timeHour;
-@property (nonatomic,copy) NSString *timeMinute;
 @property (nonatomic,copy) NSString *typeOfProduct;
+@property (nonatomic,copy) NSString *amOrPm;
+
 @property (nonatomic,copy) NSString *estimatedDistance;
 @property (nonatomic,copy) NSString *estimatedTime;
 @property (nonatomic,copy) NSString *costEstimate;

@@ -90,9 +90,7 @@
 
 
 -(void)getReservationObjects {
-    
-    NSLog(@"getting reservation objects");
-    
+        
     PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
     [query whereKey:@"Status" equalTo:@"NEW"];
     

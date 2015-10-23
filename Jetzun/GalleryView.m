@@ -297,8 +297,6 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
     
-    NSLog(@"called map annotation view");
-    
     VisitAnnotationView* annotationView;
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
@@ -355,14 +353,13 @@
     
     [_geocodeAddress geocodeAddressString:_pickUpLocation completionHandler:^(NSArray *placemarks, NSError *error) {
         
-        NSLog(@"begin geocode");
         if(placemarks.count > 0)
         {
             CLPlacemark *placemark = [placemarks objectAtIndex:0];
             
             LocationShareModel *sharedLocation = [LocationShareModel sharedModel];
             sharedLocation.startRoute = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
-            NSLog(@"start coordinate: %f,%f",sharedLocation.startRoute.latitude,sharedLocation.startRoute.longitude);
+
             
             [[NSNotificationCenter defaultCenter]postNotificationName:@"foundStartRoute" object:self];
         }
@@ -385,7 +382,6 @@
     }];
     
     [_geocodeAddress2 geocodeAddressString:_dropOffLocation completionHandler:^(NSArray *placemarks2, NSError *error) {
-        NSLog(@"end geocode");
         
         if(placemarks2.count > 0)
         {

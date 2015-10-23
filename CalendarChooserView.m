@@ -7,6 +7,18 @@
 //
 
 #import "CalendarChooserView.h"
+#import "CustomCalendarDayView.h"
+
+@interface CalendarChooserView() {
+    
+    NSMutableDictionary *_eventsByDate;    
+    NSDate *_todayDate;
+    NSDate *_minDate;
+    NSDate *_maxDate;
+}
+
+@end
+
 
 @implementation CalendarChooserView
 
@@ -15,175 +27,403 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.backgroundColor = [UIColor whiteColor];
+        _sharedVisitsTracking = [VisitsAndTracking sharedInstance];
+        NSString *theDeviceType = [_sharedVisitsTracking tellDeviceType];
+
+        if ([theDeviceType isEqualToString:@"iPhone6P"]) {
+            _isIphone6P = YES;
+            _isIphone6 = NO;
+            _isIphone5 = NO;
+            _isIphone4 = NO;
+            
+        } else if ([theDeviceType isEqualToString:@"iPhone6"]) {
+            _isIphone6 = YES;
+            _isIphone6P = NO;
+            _isIphone5 = NO;
+            _isIphone4 = NO;
+            
+            
+            
+        } else if ([theDeviceType isEqualToString:@"iPhone5"]) {
+            _isIphone5 = YES;
+            _isIphone6P = NO;
+            _isIphone6 = NO;
+            _isIphone4 = NO;
+        }
+        
+        
+        _dateAlreadySelected = NO;
+        
+        self.backgroundColor = [UIColor clearColor];
         NSString *pListData = [[NSBundle mainBundle]
                                pathForResource:@"EventAppointments"
                                ofType:@"plist"];
         
         _reservationData = [[NSMutableArray alloc]initWithContentsOfFile:pListData];
+        
+        _calendarContentView = [[JTHorizontalCalendarView alloc]initWithFrame:CGRectMake(0, 60, self.frame.size.width, 360)];
+        _calendarContentView.backgroundColor = [UIColor blackColor];
+        _calendarContentView.alpha = 0.7;
+        
+        [self addSubview:_calendarContentView];
+        
+        _calendarMenuView = [[JTCalendarMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 60)];
+        _calendarMenuView.backgroundColor = [UIColor clearColor];
+        _calendarMenuView.scrollView.backgroundColor = [UIColor blackColor];
+        _calendarMenuView.scrollView.alpha = 0.3;
+        [self addSubview:_calendarMenuView];
+        
+        _calendarManager = [JTCalendarManager new];
+        _calendarManager.delegate = self;
+        _calendarManager.settings.weekDayFormat = JTCalendarWeekDayFormatShort;
+    
+        
+        
+        [self createRandomEvents];
+        [self createMinAndMaxDate];
 
-        self.calendar = [JTCalendar new];
         
-        {
-            self.calendar.calendarAppearance.calendar.firstWeekday = 1; // Sunday == 1, Saturday == 7
-            self.calendar.calendarAppearance.dayCircleRatio = 8. / 10.;
-            self.calendar.calendarAppearance.ratioContentMenu = 0.5;
-            self.calendar.calendarAppearance.focusSelectedDayChangeMode = YES;
-            self.calendar.calendarAppearance.isWeekMode = NO;
-            self.calendar.calendarAppearance.dayBackgroundColor = [UIColor colorWithRed:0.0 green:0.8 blue:0.8 alpha:1.0];
-        }
-        
-        self.calendarMenuView = [[JTCalendarMenuView alloc]initWithFrame:CGRectMake(0,0,self.frame.size.width, 30)];
-        self.calendarContentView = [[JTCalendarContentView alloc]initWithFrame:CGRectMake(0, 30, self.frame.size.width,300)];
-        [self.calendar setMenuMonthsView:self.calendarMenuView];
-        [self.calendar setContentView:self.calendarContentView];
-        
-        [self addSubview:self.calendarMenuView];
-        [self addSubview:self.calendarContentView];
-        
-        [self.calendar setDataSource:self];
-        [self.calendar reloadData];
-        
+        [_calendarManager setMenuView:_calendarMenuView];
+        [_calendarManager setContentView:_calendarContentView];
+        [_calendarManager setDate:[NSDate date]];
         
     }
     
     return self;
 }
-- (void)transitionExample
+
+-(void)didGoTodayTouch
 {
-    CGFloat newHeight = 100;
-    if(self.calendar.calendarAppearance.isWeekMode){
-        newHeight = 75.;
-    }
-    
-    [UIView animateWithDuration:0.5 delay:0.5 options:nil animations:^{
-        self.calendarContentViewHeight.constant = newHeight;
-        [self layoutIfNeeded];
-        
-    } completion:^(BOOL finished) {
-        [UIView animateWithDuration:.25
-                         animations:^{
-                             self.calendarContentView.layer.opacity = 0;
-                         }
-                         completion:^(BOOL finished) {
-                             [self.calendar reloadAppearance];
-                             
-                             [UIView animateWithDuration:.25
-                                              animations:^{
-                                                  self.calendarContentView.layer.opacity = 1;
-                                              }];
-                         }];
-        
-    }];
-    
-    
-    [UIView animateWithDuration:.5
-                     animations:^{
-                         //self.calendarContentViewHeight.constant = newHeight;
-                         //[self layoutIfNeeded];
-                     }];
-    
-    [UIView animateWithDuration:.25
-                     animations:^{
-                         //self.calendarContentView.layer.opacity = 0;
-                     }
-                     completion:^(BOOL finished) {
-                         //[self.calendar reloadAppearance];
-                         
-                         //[UIView animateWithDuration:.25
-                                          //animations:^{
-                                              //self.calendarContentView.layer.opacity = 1;
-                                          //}];
-                     }];
-    
-    /*CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, 40);
-    CGRect newFrame2 = CGRectMake(0,40, self.frame.size.width, 60);
-    CGRect newBounds = self.bounds;
-    newBounds.size.width =self.bounds.size.width;
-    newBounds.size.height = self.bounds.size.height/4;
-    self.bounds = newBounds;
-    
-    
-    [self layoutIfNeeded];
-    [self.calendarContentView layoutIfNeeded];*/
-    CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, 40);
-    CGRect newFrame2 = CGRectMake(0,40, self.frame.size.width, 60);
-
-    
-    [UIView animateWithDuration:0.1 delay:1.1 options:UIViewAnimationOptionCurveLinear animations:^{
-        self.calendarContentView.frame = newFrame2;
-        [self.calendarContentView layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        [self.calendarMenuView layoutIfNeeded];
-        [UIView animateWithDuration:1.5 animations:^{
-            self.calendarMenuView.frame = newFrame;
-            [self.calendarMenuView layoutIfNeeded];
-            
-            CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, 40);
-            CGRect newFrame2 = CGRectMake(0,40, self.frame.size.width, 60);
-            CGRect newBounds = self.bounds;
-            newBounds.size.width =self.bounds.size.width;
-            newBounds.size.height = self.bounds.size.height/4;
-            self.bounds = newBounds;
-        }];
-
-        [self layoutIfNeeded];
-        [[NSNotificationCenter defaultCenter]postNotificationName:@"choseDateService" object:self];
-    }];
-    
+    [_calendarManager setDate:_todayDate];
 }
 
 
-- (BOOL)calendarHaveEvent:(JTCalendar *)calendar date:(NSDate *)date
+- (void)didChangeModeTouch:(NSDate*)withDate
+{
+    _calendarManager.settings.weekModeEnabled = !_calendarManager.settings.weekModeEnabled;
+    [_calendarManager reload];
+    
+    CGFloat newHeight = 300;
+    if(_calendarManager.settings.weekModeEnabled){
+        newHeight = 75.;
+    }
+    NSDateFormatter *formatDate = [[NSDateFormatter alloc]init];
+    [formatDate setDateFormat:@"MM-dd-YYYY"];
+    NSString *dateString = [formatDate stringFromDate:withDate];
+    NSLog(@"DATE: %@",dateString);
+    
+    _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    
+    if (_isIphone6P) {
+        [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height-75, self.frame.size.width-100, 95)];
+        
+
+
+    } else if (_isIphone6) {
+        [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height-75, self.frame.size.width-100, 95)];
+        _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
+
+
+    } else if (_isIphone5) {
+        [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height-100, self.frame.size.width-100, 75)];
+        _dateButton.frame = CGRectMake(0,self.frame.size.height-100,100,75);
+
+
+    } else if (_isIphone4) {
+        [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height-75, self.frame.size.width-100, 75)];
+        _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
+
+
+    }
+    
+    [_dateButton setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
+    _dateButton.alpha = 0.0;
+    
+    [_calendarManager setDate:withDate];
+    [self addLabelToDateButton:withDate];
+    
+    NSString *calMgrDate = [formatDate stringFromDate:_calendarManager.date];
+    //self.calendarManager.constant = newHeight;
+    [self layoutIfNeeded];
+}
+
+-(void)addLabelToDateButton:(NSDate*)chosenDate {
+    
+    NSDateFormatter *formatDate = [[NSDateFormatter alloc]init];
+    [formatDate setDateFormat:@"MMM"];
+    NSString *dateMonth= [formatDate stringFromDate:chosenDate];
+    [formatDate setDateFormat:@"dd"];
+    NSString *dateDayNum = [formatDate stringFromDate:chosenDate];
+    
+    UILabel *dateDayNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(_dateButton.frame.size.width/2-15, _dateButton.frame.size.height/2-10, 30, 32)];
+    [dateDayNumLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:24]];
+    [dateDayNumLabel setText:dateDayNum];
+    _dateNum = dateDayNum;
+    [_dateButton addSubview:dateDayNumLabel];
+    
+    UILabel *monthLabel = [[UILabel alloc]initWithFrame:CGRectMake(_dateButton.frame.size.width/2-25, _dateButton.frame.size.height-24, 40, 20)];
+    
+    [monthLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
+    [monthLabel setText:[dateMonth uppercaseString]];
+    
+    
+    _dateMon = [dateMonth uppercaseString];
+    
+    [_dateButton addSubview:monthLabel];
+    
+    NSString *dayOfWeekString;
+    NSCalendar *gregorianCal = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *dateComponents = [gregorianCal components:(NSCalendarUnitYear |
+                                                                 NSCalendarUnitMonth |
+                                                                 NSCalendarUnitWeekOfYear |
+                                                                 NSCalendarUnitWeekday)
+                                                       fromDate:chosenDate];
+    
+    NSUInteger dayOfWeek = dateComponents.weekday;
+    if (dayOfWeek == 1) {
+        dayOfWeekString = @"SUN";
+    } else if (dayOfWeek == 2) {
+        dayOfWeekString = @"MON";
+    } else if (dayOfWeek == 3) {
+        dayOfWeekString = @"TUE";
+    } else if (dayOfWeek == 4) {
+        dayOfWeekString = @"WED";
+    } else if (dayOfWeek == 5) {
+        dayOfWeekString = @"THU";
+    } else if (dayOfWeek == 6) {
+        dayOfWeekString = @"FRI";
+    } else if (dayOfWeek == 7) {
+        dayOfWeekString = @"SAT";
+    }
+    
+    _dayOfWeek = dayOfWeekString;
+    
+    UILabel *dayOfWeekLabel = [[UILabel alloc]initWithFrame:CGRectMake(_dateButton.frame.size.width/2-25, dateDayNumLabel.frame.size.height - 20, 60, 20)];
+    [dayOfWeekLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
+    [dayOfWeekLabel setText:dayOfWeekString];
+    [_dateButton addSubview:dayOfWeekLabel];
+}
+
+- (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar
+{
+    
+    NSLog(@"Build menu item");
+    //UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(_calendarMenuView.frame.origin.x+20, _calendarMenuView.frame.origin.y+80, 180, 20)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, 80, 180, 20)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont fontWithName:@"Lato-Bold" size:16];
+    label.text = @"OCTOBER";
+    return label;
+}
+
+
+
+- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UILabel *)menuItemView date:(NSDate *)date
+{
+    static NSDateFormatter *dateFormatter;
+    if(!dateFormatter){
+        dateFormatter = [NSDateFormatter new];
+        dateFormatter.dateFormat = @"MMMM yyyy";
+        //dateFormatter.locale = _calendarManager.dateHelper.calendar.locale;
+        //dateFormatter.timeZone = _calendarManager.dateHelper.calendar.timeZone;
+    }
+    
+    menuItemView.text = [dateFormatter stringFromDate:date];
+    NSLog(@"Prepare Menu Item View");
+
+}
+
+
+
+- (void)calendar:(JTCalendarManager *)calendar prepareDayView:(JTCalendarDayView *)dayView
+{
+    
+    // Today
+    if([_calendarManager.dateHelper date:[NSDate date] isTheSameDayThan:dayView.date]){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [UIColor orangeColor];
+        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+        
+    }
+    // Selected date
+    else if(_dateSelected && [_calendarManager.dateHelper date:_dateSelected isTheSameDayThan:dayView.date]){
+        dayView.circleView.hidden = NO;
+        dayView.circleView.backgroundColor = [UIColor redColor];
+        dayView.dotView.backgroundColor = [UIColor whiteColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    // Other month
+    else if(![_calendarManager.dateHelper date:_calendarContentView.date isTheSameMonthThan:dayView.date]){
+        dayView.circleView.hidden = YES;
+        dayView.dotView.backgroundColor = [UIColor redColor];
+        dayView.textLabel.textColor = [UIColor lightGrayColor];
+        //dayView.textLabel.alpha = 0.0;
+    }
+    // Another day of the current month
+    else{
+        dayView.circleView.hidden = YES;
+        dayView.dotView.backgroundColor = [UIColor redColor];
+        dayView.textLabel.textColor = [UIColor whiteColor];
+    }
+    
+    if([self haveEventForDay:dayView.date]){
+        dayView.dotView.hidden = NO;
+    }
+    else{
+        dayView.dotView.hidden = YES;
+    }
+}
+
+
+
+- (void)createRandomEvents
+{
+    _eventsByDate = [NSMutableDictionary new];
+    
+    for(int i = 0; i < 30; ++i){
+        // Generate 30 random dates between now and 60 days later
+        NSDate *randomDate = [NSDate dateWithTimeInterval:(rand() % (3600 * 24 * 60)) sinceDate:[NSDate date]];
+        
+        // Use the date as key for eventsByDate
+        NSString *key = [[self dateFormatter] stringFromDate:randomDate];
+        
+        if(!_eventsByDate[key]){
+            _eventsByDate[key] = [NSMutableArray new];
+        }
+        
+        [_eventsByDate[key] addObject:randomDate];
+    }
+}
+
+
+
+- (void)createMinAndMaxDate
+{
+    _todayDate = [NSDate date];
+    _minDate = [_calendarManager.dateHelper addToDate:_todayDate months:-2];
+    _maxDate = [_calendarManager.dateHelper addToDate:_todayDate months:2];
+}
+
+
+- (void)calendar:(JTCalendarManager *)calendar didTouchDayView:(JTCalendarDayView *)dayView
+{
+    _dateSelected = dayView.date;
+    NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingUnit:NSCalendarUnitDay value:-3 toDate:_dateSelected options:nil];
+    
+    NSDateFormatter *formatDate = [[NSDateFormatter alloc]init];
+    [formatDate setDateFormat:@"MM-dd-YYYY"];
+    NSString *dateString = [formatDate stringFromDate:dayView.date];
+    NSLog(@"DATE: %@",dateString);
+    
+    if (_haveReservationOnDay) {
+        
+    
+    } else {
+    
+        if (_dateAlreadySelected) {
+
+        
+        } else {
+            _dateAlreadySelected = YES;
+            _calendarContentView.alpha = 0.9;
+            
+            [_calendarMenuView setPreviousDate:newDate currentDate:_dateSelected nextDate:nil];
+            CGRect newFrame = CGRectMake(100, 70, self.frame.size.width, 100);
+            
+            [UIView animateWithDuration:0.5 animations:^{
+                
+                //
+                self.alpha = 0.5;
+                dayView.circleView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.1, 0.1);
+                
+                [UIView transitionWithView:dayView
+                                  duration:.3
+                                   options:0
+                                animations:^{
+                                    dayView.circleView.transform = CGAffineTransformIdentity;
+                                    [_calendarManager reload];
+                                } completion:^(BOOL finished) {
+                                    [self didChangeModeTouch:dayView.date];
+                                }];
+                
+            } completion:^(BOOL finished) {
+                
+                _calendarContentView.frame = newFrame;
+                
+                
+                if (_isIphone6P) {
+                    _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+                    _dateButton.frame = CGRectMake(0,80,100,90);
+                    
+                } else if (_isIphone6) {
+                    _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+                    _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
+                    
+                    
+                } else if (_isIphone5) {
+                    _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+                    _dateButton.frame = CGRectMake(0,self.frame.size.height-100,100,75);
+                    
+                    
+                } else if (_isIphone4) {
+                    _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
+
+                    _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
+                    
+                }
+                
+                [_dateButton setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
+                _dateButton.alpha = 1.0;
+                [self addLabelToDateButton:_dateSelected];
+                [self addSubview:_dateButton];
+                
+                [_calendarMenuView removeFromSuperview];
+                
+            }];
+            
+        }
+       
+
+        
+        
+        
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"choseDateService" object:self];
+    }
+    
+    
+}
+
+- (BOOL)calendar:(JTCalendarManager *)calendar canDisplayPageWithDate:(NSDate *)date
+{
+    return [_calendarManager.dateHelper date:date isEqualOrAfter:_minDate andEqualOrBefore:_maxDate];
+}
+
+- (void)calendarDidLoadNextPage:(JTCalendarManager *)calendar
+{
+    //    NSLog(@"Next page loaded");
+}
+
+- (void)calendarDidLoadPreviousPage:(JTCalendarManager *)calendar
+{
+    //    NSLog(@"Previous page loaded");
+}
+
+- (BOOL)haveEventForDay:(NSDate *)date
 {
     NSString *key = [[self dateFormatter] stringFromDate:date];
     
-    for (NSDictionary *reservationsDic in _reservationData) {
-        
-        if (reservationsDic[key] && [reservationsDic[key]count] > 0) {
-            return YES;
-            
-        }
+    if(_eventsByDate[key] && [_eventsByDate[key] count] > 0){
+        return YES;
     }
     
     return NO;
-}
-
-- (void)calendarDidDateSelected:(JTCalendar *)calendar date:(NSDate *)date
-{
-    
-    
-    NSString *matchDateString = [[self dateFormatter]stringFromDate:date];
-    NSString *dateStringEvent;
-    
-    NSLog(@"date picked: %@",matchDateString);
-    for (NSDictionary *reservationsDic in _reservationData) {
-        dateStringEvent = [reservationsDic objectForKey:@"ReservationFullDate"];
-        
-        if ([matchDateString isEqualToString:dateStringEvent]) {
-            
-            NSLog(@"event: %@",[reservationsDic objectForKey:@"ReservationID"]);
-            
-        }
-    }
-    
-    _chosenDate = date;
-    self.calendar.calendarAppearance.isWeekMode = !self.calendar.calendarAppearance.isWeekMode;
-    [self transitionExample];
-    
     
 }
-
-- (void)calendarDidLoadPreviousPage
-{
-    NSLog(@"Previous page loaded");
-}
-
-- (void)calendarDidLoadNextPage
-{
-    NSLog(@"Next page loaded");
-}
-
 
 - (NSDateFormatter *)dateFormatter
 {

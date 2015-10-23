@@ -29,6 +29,13 @@
 @implementation HMScrollView
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    NSLog(@"touched segmented FIRST");
+    NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
+    NSDictionary *userInfo = @{@"tagID": tagStr};
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"pickerTouch" object:self userInfo:userInfo];
+    
     if (!self.dragging) {
         [self.nextResponder touchesBegan:touches withEvent:event];
     } else {
@@ -49,6 +56,13 @@
         [self.nextResponder touchesEnded:touches withEvent:event];
     } else {
         [super touchesEnded:touches withEvent:event];
+        NSLog(@"touched segmented ENDED");
+        NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
+        NSDictionary *userInfo = @{@"tagID": tagStr};
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"pickerTouch" object:self userInfo:userInfo];
+    
+        
     }
 }
 
@@ -607,6 +621,13 @@
     
     if (CGRectContainsPoint(self.bounds, touchLocation)) {
         NSInteger segment = 0;
+        NSLog(@"touched segmentedAAA");
+        NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
+        NSDictionary *userInfo = @{@"tagID": tagStr};
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"pickerTouch" object:self userInfo:userInfo];
+    
+        
         if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleFixed) {
             segment = (touchLocation.x + self.scrollView.contentOffset.x) / self.segmentWidth;
         } else if (self.segmentWidthStyle == HMSegmentedControlSegmentWidthStyleDynamic) {
@@ -635,6 +656,13 @@
             // Check if we have to do anything with the touch event
             if (self.isTouchEnabled)
                 [self setSelectedSegmentIndex:segment animated:self.shouldAnimateUserSelection notify:YES];
+            
+            NSLog(@"touched segmentedBBB");
+            NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
+            NSDictionary *userInfo = @{@"tagID": tagStr};
+            
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"pickerTouch" object:self userInfo:userInfo];
+            
         }
     }
 }

@@ -7,16 +7,17 @@
 
 #import <UIKit/UIKit.h>
 
-#import "JTCalendar.h"
+#import "JTCalendarWeek.h"
 
-@interface JTCalendarWeekView : UIView
+@interface JTCalendarWeekView : UIView<JTCalendarWeek>
 
-@property (weak, nonatomic) JTCalendar *calendarManager;
+@property (nonatomic, weak) JTCalendarManager *manager;
 
-@property (assign, nonatomic) NSUInteger currentMonthIndex;
+@property (nonatomic, readonly) NSDate *startDate;
 
-- (void)setBeginningOfWeek:(NSDate *)date;
-- (void)reloadData;
-- (void)reloadAppearance;
+/*!
+ * Must be call if override the class
+ */
+- (void)commonInit;
 
 @end

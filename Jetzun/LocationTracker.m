@@ -30,6 +30,7 @@ VisitsAndTracking *visitData;
 		if (_locationManager == nil) {
 			_locationManager = [[CLLocationManager alloc] init];
             _locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
+            _locationManager.allowsBackgroundLocationUpdates = YES;
             
 		}
 	}
@@ -40,17 +41,14 @@ VisitsAndTracking *visitData;
 	if (self==[super init]) {
         
         self.shareModel = [LocationShareModel sharedModel];
-        self.shareModel.myLocationArray = [[NSMutableArray alloc]init];
-        self.shareModel.allCoordinates = [[NSMutableArray alloc]init];
+
         _regionMonitoringSetupForDay = NO;
         
         visitData = [VisitsAndTracking sharedInstance];
-
-
         _regionRadius = 50.0;
-        _distanceFilterSetting = 20.0;
-         _minAccuracy = 50.0;
-        _updateFrequencySeconds = 600;
+        _distanceFilterSetting = 100.0;
+         _minAccuracy = 20.0;
+        _updateFrequencySeconds = 1500;
         _minNumCoordinatesBeforeSend = 100;
 
         /*[[NSNotificationCenter defaultCenter]addObserver:self
@@ -102,7 +100,7 @@ VisitsAndTracking *visitData;
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     locationManager.distanceFilter = 20;
-    
+    locationManager.allowsBackgroundLocationUpdates = YES;
     if(IS_OS_8_OR_LATER) {
         [locationManager requestAlwaysAuthorization];
     }
@@ -115,7 +113,6 @@ VisitsAndTracking *visitData;
 
 - (void) restartLocationUpdates
 {
-    _shareModel.gpsStatus = @"restart gps";
     
     if (self.shareModel.timer) {
         [self.shareModel.timer invalidate];
@@ -126,6 +123,7 @@ VisitsAndTracking *visitData;
     locationManager.delegate = self;
     locationManager.desiredAccuracy = kCLLocationAccuracyBestForNavigation;
     locationManager.distanceFilter = _distanceFilterSetting;
+    locationManager.allowsBackgroundLocationUpdates = YES;
     
     if(IS_OS_8_OR_LATER) {
         [locationManager requestAlwaysAuthorization];
@@ -136,11 +134,7 @@ VisitsAndTracking *visitData;
 
 - (void)startLocationTracking {
     
-    _shareModel.gpsStatus = @"start gps";
-    
-    NSLog(@"Start Location Tracking");
-    
-    NSLog(@"[LOCATION TRACKER] started");
+ 
 
 	if ([CLLocationManager locationServicesEnabled] == NO) {
         UIAlertView *servicesDisabledAlert = [[UIAlertView alloc] initWithTitle:@"Location Services Disabled"
@@ -176,10 +170,8 @@ VisitsAndTracking *visitData;
 }
 
 - (void)stopLocationTracking {
+
     
-    _shareModel.gpsStatus = @"stopped location tracking";
-    
-    NSLog(@"stopped location tracking");
     if (self.shareModel.timer) {
         [self.shareModel.timer invalidate];
         self.shareModel.timer = nil;
@@ -187,7 +179,7 @@ VisitsAndTracking *visitData;
     
 	CLLocationManager *locationManager = [LocationTracker sharedLocationManager];
 	[locationManager stopUpdatingLocation];
-    [self logCoreLocationStatus:@"STOPPED Tracking Location"];
+
 
 }
 
@@ -197,7 +189,6 @@ VisitsAndTracking *visitData;
     
     CLLocationManager *locationManager = [LocationTracker sharedLocationManager];
     [locationManager stopUpdatingLocation];
-    _shareModel.gpsStatus = @"Stop temp";
     
 }
 
@@ -212,28 +203,7 @@ VisitsAndTracking *visitData;
 - (void)locationManager:(CLLocationManager *)manager
          didEnterRegion:(CLRegion *)region
 {
-    
-    _shareModel.identifierRegionEntered = region.identifier;
-    
-    NSMutableArray *visitForToday = [visitData getVisitData];
-    for (VisitDetails *visit in visitForToday) {
-        if([region.identifier isEqualToString:visit.appointmentid]) {
-            
-            _shareModel.identifierRegionEntered = visit.petName;
-        }
-    }
-    NSString *enterString = [NSString stringWithFormat:@"Region %@",_shareModel.identifierRegionEntered];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entered region"
-                                                    message:enterString
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil, nil];
-    //[alert show];
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"didEnterRegion"
-     object:self];
+
 
 }
 
@@ -241,38 +211,13 @@ VisitsAndTracking *visitData;
           didExitRegion:(CLRegion *)region
 {
     
-    
-    _shareModel.identifierRegionExited = region.identifier;
-    
-    NSMutableArray *visitForToday = [visitData getVisitData];
-    
-    for (VisitDetails *visit in visitForToday) {
-        if([region.identifier isEqualToString:visit.appointmentid]) {
-            
-            _shareModel.identifierRegionExited = visit.petName;
-        }
-    }
-    NSString *exitString = [NSString stringWithFormat:@"Region %@",_shareModel.identifierRegionExited];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Exit region"
-                                                    message:exitString
-                                                   delegate:self
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil, nil];
-    //[alert show];
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:@"didExitRegion"
-     object:self];
+
     
 }
-
-
 
 - (void)locationManager: (CLLocationManager *)manager didFailWithError: (NSError *)error
 {
  
-    _shareModel.gpsStatus = @"failed";
     
     switch([error code])
     {
@@ -302,9 +247,7 @@ VisitsAndTracking *visitData;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    
-    NSLog(@"received new location");
-    
+        
     for(int i=0;i<locations.count;i++){
         
         CLLocation * newLocation = [locations objectAtIndex:i];
@@ -319,14 +262,11 @@ VisitsAndTracking *visitData;
         
         if(newLocation!=nil && theAccuracy>0 && theAccuracy<_minAccuracy && (!(theLocation.latitude==0.0 && theLocation.longitude==0.0))) {
             
-            self.shareModel.totalNumberPointsForSession++;
             self.myLastLocation = theLocation;
             self.myLocationAccuracy= theAccuracy;
             
             _shareModel.validLocationLast = newLocation;
             _shareModel.lastValidLocation = theLocation;
-            [_shareModel.allCoordinates addObject:newLocation];
-            
         
         }
     }
@@ -375,17 +315,6 @@ VisitsAndTracking *visitData;
     
     [_logServerGPS removeAllObjects];
     _logServerGPS = nil;
-    
-    _shareModel.responseSend = receivedDataString;
-    
-    if([receivedDataString isEqualToString:@"OK"]) {
-        
-        [[NSNotificationCenter defaultCenter]
-         postNotificationName:@"coordinateAdded"
-         object:self];
-        
-        [_shareModel.allCoordinates removeAllObjects];
-    }
     
     
 }

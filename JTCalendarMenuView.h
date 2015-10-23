@@ -7,14 +7,19 @@
 
 #import <UIKit/UIKit.h>
 
-@class JTCalendar;
+#import "JTMenu.h"
 
-@interface JTCalendarMenuView : UIScrollView
+@interface JTCalendarMenuView : UIView<JTMenu, UIScrollViewDelegate>
 
-@property (weak, nonatomic) JTCalendar *calendarManager;
+@property (nonatomic, weak) JTCalendarManager *manager;
 
-@property (strong, nonatomic) NSDate *currentDate;
+@property (nonatomic) CGFloat contentRatio;
 
-- (void)reloadAppearance;
+@property (nonatomic, readonly) UIScrollView *scrollView;
+
+/*!
+ * Must be call if override the class
+ */
+- (void)commonInit;
 
 @end

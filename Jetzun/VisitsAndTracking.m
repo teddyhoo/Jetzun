@@ -8,7 +8,6 @@
 
 #import "VisitsAndTracking.h"
 #import "DateTools.h"
-#import "DataClient.h"
 #import "VisitDetails.h"
 #import "ReservationDetails.h"
 
@@ -19,10 +18,6 @@
 
     
 }
-
-NSString *const pollingCompleteWithChanges = @"pollingCompleteWithChanges";
-NSString *const pollingFailed = @"pollingFailed";
-int totalCoordinatesInSession;
 
 +(VisitsAndTracking *)sharedInstance {
     
@@ -71,69 +66,10 @@ int totalCoordinatesInSession;
 }
 
 
--(void)newReservationWithDetails:(NSString *)reservationDate
-                          status:(NSString*)status
-                  pickupLocation:(NSString*)pickup
-                 dropoffLocation:(NSString*)dropoff
-                    pickupMinute:(NSString*)minutePick
-                      pickupHour:(NSString*)hourPick
-                     productType:(NSString*)product
-                 estimatedCharge:(NSString*)charge
-               estimatedDistance:(NSString*)distance
-                   estimatedTime:(NSString *)time
-
-{
-    
-    
-    NSLog(@"new reservation");
-    
-    PFObject *reservationObj = [PFObject objectWithClassName:@"Reservation"];
-    reservationObj[@"ChosenDate"] = reservationDate;
-    reservationObj[@"Status"] = @"NEW";
-    reservationObj[@"PickupLocation"] = pickup;
-    reservationObj[@"DropoffLocation"] = dropoff;
-    reservationObj[@"PickupHour"] = hourPick;
-    reservationObj[@"PickupMinute"] = minutePick;
-    reservationObj[@"TypeOfProduct"] = product;
-    reservationObj[@"EstimatedCharge"] = charge;
-    reservationObj[@"EstimatedDistance"] = distance;
-    reservationObj[@"EstimatedTime"] = time;
-    
-    NSLog(@"reservation object id: %@",reservationObj.objectId);
-    
-    [reservationObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (error) {
-            NSLog(@"Couldn't save!");
-            NSLog(@"%@", error);
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[error userInfo][@"error"]
-                                                                message:nil
-                                                               delegate:self
-                                                      cancelButtonTitle:nil
-                                                      otherButtonTitles:@"Ok", nil];
-            [alertView show];
-            return;
-        }
-        if (succeeded) {
-            NSLog(@"Successfully saved!");
-            NSLog(@"%@", reservationObj);
-            
-        } else {
-            NSLog(@"Failed to save.");
-        }
-    }];
-    
-    
-    
-}
-
 -(void)setupDefaults {
     
 }
 
-
--(void)loggedInBeginPolling {
-
-}
 
 -(NSMutableArray *)getClientData {
     return _clientData;

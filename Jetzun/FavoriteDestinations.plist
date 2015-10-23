@@ -4,11 +4,67 @@
 <array>
 	<dict>
 		<key>Name</key>
-		<string>Joe Sculley</string>
+		<string>HOME</string>
 		<key>Image</key>
-		<string>friend-pic-1</string>
+		<string>placemark-icon1</string>
 		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<string>601 N Buchanan St, Arlington, VA</string>
+		<key>Coordinates</key>
+		<string>{37.90000,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>AIRPORT DEPARTURE</string>
+		<key>Image</key>
+		<string>airplane-landing1</string>
+		<key>Address</key>
+		<string>3000 Clarendon Blvd, Arlington, VA</string>
+		<key>Coordinates</key>
+		<string>{37.90000,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>AIRPORT ARRIVAL</string>
+		<key>Image</key>
+		<string>airplane-takeoff</string>
+		<key>Address</key>
+		<string>100 Washington St, Alexandria, VA</string>
+		<key>Coordinates</key>
+		<string>{37.90000,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>GIRLFRIEND</string>
+		<key>Image</key>
+		<string>boyfriend-house</string>
+		<key>Address</key>
+		<string>2000 Wilson Blvd, Arlington,VA</string>
+		<key>Coordinates</key>
+		<string>{37.90000,-77.49075689999997}</string>
+		<key>LastVisitDate</key>
+		<string>Sept 10, 2012</string>
+		<key>NumVisits</key>
+		<string>20</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>TRAIN STATION</string>
+		<key>Image</key>
+		<string>train-icon1</string>
+		<key>Address</key>
+		<string>50 Massachusetts Ave NE, Washington, DC</string>
 		<key>Coordinates</key>
 		<string>{37.568848,-77.49075689999997}</string>
 		<key>LastVisitDate</key>
@@ -18,111 +74,13 @@
 	</dict>
 	<dict>
 		<key>Name</key>
-		<string>Airport</string>
+		<string>HELIPAD</string>
 		<key>Image</key>
-		<string>airplane-icon</string>
+		<string>helicopter-icon1</string>
 		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
+		<string>100 Water St SW, Washington, DC</string>
 		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Train</string>
-		<key>Image</key>
-		<string>train-icon</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Medical</string>
-		<key>Image</key>
-		<string>medical-icon</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Calvin Smith</string>
-		<key>Image</key>
-		<string>friend-2-pic</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Joe Sculley</string>
-		<key>Image</key>
-		<string>friend-pic-5</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Joe Sculley</string>
-		<key>Image</key>
-		<string>friend-pic-6</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>Airport</string>
-		<key>Image</key>
-		<string>friend-pic-3</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
-		<key>LastVisitDate</key>
-		<string>Sept 10, 2012</string>
-		<key>NumVisits</key>
-		<string>20</string>
-	</dict>
-	<dict>
-		<key>Name</key>
-		<string>School</string>
-		<key>Image</key>
-		<string>friend-pic-4</string>
-		<key>Address</key>
-		<string>4006 Grove Ave, Richmond, VA 23221</string>
-		<key>Coordinates</key>
-		<string>{37.568848,-77.49075689999997}</string>
+		<string>{37.90000,-77.6000000}</string>
 		<key>LastVisitDate</key>
 		<string>Sept 10, 2012</string>
 		<key>NumVisits</key>

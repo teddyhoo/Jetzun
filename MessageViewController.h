@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "ChooseRouteView.h" 
 #import "CalendarChooserView.h"
 #import "RouteOptionsView.h"
+#import "ReservationReview.h"
 #import "VisitsAndTracking.h"
 #import "VisitDetails.h"
 #import "UberKit.h"
@@ -40,10 +40,12 @@
 @property (nonatomic,strong) MKDirectionsResponse *response;
 
 @property (nonatomic,strong) MKMapView *mapView;
-@property (nonatomic,strong) ChooseRouteView *chooseRouteView;
 @property (nonatomic,strong) CalendarChooserView *calendarView;
 @property (nonatomic,strong) RouteOptionsView *routeOptionsView;
 @property (nonatomic,strong) ChooseVisualRoute *chooseVisualView;
+@property (nonatomic,strong) ReservationReview *reservationReview;
+
+@property (nonatomic,strong) UIButton *goToUber;
 
 @property (nonatomic,strong) NSString *objectIDForReservation;
 @end
