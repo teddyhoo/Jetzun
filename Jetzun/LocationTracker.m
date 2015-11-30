@@ -63,31 +63,7 @@ VisitsAndTracking *visitData;
 
 -(void)setupGeofences {
     
-    CLLocationManager *locationManager = [LocationTracker sharedLocationManager];
 
-    NSMutableArray *visitForToday = [visitData getVisitData];
-    
-    if (!_regionMonitoringSetupForDay) {
-        for (VisitDetails *visit in visitForToday) {
-            
-            NSString *latForVisit = visit.latitude;
-            NSString *lonForVisit = visit.longitude;
-            
-            float latDeg = [latForVisit floatValue];
-            float lonDeg = [lonForVisit floatValue];
-            
-            CLLocationCoordinate2D center = CLLocationCoordinate2DMake(latDeg, lonDeg);
-            CLRegion *region = [[CLCircularRegion alloc]initWithCenter:center
-                                                                radius:_regionRadius
-                                                            identifier:visit.appointmentid];
-            
-            //NSLog(@"monitoring for region: %@ with pet: %@",visit.appointmentid, visit.petName);
-            
-            [locationManager startMonitoringForRegion:region];
-        }
-    }
-    
-    NSSet *theRegions = [locationManager monitoredRegions];
     
     _regionMonitoringSetupForDay = YES;
 
@@ -247,9 +223,12 @@ VisitsAndTracking *visitData;
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    
+    
         
     for(int i=0;i<locations.count;i++){
-        
+        NSLog(@"received location update");
+
         CLLocation * newLocation = [locations objectAtIndex:i];
         CLLocationCoordinate2D theLocation = newLocation.coordinate;
         CLLocationAccuracy theAccuracy = newLocation.horizontalAccuracy;
@@ -264,7 +243,8 @@ VisitsAndTracking *visitData;
             
             self.myLastLocation = theLocation;
             self.myLocationAccuracy= theAccuracy;
-            
+            NSLog(@"added valid location update");
+
             _shareModel.validLocationLast = newLocation;
             _shareModel.lastValidLocation = theLocation;
         

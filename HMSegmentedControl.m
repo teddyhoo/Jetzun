@@ -30,7 +30,6 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
-    NSLog(@"touched segmented FIRST");
     NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
     NSDictionary *userInfo = @{@"tagID": tagStr};
     
@@ -56,7 +55,6 @@
         [self.nextResponder touchesEnded:touches withEvent:event];
     } else {
         [super touchesEnded:touches withEvent:event];
-        NSLog(@"touched segmented ENDED");
         NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
         NSDictionary *userInfo = @{@"tagID": tagStr};
         
@@ -108,7 +106,6 @@
         self.sectionImages = sectionImages;
         self.sectionSelectedImages = sectionSelectedImages;
         self.type = HMSegmentedControlTypeImages;
-        NSLog(@"added segmented images");
     }
     
     return self;
@@ -180,7 +177,6 @@
     
     self.contentMode = UIViewContentModeRedraw;
     
-    NSLog(@"finished common init");
 }
 
 - (void)layoutSubviews {
@@ -621,7 +617,6 @@
     
     if (CGRectContainsPoint(self.bounds, touchLocation)) {
         NSInteger segment = 0;
-        NSLog(@"touched segmentedAAA");
         NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
         NSDictionary *userInfo = @{@"tagID": tagStr};
         
@@ -657,7 +652,6 @@
             if (self.isTouchEnabled)
                 [self setSelectedSegmentIndex:segment animated:self.shouldAnimateUserSelection notify:YES];
             
-            NSLog(@"touched segmentedBBB");
             NSString *tagStr = [NSString stringWithFormat:@"%li",(long)self.superview.tag];
             NSDictionary *userInfo = @{@"tagID": tagStr};
             

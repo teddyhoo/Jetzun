@@ -143,7 +143,6 @@ typedef NS_ENUM(NSUInteger, YALAnimatingState) {
     self.mainView.layer.cornerRadius = CGRectGetHeight(self.mainView.bounds) / 2.f;
     self.mainView.layer.masksToBounds = YES;
     self.mainView.backgroundColor = self.tabBarColor;
-    
     [self addSubview:self.mainView];
 }
 

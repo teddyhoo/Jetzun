@@ -14,4 +14,9 @@
 @interface TripMonitorViewController : UIViewController
 
 
+
+@property BOOL tripHasBegun;
+@property (nonatomic,strong) UIButton *beginTripButton;
+
+
 @end

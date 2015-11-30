@@ -7,21 +7,28 @@
 //
 
 #import "ReservationDetails.h"
+#import "VisitsAndTracking.h"
 #import <Parse/Parse.h>
 
 @implementation ReservationDetails
 
 -(BOOL)saveReservationDetailsToParse {
     
-    
+    VisitsAndTracking *sharedVisits = [VisitsAndTracking sharedInstance];
+
     PFObject *reservationObj = [PFObject objectWithClassName:@"Reservation"];
+    reservationObj[@"UserID"] = sharedVisits.currentUser;
     reservationObj[@"ChosenDate"] = self.reservationDate;
-    reservationObj[@"Status"] = @"PENDING";
+    reservationObj[@"Status"] = self.reservationStatus;
     reservationObj[@"PickupLocation"] = self.pickupLocation;
     reservationObj[@"DropoffLocation"] = self.dropOffLocation;
     reservationObj[@"PickupTime"] = self.pickupTime;
+    reservationObj[@"TypeOfProduct"] = self.productType;
     reservationObj[@"AMorPM"] = self.amOrpm;
-    
+    reservationObj[@"EstimatedCharge"] = self.estimatedTripCharge;
+    reservationObj[@"EstimatedDistance"] = self.estimatedDistance;
+    reservationObj[@"EstimatedTime"] = self.estimatedTravelTime;
+
     [reservationObj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
@@ -38,6 +45,8 @@
             NSLog(@"%@", reservationObj);
             
             self.reservationID = reservationObj.objectId;
+            
+            self.userID = sharedVisits.currentUser;
             
         } else {
             NSLog(@"Failed to save.");

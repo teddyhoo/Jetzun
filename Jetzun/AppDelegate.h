@@ -9,12 +9,9 @@
 #import "LocationShareModel.h"
 #import "LocationTracker.h"
 
-@class SWRevealViewController;
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (strong, nonatomic) SWRevealViewController *viewController;
 @property (strong,nonatomic) LocationTracker *locationTracker;
 
 @property LocationShareModel *shareModel;

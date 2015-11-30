@@ -1,27 +1,16 @@
-//
-//  AppDelegate.m
-//  UberScheduler
-//
-//  Created by Ted Hooban on 9/9/15.
-//  Copyright (c) 2015 Ted Hooban. All rights reserved.
-//
-
 #import "AppDelegate.h"
-#import "SWRevealViewController.h"
+#import "YALTabBarItem.h"
+#import "YALFoldingTabBarController.h"
+#import "YALAnimatingTabBarConstants.h"
 #import "UberKit.h"
 #import <Parse/Parse.h>
-
 #import "VisitsAndTracking.h"
 #import "LocationTracker.h"
-#import "FrontViewController.h"
-#import "RearViewController.h"
-#import "CustomAnimationController.h"
-#import "PhotoGallery.h"
+#import "VisitsAndTracking.h"
 
+@interface AppDelegate ()
 
-@interface AppDelegate()<SWRevealViewControllerDelegate>
 @end
-
 
 @implementation AppDelegate
 
@@ -39,25 +28,16 @@
 #define IS_IPHONE_6 (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
-@synthesize window = _window;
-@synthesize viewController = _viewController;
-
-//- (BOOL)application:(__unused UIApplication *)application didFinishLaunchingWithOptions:(__unused NSDictionary *)launchOptions {
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     
     [application setStatusBarHidden:YES];
     VisitsAndTracking *sharedVisitsTracking = [VisitsAndTracking sharedInstance];
     
     _locationTracker = [[LocationTracker alloc]init];
     [_locationTracker startLocationTracking];
-    
-    [Parse enableLocalDatastore];
-    [Parse setApplicationId:@"ZKMMb0AGM6XqxBvoUeRx627R7OV5QuXpEv3YHAlA"
-                  clientKey:@"DbBSkhJiT0qqxPtSrDGKXDfEJ8Dq8IH6mRSkS8LY"];
-    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    
+
     if (IS_IPHONE_6P) {
         [sharedVisitsTracking setDeviceType:@"iPhone6P"];
         
@@ -73,73 +53,57 @@
         
     }
     
+    NSLog(@"dev type: %@",sharedVisitsTracking.deviceType);
     
-    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window = window;
+    [self setupYALTabBarController];
     
-    FrontViewController *frontViewController = [[FrontViewController alloc] init];
-    RearViewController *rearViewController = [[RearViewController alloc] init];
-    
-    //UINavigationController *frontNavigationController = [[UINavigationController alloc] initWithRootViewController:frontViewController];
-    
-    //frontNavigationController.toolbarHidden = YES;
-    
-    
-    SWRevealViewController *revealController = [[SWRevealViewController alloc]
-                                                initWithRearViewController:rearViewController
-                                                frontViewController:frontViewController];
-   // revealController.automaticallyAdjustsScrollViewInsets = FALSE;
-    revealController.delegate = self;
-    revealController.rightViewController = nil;
-    
-   // frontViewController.automaticallyAdjustsScrollViewInsets = FALSE;
-
-    
-    self.viewController = revealController;
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (BOOL) application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    if([[UberKit sharedInstance] handleLoginRedirectFromUrl:url sourceApplication:sourceApplication])
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
+- (BOOL) preferStatusBarHidden {
+    
+    return YES;
 }
 
-
-
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
+- (void)setupYALTabBarController {
+    YALFoldingTabBarController *tabBarController = (YALFoldingTabBarController *) self.window.rootViewController;
     
-    NSLog(@"application did enter background");
-    
-    [_locationTracker goingToBackgroundMode];
+    self.window.rootViewController = tabBarController;
+    YALTabBarItem *item1 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"profile_icon"]
+                                                      leftItemImage:nil
+                                                     rightItemImage:nil];
     
     
+    YALTabBarItem *item2 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"calendar72"]
+                                                      leftItemImage:[UIImage imageNamed:@"edit_icon"]
+                                                     rightItemImage:[UIImage imageNamed:@"white-checkmark-noback"]];
+    
+    tabBarController.leftBarItems = @[item1, item2];
+    
+    YALTabBarItem *item3 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"midsize"]
+                                                      leftItemImage:[UIImage imageNamed:@"search_icon"]
+                                                     rightItemImage:[UIImage imageNamed:@"new_chat_icon"]];
+    
+    
+    YALTabBarItem *item4 = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"location-white"]
+                                                      leftItemImage:nil
+                                                     rightItemImage:nil];
+    
+    tabBarController.rightBarItems = @[item3, item4];
+    tabBarController.centerButtonImage = [UIImage imageNamed:@"plus_icon"];
+    tabBarController.selectedIndex = 3;
+    
+    //customize tabBarView
+    tabBarController.tabBarView.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
+    tabBarController.tabBarView.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
+    //tabBarController.tabBarView.backgroundColor = [UIColor colorWithRed:94.0/255.0 green:91.0/255.0 blue:149.0/255.0 alpha:1];
+    tabBarController.tabBarView.tabBarColor = [UIColor colorWithRed:72.0/255.0 green:211.0/255.0 blue:178.0/255.0 alpha:1];
+    tabBarController.tabBarViewHeight = YALTabBarViewDefaultHeight;
+    tabBarController.tabBarView.tabBarViewEdgeInsets = YALTabBarViewHDefaultEdgeInsets;
+    tabBarController.tabBarView.tabBarItemsEdgeInsets = YALTabBarViewItemsDefaultEdgeInsets;
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
 
 @end
+
+

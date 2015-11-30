@@ -28,6 +28,7 @@
 @property (nonatomic,copy) NSString *dayOfWeek;
 @property (nonatomic,copy) NSString *dateNum;
 @property (nonatomic,copy) NSString *dateMon;
+@property (nonatomic,strong) UIImageView *jetzunLogo;
 
 @property BOOL dateAlreadySelected;
 @property BOOL haveReservationOnDay;

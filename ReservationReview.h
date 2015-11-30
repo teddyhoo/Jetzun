@@ -14,8 +14,8 @@
                       monthReserve:(NSString*)month
                         dayReserve:(NSString*)dayNum
                            dayName:(NSString*)dayOfWeek
-                        pickupTime:(NSString*)pickup
-                       typeProduct:(NSString*)product;
+                       typeProduct:(NSString*)product
+                 reservationObject:(ReservationDetails*)reservationDetails;
 
 
 -(void)setupReservationDetailsView:(ReservationDetails*)reservationDetails;

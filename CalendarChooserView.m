@@ -61,28 +61,26 @@
         
         _reservationData = [[NSMutableArray alloc]initWithContentsOfFile:pListData];
         
-        _calendarContentView = [[JTHorizontalCalendarView alloc]initWithFrame:CGRectMake(0, 60, self.frame.size.width, 360)];
+        _calendarContentView = [[JTHorizontalCalendarView alloc]initWithFrame:CGRectMake(0, 60, self.frame.size.width, 280)];
         _calendarContentView.backgroundColor = [UIColor blackColor];
         _calendarContentView.alpha = 0.7;
         
         [self addSubview:_calendarContentView];
         
         _calendarMenuView = [[JTCalendarMenuView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 60)];
-        _calendarMenuView.backgroundColor = [UIColor clearColor];
-        _calendarMenuView.scrollView.backgroundColor = [UIColor blackColor];
-        _calendarMenuView.scrollView.alpha = 0.3;
+        _calendarMenuView.backgroundColor = [UIColor colorWithRed:0.8 green:0.3 blue:0.2 alpha:0.8];
+        _calendarMenuView.scrollView.backgroundColor = [UIColor colorWithRed:1.0 green:0.2 blue:0.2 alpha:0.6];
+        _calendarMenuView.scrollView.backgroundColor = [UIColor clearColor];
+        
         [self addSubview:_calendarMenuView];
         
         _calendarManager = [JTCalendarManager new];
         _calendarManager.delegate = self;
         _calendarManager.settings.weekDayFormat = JTCalendarWeekDayFormatShort;
     
-        
-        
-        [self createRandomEvents];
+        //[self createRandomEvents];
         [self createMinAndMaxDate];
 
-        
         [_calendarManager setMenuView:_calendarMenuView];
         [_calendarManager setContentView:_calendarContentView];
         [_calendarManager setDate:[NSDate date]];
@@ -91,12 +89,22 @@
     
     return self;
 }
+- (UIView<JTCalendarWeekDay> *)calendarBuildWeekDayView:(JTCalendarManager *)calendar
+{
+    JTCalendarWeekDayView *view = [JTCalendarWeekDayView new];
+    
+    for(UILabel *label in view.dayViews){
+        label.textColor = [UIColor yellowColor];
+        label.font = [UIFont fontWithName:@"CompassRoseCPC-Bold" size:14];
+    }
+    
+    return view;
+}
 
 -(void)didGoTodayTouch
 {
     [_calendarManager setDate:_todayDate];
 }
-
 
 - (void)didChangeModeTouch:(NSDate*)withDate
 {
@@ -116,10 +124,9 @@
     
     
     if (_isIphone6P) {
-        [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height-75, self.frame.size.width-100, 95)];
+        [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height, self.frame.size.width-100, 95)];
+        _dateButton.frame = CGRectMake(0,self.frame.size.height,100,95);
         
-
-
     } else if (_isIphone6) {
         [_calendarContentView setFrame:CGRectMake(100, self.frame.size.height-75, self.frame.size.width-100, 95)];
         _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
@@ -157,14 +164,14 @@
     NSString *dateDayNum = [formatDate stringFromDate:chosenDate];
     
     UILabel *dateDayNumLabel = [[UILabel alloc]initWithFrame:CGRectMake(_dateButton.frame.size.width/2-15, _dateButton.frame.size.height/2-10, 30, 32)];
-    [dateDayNumLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:24]];
+    [dateDayNumLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
     [dateDayNumLabel setText:dateDayNum];
     _dateNum = dateDayNum;
     [_dateButton addSubview:dateDayNumLabel];
     
     UILabel *monthLabel = [[UILabel alloc]initWithFrame:CGRectMake(_dateButton.frame.size.width/2-25, _dateButton.frame.size.height-24, 40, 20)];
     
-    [monthLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
+    [monthLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:14]];
     [monthLabel setText:[dateMonth uppercaseString]];
     
     
@@ -208,18 +215,29 @@
 - (UIView *)calendarBuildMenuItemView:(JTCalendarManager *)calendar
 {
     
+    
+    UIView *menuItemView = [[UIView alloc]initWithFrame:CGRectMake(40,80, 180, 20)];
+    _jetzunLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0,0, 90,30)];
+    [_jetzunLogo setImage:[UIImage imageNamed:@"logo-jetzun800"]];
+    [menuItemView addSubview:_jetzunLogo];
+    
     NSLog(@"Build menu item");
     //UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(_calendarMenuView.frame.origin.x+20, _calendarMenuView.frame.origin.y+80, 180, 20)];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(40, 80, 180, 20)];
     label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont fontWithName:@"Lato-Bold" size:16];
-    label.text = @"OCTOBER";
+    label.font = [UIFont fontWithName:@"Lato-Bold" size:22];
+    
+    [menuItemView addSubview:_jetzunLogo];
+    [menuItemView addSubview:label];
+    
+    //return menuItemView;
+    
     return label;
 }
 
 
 
-- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UILabel *)menuItemView date:(NSDate *)date
+/*- (void)calendar:(JTCalendarManager *)calendar prepareMenuItemView:(UILabel *)menuItemView date:(NSDate *)date
 {
     static NSDateFormatter *dateFormatter;
     if(!dateFormatter){
@@ -232,7 +250,7 @@
     menuItemView.text = [dateFormatter stringFromDate:date];
     NSLog(@"Prepare Menu Item View");
 
-}
+}*/
 
 
 
@@ -278,27 +296,6 @@
 
 
 
-- (void)createRandomEvents
-{
-    _eventsByDate = [NSMutableDictionary new];
-    
-    for(int i = 0; i < 30; ++i){
-        // Generate 30 random dates between now and 60 days later
-        NSDate *randomDate = [NSDate dateWithTimeInterval:(rand() % (3600 * 24 * 60)) sinceDate:[NSDate date]];
-        
-        // Use the date as key for eventsByDate
-        NSString *key = [[self dateFormatter] stringFromDate:randomDate];
-        
-        if(!_eventsByDate[key]){
-            _eventsByDate[key] = [NSMutableArray new];
-        }
-        
-        [_eventsByDate[key] addObject:randomDate];
-    }
-}
-
-
-
 - (void)createMinAndMaxDate
 {
     _todayDate = [NSDate date];
@@ -317,6 +314,45 @@
     NSString *dateString = [formatDate stringFromDate:dayView.date];
     NSLog(@"DATE: %@",dateString);
     
+    
+    NSDateFormatter *formatDate2 = [[NSDateFormatter alloc]init];
+    [formatDate2 setDateFormat:@"MMM"];
+    NSString *dateMonth= [formatDate2 stringFromDate:_dateSelected];
+    
+    NSDateFormatter *formatDate3 = [[NSDateFormatter alloc]init];
+    [formatDate3 setDateFormat:@"dd"];
+    NSString *dateDayNum = [formatDate3 stringFromDate:_dateSelected];
+    
+    _dateNum = dateDayNum;
+    _dateMon = [dateMonth uppercaseString];
+    
+    NSString *dayOfWeekString;
+    NSCalendar *gregorianCal = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *dateComponents = [gregorianCal components:(NSCalendarUnitYear |
+                                                                 NSCalendarUnitMonth |
+                                                                 NSCalendarUnitWeekOfYear |
+                                                                 NSCalendarUnitWeekday)
+                                                       fromDate:newDate];
+    
+    NSUInteger dayOfWeek = dateComponents.weekday;
+    if (dayOfWeek == 1) {
+        dayOfWeekString = @"SUN";
+    } else if (dayOfWeek == 2) {
+        dayOfWeekString = @"MON";
+    } else if (dayOfWeek == 3) {
+        dayOfWeekString = @"TUE";
+    } else if (dayOfWeek == 4) {
+        dayOfWeekString = @"WED";
+    } else if (dayOfWeek == 5) {
+        dayOfWeekString = @"THU";
+    } else if (dayOfWeek == 6) {
+        dayOfWeekString = @"FRI";
+    } else if (dayOfWeek == 7) {
+        dayOfWeekString = @"SAT";
+    }
+    
+    _dayOfWeek = dayOfWeekString;
+    
     if (_haveReservationOnDay) {
         
     
@@ -330,7 +366,17 @@
             _calendarContentView.alpha = 0.9;
             
             [_calendarMenuView setPreviousDate:newDate currentDate:_dateSelected nextDate:nil];
-            CGRect newFrame = CGRectMake(100, 70, self.frame.size.width, 100);
+            
+            CGRect newFrame;
+            
+            if(_isIphone6P) {
+                newFrame = CGRectMake(60, 70, self.frame.size.width, 100);
+
+            } else if (_isIphone5) {
+                
+                newFrame = CGRectMake(0, 70, self.frame.size.width, 100);
+            }
+            
             
             [UIView animateWithDuration:0.5 animations:^{
                 
@@ -343,6 +389,7 @@
                                    options:0
                                 animations:^{
                                     dayView.circleView.transform = CGAffineTransformIdentity;
+                                    _calendarMenuView.alpha = 0.8;
                                     [_calendarManager reload];
                                 } completion:^(BOOL finished) {
                                     [self didChangeModeTouch:dayView.date];
@@ -355,23 +402,21 @@
                 
                 if (_isIphone6P) {
                     _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-                    _dateButton.frame = CGRectMake(0,80,100,90);
+                    _dateButton.frame = CGRectMake(0,80,60,90);
                     
                 } else if (_isIphone6) {
                     _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
-                    _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
+                    _dateButton.frame = CGRectMake(0,80,100,95);
                     
                     
                 } else if (_isIphone5) {
                     _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
 
-                    _dateButton.frame = CGRectMake(0,self.frame.size.height-100,100,75);
+                    _dateButton.frame = CGRectMake(0,80,100,90);
                     
                     
                 } else if (_isIphone4) {
                     _dateButton = [UIButton buttonWithType:UIButtonTypeCustom];
-
                     _dateButton.frame = CGRectMake(0,self.frame.size.height-75,100,95);
                     
                 }
@@ -379,7 +424,7 @@
                 [_dateButton setBackgroundImage:[UIImage imageNamed:@"green-bg"] forState:UIControlStateNormal];
                 _dateButton.alpha = 1.0;
                 [self addLabelToDateButton:_dateSelected];
-                [self addSubview:_dateButton];
+                //[self addSubview:_dateButton];
                 
                 [_calendarMenuView removeFromSuperview];
                 

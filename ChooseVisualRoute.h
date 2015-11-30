@@ -42,7 +42,7 @@
 @property (nonatomic,strong) UIButton *showPickerBar2;
 @property (nonatomic,strong) UIButton *selectedStartEnd;
 
-@property (nonatomic,strong) UIImageView *startImageIcon;
-@property (nonatomic,strong) UIImageView *endImageIcon;
+@property (nonatomic,strong) UIButton *startLocation;
+@property (nonatomic,strong) UIButton *endLocation;
 
 @end

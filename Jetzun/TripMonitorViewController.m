@@ -39,21 +39,28 @@
     [self configureAudioSession];
     [self configureAudioPlayer];
     [self configureSystemSound];
-    
+    _tripHasBegun = NO;
     
     _sharedLocationModel = [LocationShareModel sharedModel];
-    
 
     UIImageView *background = [[UIImageView alloc]initWithFrame:CGRectMake(0,0,self.view.frame.size.width, self.view.frame.size.height)];
     [background setImage:[UIImage imageNamed:@"teal-bg"]];
     [self.view addSubview:background];
     
-    UILabel *authenticateLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, 50, 200, 100)];
+    UILabel *authenticateLabel = [[UILabel alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2-100, 50, 200, 50)];
     [authenticateLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
     [authenticateLabel setTextColor:[UIColor whiteColor]];
-    [authenticateLabel setText:@"AUTHENTICATE"];
-    [self.view addSubview:authenticateLabel];
+    [authenticateLabel setText:@"BEGIN TRIP"];
+
     
+     _beginTripButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_beginTripButton setBackgroundImage:[UIImage imageNamed:@"teal-bg"] forState:UIControlStateNormal];
+    _beginTripButton.frame = CGRectMake(0,0,self.view.frame.size.width,40);
+    [_beginTripButton addTarget:self action:@selector(clickBeginTrip) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.view addSubview:_beginTripButton];
+    [self.view addSubview:authenticateLabel];
     
     _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0, 150, self.view.frame.size.width, 500)];
     _mapView.delegate = self;
@@ -71,7 +78,7 @@
     UILabel *labelEmergency = [[UILabel alloc]initWithFrame:CGRectMake(30, 50, self.view.frame.size.width, 40)];
     [labelEmergency setFont:[UIFont fontWithName:@"Lato-Bold" size:18]];
     [labelEmergency setTextColor:[UIColor redColor]];
-    [labelEmergency setText:@"EMERGENCY"];
+    [labelEmergency setText:@"CONTACT JETZUN"];
     [_emergencyButton addSubview:labelEmergency];
     
     [self.view addSubview:_emergencyButton];
@@ -96,7 +103,10 @@
 
 }
 
-
+-(void)clickBeginTrip {
+    
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -108,11 +118,6 @@
         return;
     }
     
-    // Play background music if no other music is playing and we aren't playing already
-    //Note: prepareToPlay preloads the music file and can help avoid latency. If you don't
-    //call it, then it is called anyway implicitly as a result of [self.backgroundMusicPlayer play];
-    //It can be worthwhile to call prepareToPlay as soon as possible so as to avoid needless
-    //delay when playing a sound later on.
     [self.backgroundMusicPlayer prepareToPlay];
     [self.backgroundMusicPlayer play];
     self.backgroundMusicPlaying = YES;
@@ -163,9 +168,7 @@
 }
 
 -(void)zoomToCurrentLocation {
-    
-    
-    
+
     float spanX = 0.00125;
     float spanY = 0.00125;
     MKCoordinateRegion region;

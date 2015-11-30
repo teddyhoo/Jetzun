@@ -8,9 +8,7 @@
 
 #import "ChooseVisualRoute.h"
 #import "LocationShareModel.h"
-#import "YALTabBarItem.h"
-#import "YALFoldingTabBarController.h"
-#import "YALAnimatingTabBarConstants.h"
+
 
 @interface ChooseVisualRoute() {
     
@@ -29,10 +27,9 @@
         
         _backgroundChooseRoute = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0 , frame.size.width, frame.size.height)];
         [_backgroundChooseRoute setImage:[UIImage imageNamed:@"teal-bg"]];
-        _backgroundChooseRoute.alpha = 0.4;
+        _backgroundChooseRoute.alpha = 1.0;
         [self addSubview:_backgroundChooseRoute];
         self.backgroundColor = [UIColor clearColor];
-        
         
         _showDropoffPicker = YES;
         _showPickupPicker = YES;
@@ -57,30 +54,31 @@
     
         NSArray *initImgArray = [NSArray arrayWithArray:selectItems];
         
+        
         _pickerStartControl = [[HMSegmentedControl alloc]initWithSectionImages:initImgArray sectionSelectedImages:initImgArray];
         _pickerDestinationControl = [[HMSegmentedControl alloc]initWithSectionImages:initImgArray sectionSelectedImages:initImgArray];
         
-        _pickupText = [[UITextView alloc]initWithFrame:CGRectMake(20, 10, viewWidth - 40, 50)];
-        _dropoffText = [[UITextView alloc]initWithFrame:CGRectMake(viewWidth, 40, viewWidth - 20, 50)];
-        _pickerStartControl.frame = CGRectMake(20, 60, viewWidth-50, 40);
-        _pickerDestinationControl.frame = CGRectMake(viewWidth, 100, viewWidth - 50, 40);
+        _pickupText = [[UITextView alloc]initWithFrame:CGRectMake(20, 10, viewWidth - 40, 30)];
+        _pickerStartControl.frame = CGRectMake(20, 50, viewWidth-40, 40);
+        _dropoffText = [[UITextView alloc]initWithFrame:CGRectMake(20, 100, viewWidth - 40, 30)];
+        _pickerDestinationControl.frame = CGRectMake(20, 140, viewWidth - 40, 40);
         
-        [_pickupText setFont:[UIFont fontWithName:@"Lato-Regular" size:18]];
+        [_pickupText setFont:[UIFont fontWithName:@"Lato-Regular" size:16]];
         [_pickupText setText:@"Current Location"];
         [_pickupText setTextColor:[UIColor blackColor]];
         [_pickupText setBackgroundColor:[UIColor whiteColor]];
-        _pickupText.alpha = 0.7;
+        _pickupText.alpha = 0.9;
         _pickupText.tag = 0;
         _pickupText.returnKeyType = UIReturnKeyDone;
         _pickupText.delegate = self;
         [self addSubview:_pickupText];
         
         
-        [_dropoffText setFont:[UIFont fontWithName:@"Lato-Regular" size:18]];
+        [_dropoffText setFont:[UIFont fontWithName:@"Lato-Regular" size:16]];
         [_dropoffText setText:@"Dropoff Location"];
         [_dropoffText setTextColor:[UIColor blackColor]];
         [_dropoffText setBackgroundColor:[UIColor whiteColor]];
-        _dropoffText.alpha = 0.7;
+        _dropoffText.alpha = 0.9;
         _dropoffText.tag = 1;
         _dropoffText.returnKeyType = UIReturnKeyDone;
         _dropoffText.delegate = self;
@@ -95,9 +93,7 @@
         [_pickerStartControl addTarget:self
                                     action:@selector(startControlValueChanged:)
                           forControlEvents:UIControlEventValueChanged];
-        
-        
-
+    
         [self addSubview:_pickerStartControl];
 
         _pickerDestinationControl.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
@@ -113,7 +109,7 @@
         
         
         _selectedStartEnd = [UIButton buttonWithType:UIButtonTypeCustom];
-        _selectedStartEnd.frame = CGRectMake(0, self.frame.size.height -40, self.frame.size.width, 40);
+        _selectedStartEnd.frame = CGRectMake(self.frame.size.width, self.frame.size.height -40, self.frame.size.width, 40);
         [_selectedStartEnd addTarget:self action:@selector(findAndGeocodeCoordinates) forControlEvents:UIControlEventTouchUpInside];
         [_selectedStartEnd setBackgroundImage:[UIImage imageNamed:@"light-blue-box"] forState:UIControlStateNormal];
         [self addSubview:_selectedStartEnd];
@@ -124,144 +120,64 @@
         [setLocationsLabel setText:@"CONTINUE"];
         setLocationsLabel.textAlignment = NSTextAlignmentCenter;
         [_selectedStartEnd addSubview:setLocationsLabel];
-        
-        LocationShareModel *sharedLocation = [LocationShareModel sharedModel];
-        
-        [_geocodeAddress geocodeAddressString:_pickupLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-
-            if(placemarks.count > 0)
-            {
-                CLPlacemark *placemark = [placemarks objectAtIndex:0];
-                
-                sharedLocation.startRoute = CLLocationCoordinate2DMake(placemark.location.coordinate.latitude, placemark.location.coordinate.longitude);
-                
-                NSString *startLocation = [NSString stringWithFormat:@"%f, %f",sharedLocation.startRoute.longitude,sharedLocation.startRoute.latitude];
-                
-                [_dropoffText setText:startLocation];
-
-                
-                
-            }
-            else if (error.domain == kCLErrorDomain)
-            {
-                
-            }
-            
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"foundStartRoute" object:self];
-            
-        }];
-        
-        
     }
     
     return self;
     
 }
-/*
--(void)touchTabControl:(NSNotification*)notification {
-
-    NSDictionary *userInfo = notification.userInfo;
-    NSString *tagID = [userInfo valueForKey:@"tagID"];
-    NSLog(@"Index initial touch: %li", (long)_selectedIndexValue);
-    NSInteger indexValue = _selectedIndexValue;
-    
-    if ([tagID isEqualToString:@"1"]) {
-        CGRect newFrame = CGRectMake(10, _pickupText.frame.origin.y, self.frame.size.width - 60, _pickerStartControl.frame.size.height-10);
-        
-        CGRect newFrame2 = CGRectMake(self.frame.size.width, _pickerStartControl.frame.origin.y, _pickerStartControl.frame.size.width, _pickerStartControl.frame.size.height);
-        
-        CGRect newFrameDest = CGRectMake(20, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
-        
-        CGRect newTextDest = CGRectMake(20, _dropoffText.frame.origin.y, _dropoffText.frame.size.width, _dropoffText.frame.size.height);
-        
-        [UIView animateWithDuration:0.4 animations:^{
-            [_startImageIcon removeFromSuperview];
-            _startImageIcon = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 32, 32)];
-
-            _pickerStartControl.frame = newFrame2;
-            [_pickerStartControl setSelectedSegmentIndex:indexValue];
-
-            UIImage *selectedImageFromStartControl = [_pickerStartControl.sectionImages objectAtIndex:indexValue];
-            [_startImageIcon setImage:selectedImageFromStartControl];
-            [_pickupText addSubview:_startImageIcon];
-            
-            _pickupText.frame = newFrame;
-
-        } completion:^(BOOL finished) {
-            
-            _pickerDestinationControl.frame = newFrameDest;
-            _dropoffText.frame = newTextDest;
-            
-
-        }];
-    } else if ([tagID isEqualToString:@"2"]){
-        CGRect newFrame = CGRectMake(30, _pickerDestinationControl.frame.origin.y, self.frame.size.width - 60, _pickerDestinationControl.frame.size.height);
-
-        [UIView animateWithDuration:0.2 animations:^{
-            _pickerDestinationControl.frame = newFrame;
-            [_pickerDestinationControl setSelectedSegmentIndex:indexValue];
-            _dropoffText.frame = newFrame;
-        } completion:^(BOOL finished) {
-            
-            NSLog(@"Index completion picker anim2: %li", (long)_selectedIndexValue);
-            [_pickerDestinationControl setSelectedSegmentIndex:indexValue animated:YES];
-            
-        }];
-    }
-}
-*/
 
 - (void)startControlValueChanged:(HMSegmentedControl *)segmentedControl {
     
     NSDictionary *selectedItem = [_favoriteDestinations objectAtIndex:segmentedControl.selectedSegmentIndex];
     _selectedIndexValue = segmentedControl.selectedSegmentIndex;
-    NSLog(@"Start Control %@, Index: %li",[selectedItem objectForKey:@"Name"], (long)_selectedIndexValue);
-
-    CGPoint point = CGPointFromString([selectedItem objectForKey:@"Coordinates"]);
-    CLLocationCoordinate2D coordStart = CLLocationCoordinate2DMake(point.x,point.y);
     
-    _pickupLocation = [selectedItem objectForKey:@"Address"];
-    [_pickupText setText:_pickupLocation];
-
-    LocationShareModel *sharedLocation = [LocationShareModel sharedModel];
-    
-    sharedLocation.startRoute = coordStart;
+    _startLocation = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_pickerStartControl setSelectedSegmentIndex:_selectedIndexValue];
     
     CGRect newFrame = CGRectMake(40, _pickupText.frame.origin.y, self.frame.size.width - 60, 20);
-    
     CGRect newFrame2 = CGRectMake(self.frame.size.width, _pickerStartControl.frame.origin.y, _pickerStartControl.frame.size.width, _pickerStartControl.frame.size.height);
-    
     CGRect newFrameDest = CGRectMake(40, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
-    
     CGRect newTextDest = CGRectMake(40, _dropoffText.frame.origin.y, _dropoffText.frame.size.width, _dropoffText.frame.size.height);
     
     [UIView animateWithDuration:0.4 animations:^{
-        [_startImageIcon removeFromSuperview];
-        
-        _startImageIcon = [[UIImageView alloc]initWithFrame:CGRectMake(newFrame.origin.x - 40, _pickupText.frame.origin.y, 32, 32)];
+        [_startLocation removeFromSuperview];
+        [_pickupText setText:@""];
+        _pickupLocation = [selectedItem objectForKey:@"Address"];
+        [_pickupText setText:_pickupLocation];
         _pickerStartControl.frame = newFrame2;
-        [_pickerStartControl setSelectedSegmentIndex:_selectedIndexValue];
-        
         UIImage *selectedImageFromStartControl = [_pickerStartControl.sectionImages
                                                   objectAtIndex:_selectedIndexValue];
+        _startLocation.frame  = CGRectMake(newFrame.origin.x - 40, _pickupText.frame.origin.y, 32, 32);
+        [_startLocation setImage:selectedImageFromStartControl
+                        forState:UIControlStateNormal];
         
-        [_startImageIcon setImage:selectedImageFromStartControl];
+        [_startLocation addTarget:self
+                           action:@selector(moveStartItemsOn)
+                 forControlEvents:UIControlEventTouchUpInside];
         
-        [self addSubview:_startImageIcon];
+        [self addSubview:_startLocation];
         [_pickupText setBackgroundColor:[UIColor clearColor]];
-        
         _pickupText.frame = newFrame;
         
     } completion:^(BOOL finished) {
         
+        CGRect continueButtFrame = CGRectMake(0, self.frame.size.height -40, self.frame.size.width,40);
         
-        [UIView animateWithDuration:0.2 delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            
+        [UIView animateWithDuration:0.2
+                              delay:0.1
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.8
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             
             _pickerDestinationControl.frame = newFrameDest;
             _dropoffText.frame = newTextDest;
-
-
+                             
         } completion:^(BOOL finished) {
+            
+            _selectedStartEnd.frame = continueButtFrame;
+            
+            
             
             
         }];
@@ -278,43 +194,44 @@
     NSDictionary *selectedItem = [_favoriteDestinations objectAtIndex:segmentedControl.selectedSegmentIndex];
     NSLog(@"Destination Control %@",[selectedItem objectForKey:@"Name"]);
     _selectedIndexValue = segmentedControl.selectedSegmentIndex;
-    CGPoint point = CGPointFromString([selectedItem objectForKey:@"Coordinates"]);
-    
-    CLLocationCoordinate2D coordDrop = CLLocationCoordinate2DMake(point.x,point.y);
+
     _dropOffLocation = [selectedItem objectForKey:@"Address"];
     [_dropoffText setText:_dropOffLocation];
-    LocationShareModel *sharedLocation = [LocationShareModel sharedModel];
-    sharedLocation.startRoute = coordDrop;
     
-    CGRect newFrame = CGRectMake(40, _dropoffText.frame.origin.y+20, self.frame.size.width - 60, 20);
-    
-    CGRect newFrame2 = CGRectMake(self.frame.size.width, _pickerDestinationControl.frame.origin.y+20, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
-    
-    CGRect newFrameDest = CGRectMake(40, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
-    
-    CGRect newTextDest = CGRectMake(40, _dropoffText.frame.origin.y, _dropoffText.frame.size.width, _dropoffText.frame.size.height);
+    CGRect newFrame = CGRectMake(40, _dropoffText.frame.origin.y, self.frame.size.width - 60, 20);
+    CGRect newFrame2 = CGRectMake(self.frame.size.width, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
 
     [UIView animateWithDuration:0.4 animations:^{
-        [_endImageIcon removeFromSuperview];
-        
-        _endImageIcon = [[UIImageView alloc]initWithFrame:CGRectMake(newFrame.origin.x - 40, _dropoffText.frame.origin.y, 32, 32)];
-        _pickerDestinationControl.frame = newFrame2;
-        [_pickerDestinationControl setSelectedSegmentIndex:_selectedIndexValue];
+
         
         UIImage *selectedImageFromStartControl = [_pickerDestinationControl.sectionImages
                                                   objectAtIndex:_selectedIndexValue];
         
-        [_endImageIcon setImage:selectedImageFromStartControl];
         
-        [self addSubview:_endImageIcon];
+        _endLocation = [UIButton buttonWithType:UIButtonTypeCustom];
+        _endLocation.frame = CGRectMake(newFrame.origin.x - 40, _dropoffText.frame.origin.y, 32, 32);
+        [_endLocation setImage:selectedImageFromStartControl
+                      forState:UIControlStateNormal];
+        [_endLocation addTarget:self
+                         action:@selector(moveDestItemsOn)
+               forControlEvents:UIControlEventTouchUpInside];
+        
+        _pickerDestinationControl.frame = newFrame2;
+        [_pickerDestinationControl setSelectedSegmentIndex:_selectedIndexValue];
+    
+        [self addSubview:_endLocation];
         [_dropoffText setBackgroundColor:[UIColor clearColor]];
-        
         _dropoffText.frame = newFrame;
         
     } completion:^(BOOL finished) {
         
         
-        [UIView animateWithDuration:0.2 delay:0.1 usingSpringWithDamping:0.5 initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.2
+                              delay:0.1
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.8
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
             
             
         } completion:^(BOOL finished) {
@@ -325,6 +242,83 @@
     
     
     [[NSNotificationCenter defaultCenter]postNotificationName:@"foundEndRoute" object:self];
+}
+
+-(void)moveStartItemsOn {
+    
+    CGRect newFrame = CGRectMake(40, _pickupText.frame.origin.y, self.frame.size.width - 60, 40);
+    CGRect newFrame2 = CGRectMake(40, _pickerStartControl.frame.origin.y, _pickerStartControl.frame.size.width, _pickerStartControl.frame.size.height);
+    CGRect newFrameDest = CGRectMake(self.frame.size.width, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
+    CGRect newTextDest = CGRectMake(self.frame.size.width, _dropoffText.frame.origin.y, _dropoffText.frame.size.width, _dropoffText.frame.size.height);
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        _pickerStartControl.frame = newFrame2;
+        [_pickerStartControl setSelectedSegmentIndex:_selectedIndexValue];
+    
+        UIImage *imageSelectedName = [_pickerStartControl.sectionImages objectAtIndex:_selectedIndexValue];
+        [_startLocation setImage:imageSelectedName forState:UIControlStateNormal];
+        
+        [_pickupText setBackgroundColor:[UIColor whiteColor]];
+        _pickupText.frame = newFrame;
+        
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:0.2
+                              delay:0.1
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            
+            _pickerDestinationControl.frame = newFrameDest;
+            _dropoffText.frame = newTextDest;
+            
+            
+        } completion:^(BOOL finished) {
+            
+            [_startLocation removeFromSuperview];
+            
+        }];
+        
+    }];
+    
+}
+
+-(void)moveDestItemsOn {
+    
+    CGRect newFrameDest = CGRectMake(40, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
+    CGRect newTextDest = CGRectMake(40, _dropoffText.frame.origin.y, _dropoffText.frame.size.width, _dropoffText.frame.size.height);
+    CGRect newPickerDest = CGRectMake(self.frame.size.width, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
+    
+    [UIView animateWithDuration:0.4 animations:^{
+        _pickerDestinationControl.frame = newFrameDest;
+        [_pickerStartControl setSelectedSegmentIndex:_selectedIndexValue];
+        UIImage *imageSelctedEndName = [_pickerDestinationControl.sectionImages objectAtIndex:_selectedIndexValue];
+        [_endLocation setImage:imageSelctedEndName forState:UIControlStateNormal];
+        [_dropoffText setBackgroundColor:[UIColor whiteColor]];
+        _dropoffText.frame = newTextDest;
+        
+    } completion:^(BOOL finished) {
+        
+        [_endLocation removeFromSuperview];
+
+        [UIView animateWithDuration:0.2
+                              delay:0.1
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.8 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                  
+                  _pickerDestinationControl.frame = newFrameDest;
+                  _dropoffText.frame = newTextDest;
+                  
+                  
+              } completion:^(BOOL finished) {
+                  
+                  _pickerStartControl.frame = newPickerDest;
+              }];
+        
+    }];
+    
+    
+    
+    
 }
 
 -(void)textViewDidChange:(UITextView *)textView {
@@ -343,6 +337,31 @@
     
     NSLog(@"text: %@",textView.text);
     
+    if (textView.tag == 0) {
+        CGRect newFrame = CGRectMake(40, _pickerDestinationControl.frame.origin.y, _pickerDestinationControl.frame.size.width, _pickerDestinationControl.frame.size.height);
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            _pickerDestinationControl.frame = newFrame;
+            
+        } completion:^(BOOL finished) {
+
+            
+        }];
+        
+    } else {
+        
+        CGRect newFrame = CGRectMake(40, _pickerStartControl.frame.origin.y, _pickerStartControl.frame.size.width, _pickerStartControl.frame.size.height);
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            _pickerStartControl.frame = newFrame;
+            
+        } completion:^(BOOL finished) {
+            
+            
+        }];
+    }
+    
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)aTextView {
@@ -351,8 +370,7 @@
         
         CGRect newFrame = CGRectMake(self.frame.size.width, _pickerStartControl.frame.origin.y, _pickerStartControl.frame.size.width, _pickerStartControl.frame.size.height);
         
-        CGRect newFrameText = CGRectMake(_pickupText.frame.origin.x-5, _pickupText.frame.origin.y-5, self.frame.size.width - 80, _pickupText.frame.size.height+10);
-        
+        CGRect newFrameText = CGRectMake(_pickupText.frame.origin.x, _pickupText.frame.origin.y, self.frame.size.width - 80, _pickupText.frame.size.height+30);
         
         
         [UIView animateWithDuration:0.3 animations:^{
@@ -364,7 +382,7 @@
             [_pickupText setNeedsLayout];
             
             _showPickerBar = [UIButton buttonWithType:UIButtonTypeCustom];
-            _showPickerBar.frame = CGRectMake(self.frame.size.width-40 , _pickerStartControl.frame.origin.y,32,32);
+            _showPickerBar.frame = CGRectMake(self.frame.size.width-40 , _pickupText.frame.origin.y,32,32);
             [_showPickerBar setBackgroundImage:[UIImage imageNamed:@"left-arrow-white"] forState:UIControlStateNormal];
             [_showPickerBar addTarget:self action:@selector(zoomPickerBarStart) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:_showPickerBar];
@@ -403,9 +421,11 @@
     
     CGRect newFrame = CGRectMake(30, _pickerStartControl.frame.origin.y, self.frame.size.width - 60, _pickerStartControl.frame.size.height);
     
+    CGRect newFrame2 = CGRectMake(30, _pickupText.frame.origin.y, self.frame.size.width - 60, _pickupText.frame.size.height);
+    
     [UIView animateWithDuration:0.2 animations:^{
         _pickerStartControl.frame = newFrame;
-        _pickupText.frame = newFrame;
+        _pickupText.frame = newFrame2;
     } completion:^(BOOL finished) {
         
         NSLog(@"Index: %li", (long)_selectedIndexValue);
@@ -418,9 +438,12 @@
     
     CGRect newFrame = CGRectMake(30, _pickerDestinationControl.frame.origin.y, self.frame.size.width - 60, _pickerDestinationControl.frame.size.height);
     
+    CGRect newFrame2 = CGRectMake(30, _dropoffText.frame.origin.y, self.frame.size.width - 60, _dropoffText.frame.size.height);
+    
+    
     [UIView animateWithDuration:0.2 animations:^{
         _pickerDestinationControl.frame = newFrame;
-        _dropoffText.frame = newFrame;
+        _dropoffText.frame = newFrame2;
     } completion:^(BOOL finished) {
         NSLog(@"Index: %li", (long)_selectedIndexValue);
     }];
@@ -482,6 +505,7 @@
     _pickupLocation = _pickupText.text;
     _dropOffLocation = _dropoffText.text;
     
+    NSLog(@"GEOCODE: pickup location: %@, dropoff location: %@",_pickupLocation, _dropOffLocation);
 
     if (![_dropOffLocation isEqual:[NSNull null]] && ([_dropOffLocation length] > 0)) {
         

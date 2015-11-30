@@ -1,14 +1,15 @@
 // For License please refer to LICENSE file in the root of YALAnimatingTabBarController project
 
 #import "YALFoldingTabBarController.h"
-
-//model
 #import "YALTabBarItem.h"
-
-//protocol
 #import "YALTabBarInteracting.h"
-
 #import "YALAnimatingTabBarConstants.h"
+
+#import "MessageViewController.h"
+#import "FrontViewController.h"
+#import "TripMonitorViewController.h"
+#import "ReservationCards.h"
+#import "PhotoGallery.h"
 
 @interface YALFoldingTabBarController () <YALTabBarViewDataSource, YALTabBarViewDelegate>
 
@@ -23,25 +24,16 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
+        NSLog(@"called init");
+        
         [self setup];
     }
     return self;
 }
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        [self setup];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setup];
-    }
-    return self;
+-(BOOL)prefersStatusBarHidden {
+    
+    return YES;
 }
 
 - (void)setup {
@@ -54,11 +46,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tabBarView = [[YALFoldingTabBar alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, YALTabBarViewDefaultHeight)];
     
+    self.tabBarView.dataSource = self;
+    self.tabBarView.delegate = self;
+    
+    MessageViewController *firstVC = [[MessageViewController alloc]init];
+    FrontViewController *secondVC = [[FrontViewController alloc]init];
+    TripMonitorViewController *thirdVC = [[TripMonitorViewController alloc]init];
+    PhotoGallery *fourthVC = [[PhotoGallery alloc]init];
+    
+    NSMutableArray *localVCArray = [[NSMutableArray alloc]init];
+    [localVCArray addObject:secondVC];
+    [localVCArray addObject:firstVC];
+    [localVCArray addObject:thirdVC];
+    [localVCArray addObject:fourthVC];
+    
+    self.viewControllers = localVCArray;
+    
+    [self.view addSubview:self.tabBarView];
     [self.tabBar setBackgroundImage:[[UIImage alloc] init]];
     [self.tabBar setShadowImage:[[UIImage alloc] init]];
-    
-    self.tabBar.hidden = YES;
+    //self.tabBar.hidden = YES;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -95,18 +104,19 @@
 }
 
 - (void)setupTabBarView {
-    self.tabBarView = [[YALFoldingTabBar alloc] initWithFrame:CGRectZero state:self.state];
-        
-    self.tabBarView.dataSource = self;
-    self.tabBarView.delegate = self;
+    //self.tabBarView = [[YALFoldingTabBar alloc] initWithFrame:CGRectZero state:self.state];
     
-    [self.view addSubview:self.tabBarView];
+   
 }
 
 - (id<YALTabBarInteracting>)currentInteractingViewController {
+    NSLog(@"current view controller: %@",self.selectedViewController.description);
     if ([self.selectedViewController isKindOfClass:[UINavigationController class]]) {
         return (id<YALTabBarInteracting>)[(UINavigationController *)self.selectedViewController topViewController];
     } else {
+        
+        NSLog(@"other tap: %@",self.selectedViewController);
+        
         return (id<YALTabBarInteracting>)self.selectedViewController;
     }
 }
@@ -163,6 +173,8 @@
 }
 
 - (void)extraRightItemDidPressInTabBarView:(YALFoldingTabBar *)tabBarView {
+    NSLog(@"right item pressed");
+
     id<YALTabBarInteracting>viewController = [self currentInteractingViewController];
     if ([viewController respondsToSelector:@selector(extraRightItemDidPress)]) {
         [viewController extraRightItemDidPress];

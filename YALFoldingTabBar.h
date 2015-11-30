@@ -38,8 +38,11 @@ typedef NS_ENUM(NSUInteger, YALTabBarState) {
 
 - (instancetype)initWithFrame:(CGRect)frame state:(YALTabBarState)state;
 
-@property (nonatomic, weak) IBOutlet id<YALTabBarViewDataSource> dataSource;
-@property (nonatomic, weak) IBOutlet id<YALTabBarViewDelegate> delegate;
+//@property (nonatomic, weak) IBOutlet id<YALTabBarViewDataSource> dataSource;
+//@property (nonatomic, weak) IBOutlet id<YALTabBarViewDelegate> delegate;
+
+@property (nonatomic, weak) id<YALTabBarViewDataSource> dataSource;
+@property (nonatomic, weak) id<YALTabBarViewDelegate> delegate;
 
 @property (nonatomic, assign, readonly) YALTabBarState state;
 @property (nonatomic, assign) NSUInteger selectedTabBarItemIndex;

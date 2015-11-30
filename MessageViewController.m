@@ -7,19 +7,23 @@
 //
 
 #import "MessageViewController.h"
-#import <CoreLocation/CoreLocation.h> 
 #import <Parse/Parse.h>
+#import <GPUberViewController.h>
+#include <tgmath.h>
+#import <pop/POP.h>
+
+
 #import "VisitAnnotation.h"
 #import "VisitAnnotationView.h"
 #import "LocationTracker.h"
 #import "LocationShareModel.h"
-#import "UberKit.h"
-#import <GPUberViewController.h>
 #import "ReservationDetails.h"
-#include <tgmath.h>
+#import "PhotoGallery.h"
 
+#define KM_TO_MILES 0.621371
+#define SECONDS 60
 
-@interface MessageViewController () <UITextViewDelegate> {
+@interface MessageViewController () <UITextViewDelegate,UPCardsCarouselDataSource, UPCardsCarouselDelegate, UIScrollViewDelegate> {
     
     NSMutableData *_responseData;
 }
@@ -28,6 +32,8 @@
 @property BOOL isIphone5;
 @property BOOL isIphone6;
 @property BOOL isIphone6P;
+@property int tripDistance;
+@property float timeForTrip;
 @property LocationShareModel *sharedLocation;
 
 @end
@@ -43,40 +49,117 @@ int imageIndex = 0;
     self = [super init];
     if(self){
         
+        
+        _sharedVisitsTracking = [VisitsAndTracking sharedInstance];
+        _sharedLocation = [LocationShareModel sharedModel];
+        
+        _canConfirmReservation = NO;
+        
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gotoStart) name:@"foundStartRoute" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gotoEnd) name:@"foundEndRoute" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setDateService) name:@"choseDateService" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(makeReservation) name:@"makeReservation" object:nil];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(deepLinkUber) name:@"tripOptions" object:nil];
+        
+        NSString *theDeviceType = [_sharedVisitsTracking tellDeviceType];
+        
+        if ([theDeviceType isEqualToString:@"iPhone6P"]) {
+            _isIphone6P = YES;
+            _isIphone6 = NO;
+            _isIphone5 = NO;
+            _isIphone4 = NO;
+            
+        } else if ([theDeviceType isEqualToString:@"iPhone6"]) {
+            _isIphone6 = YES;
+            _isIphone6P = NO;
+            _isIphone5 = NO;
+            _isIphone4 = NO;
+            
+        } else if ([theDeviceType isEqualToString:@"iPhone5"]) {
+            _isIphone5 = YES;
+            _isIphone6P = NO;
+            _isIphone6 = NO;
+            _isIphone4 = NO;
+        }
+        
+        _isIphone6P = YES;
+        
+        
+        
+        
     }
     
     return self;
 }
 
+-(BOOL)prefersStatusBarHidden {
+    
+    return YES;
+    
+}
+
+- (void)tabBarViewWillCollapse {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+}
+
+- (void)tabBarViewWillExpand {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+}
+
+- (void)tabBarViewDidCollapse {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+}
+
+- (void)tabBarViewDidExpand {
+        NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+}
+
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    [self.view setBackgroundColor:[UIColor clearColor]];
+    [self startNewReservation];
     
-    _sharedVisitsTracking = [VisitsAndTracking sharedInstance];
-    _sharedLocation = [LocationShareModel sharedModel];
+}
+
+
+-(void)startNewReservation {
     
+    NSLog(@"NEW RESERVATION");
     NSString *theDeviceType = [_sharedVisitsTracking tellDeviceType];
+    _isIphone6P = YES;
+    theDeviceType = @"iPhone6P";
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gotoStart) name:@"foundStartRoute" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(gotoEnd) name:@"foundEndRoute" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setDateService) name:@"choseDateService" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(makeReservation) name:@"makeReservation" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(setTripOptions) name:@"tripOptions" object:nil];
+    if (_isIphone6P) {
+        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    } else if (_isIphone6) {
+        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    } else if (_isIphone5) {
+        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    } else if (_isIphone4) {
+        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+    _mapView.mapType = MKMapTypeStandard;
+    _mapView.showsBuildings = YES;
     
+    [self.view addSubview:_mapView];
+
+    [self removeAnnotations];
+    
+    imageIndex = 0;
 
     if ([theDeviceType isEqualToString:@"iPhone6P"]) {
         _isIphone6P = YES;
         _isIphone6 = NO;
         _isIphone5 = NO;
         _isIphone4 = NO;
-
+        
     } else if ([theDeviceType isEqualToString:@"iPhone6"]) {
         _isIphone6 = YES;
         _isIphone6P = NO;
         _isIphone5 = NO;
         _isIphone4 = NO;
-
-        
         
     } else if ([theDeviceType isEqualToString:@"iPhone5"]) {
         _isIphone5 = YES;
@@ -85,64 +168,27 @@ int imageIndex = 0;
         _isIphone4 = NO;
     }
     
-    _height = self.view.bounds.size.height;
-    
-
-    if (_isIphone6P) {
-        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height)];
-    } else if (_isIphone6) {
-        
-        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,60, self.view.frame.size.width, self.view.frame.size.height)];
-
-        
-    } else if (_isIphone5) {
-        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,60, self.view.frame.size.width, self.view.frame.size.height)];
-        
-        
-    } else if (_isIphone4) {
-        _mapView = [[MKMapView alloc]initWithFrame:CGRectMake(0,60, self.view.frame.size.width, self.view.frame.size.height)];
-
-        
-    }
-
-    _showingMap = YES;
-    _mapView.mapType = MKMapTypeStandard;
-    _mapView.showsBuildings = YES;
-    //_mapView.showsTraffic = YES;
-    [self.view addSubview:_mapView];
-
-}
-
-
-
-- (void)didMoveToParentViewController:(UIViewController *)parent {
-        
-    imageIndex = 0;
-    [self addDrivers];
-    //[self removeAnnotations];
-
-    NSString *theDeviceType = [_sharedVisitsTracking tellDeviceType];
     
     
     if ([theDeviceType isEqualToString:@"iPhone6P"]) {
-        _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, -40, self.view.frame.size.width, 390)];
-        _routeOptionsView = [[RouteOptionsView alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 130, self.view.frame.size.width, 230)];
-        _chooseVisualView = [[ChooseVisualRoute alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 130, self.view.frame.size.width, 200)];
-
+        _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 390)];
+        _routeOptionsView = [[RouteOptionsView alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 0, self.view.frame.size.width, 320)];
+        _chooseVisualView = [[ChooseVisualRoute alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 90, self.view.frame.size.width, 250)];
+        
         
     } else if ([theDeviceType isEqualToString:@"iPhone6"]) {
         
-        _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, -40, self.view.frame.size.width, 300)];
+        _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
         _routeOptionsView = [[RouteOptionsView alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 130, self.view.frame.size.width, 230)];
         _chooseVisualView = [[ChooseVisualRoute alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 160, self.view.frame.size.width, 170)];
-
+        
         
     } else if ([theDeviceType isEqualToString:@"iPhone5"]) {
         
-        _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, -40, self.view.frame.size.width, 300)];
+        _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300)];
         _routeOptionsView = [[RouteOptionsView alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 130, self.view.frame.size.width, 230)];
         _chooseVisualView = [[ChooseVisualRoute alloc]initWithFrame:CGRectMake(self.view.frame.size.width, 160, self.view.frame.size.width, 170)];
-
+        
     }  else if ([theDeviceType isEqualToString:@"iPhone4"]) {
         
         _calendarView = [[CalendarChooserView alloc]initWithFrame:CGRectMake(0, -40, self.view.frame.size.width, 300)];
@@ -151,12 +197,11 @@ int imageIndex = 0;
         
     }
     
-    _calendarView.alpha = 0.9;
+    _calendarView.alpha = 0.8;
     [self.view addSubview:_chooseVisualView];
-    [self.view addSubview:_routeOptionsView];
     [self.view addSubview:_calendarView];
-    [self initialMapView];
-
+    [self.view addSubview:_routeOptionsView];
+    [self showInitialMapAndGoToLcoation];
 }
 
 
@@ -166,7 +211,7 @@ int imageIndex = 0;
     
     if(_isIphone6P) {
         
-        newFrame = CGRectMake(0, -40, self.view.frame.size.width,170);
+        newFrame = CGRectMake(0, -80, self.view.frame.size.width,170);
         
     } else if (_isIphone6) {
         
@@ -182,18 +227,64 @@ int imageIndex = 0;
 
     }
     
+    _backgroundCalButton = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 60, 90)];
+    [_backgroundCalButton setImage:[UIImage imageNamed:@"green-bg"]];
+    [self.view addSubview:_backgroundCalButton];
     
-    [UIView animateWithDuration:0.3 delay:0.1 usingSpringWithDamping:0.3 initialSpringVelocity:0.5 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+    _calButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _calButton.frame = _backgroundCalButton.frame;
+    
+    
+    UILabel *dayLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 5, 60, 20)];
+    [dayLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:16]];
+    [dayLabel setTextColor:[UIColor whiteColor]];
+    [dayLabel setText:_calendarView.dayOfWeek];
+    [_backgroundCalButton addSubview:dayLabel];
+    
+    UILabel *dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 25, 60, 20)];
+    [dateLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:16]];
+    [dateLabel setTextColor:[UIColor whiteColor]];
+    [dateLabel setText:_calendarView.dateNum];
+    [_backgroundCalButton addSubview:dateLabel];
+    
+    UILabel *monthLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 45, 60, 20)];
+    [monthLabel setFont:[UIFont fontWithName:@"Lato-Bold" size:16]];
+    [monthLabel setTextColor:[UIColor whiteColor]];
+    [monthLabel setText:_calendarView.dateMon];
+    
+    dayLabel.textAlignment = NSTextAlignmentCenter;
+    dateLabel.textAlignment = NSTextAlignmentCenter;
+    monthLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [_backgroundCalButton addSubview:monthLabel];
+    
+    
+    
+    [UIView animateWithDuration:0.3
+                          delay:0.1
+         usingSpringWithDamping:0.9
+          initialSpringVelocity:0.7
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
         
         _calendarView.frame = newFrame;
-        _calendarView.backgroundColor = [UIColor redColor];
-        _calendarView.alpha = 1.0;
+        _calendarView.alpha = 0.9;
         
         CGRect newFrame2 = CGRectMake(0,_chooseVisualView.frame.origin.y,self.view.frame.size.width, _chooseVisualView.frame.size.height);
         
-        [UIView animateWithDuration:0.4 delay:0.2 usingSpringWithDamping:0.5 initialSpringVelocity:0.2 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        [UIView animateWithDuration:0.4
+                              delay:0.2
+             usingSpringWithDamping:0.5
+              initialSpringVelocity:0.2
+                            options:UIViewAnimationOptionTransitionFlipFromRight
+                         animations:^{
+                             
             _chooseVisualView.frame = newFrame2;
+            _chooseVisualView.alpha = 1.0;
+                             
         } completion:^(BOOL finished) {
+            
+            
             
             
         }];
@@ -202,13 +293,23 @@ int imageIndex = 0;
         
     }];
     
+    POPDecayAnimation *anim = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPositionX];
+    anim.velocity = @(1000.);
+    //[_calendarView pop_addAnimation:anim forKey:@"slide"];
+    
+    
+    
+    
     [UIView animateWithDuration:0.2 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
+        
         _calendarView.frame = newFrame;
         _calendarView.backgroundColor = [UIColor redColor];
-        _calendarView.alpha = 1.0;
+        _calendarView.alpha = 0.7;
+        
     } completion:^(BOOL finished) {
 
         CGRect newFrame2 = CGRectMake(0,_chooseVisualView.frame.origin.y,self.view.frame.size.width, _chooseVisualView.frame.size.height);
+        
         [UIView animateWithDuration:0.5 animations:^{
             _chooseVisualView.frame = newFrame2;
         }];
@@ -224,7 +325,7 @@ int imageIndex = 0;
     CGRect newFrame2;
     
     if(_isIphone6P) {
-        newFrame = CGRectMake(0, 130, self.view.frame.size.width, 260);
+        newFrame = CGRectMake(0, 0, self.view.frame.size.width, 260);
         newFrame2 = CGRectMake(0, -330, self.view.frame.size.width, 160);
     } else if (_isIphone6) {
         newFrame = CGRectMake(0, 130, self.view.frame.size.width, 260);
@@ -269,8 +370,10 @@ int imageIndex = 0;
 
         
     }
-    [_goToUber setBackgroundImage:[UIImage imageNamed:@"light-blue-box"] forState:UIControlStateNormal];
-    [_goToUber addTarget:self action:@selector(deepLinkUber) forControlEvents:UIControlEventTouchUpInside];
+    [_goToUber setBackgroundImage:[UIImage imageNamed:@"light-blue-box"]
+                         forState:UIControlStateNormal];
+    [_goToUber addTarget:self action:@selector(deepLinkUber)
+        forControlEvents:UIControlEventTouchUpInside];
     
     UILabel *scheduleUber = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, _goToUber.frame.size.width, 50)];
     scheduleUber.textAlignment = NSTextAlignmentCenter;
@@ -285,28 +388,7 @@ int imageIndex = 0;
 
 
 - (void)deepLinkUber {
-    
-    [[UberKit sharedInstance] setClientID:@"cyOf4riuRPm6Mups-8tDY21AWCAQG9n6"];
-    [[UberKit sharedInstance] setClientSecret:@"B1-7YvWc0nWJz5VdXHe8r6cmLL-eHNSkUTOfLHWB"];
-    [[UberKit sharedInstance] setRedirectURL:@"https://localhost"];
-    [[UberKit sharedInstance] setApplicationName:@"Rideshare Manager"];
-    //UberKit *uberKit = [[UberKit alloc] initWithClientID:@"YOUR_CLIENTID" ClientSecret:@"YOUR_CLIENT_SECRET" RedirectURL:@"YOUR_REDIRECT_URI" ApplicationName:@"YOUR_APPLICATION_NAME"]; // Alternate initialization
-    //UberKit *uberKit = [UberKit sharedInstance];
-    //uberKit.delegate = self;
-    [[UberKit sharedInstance] startLogin];
-    
-    LocationShareModel *sharedModel = [LocationShareModel sharedModel];
-    
-    if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:@"uber://"]]) {
-     //   [[UIApplication sharedApplication]openURL:[NSURL URLWithString:@"uber://?action=setPickup&pickup=my_location"]];
-        
-    } else {
-        
-       NSLog(@"no uber");
-    }
-    
-    ///NSString *serverToken = @"P_DXM1dCDDq_f17lvgk57FBPWmc8vCD6Bwid2ULp";
-    
+
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     [dateFormatter setDateFormat:@"YYYY-MM-dd"];
     NSString *dateString = [dateFormatter stringFromDate:_calendarView.dateSelected];
@@ -317,62 +399,110 @@ int imageIndex = 0;
     [_calendarView removeFromSuperview];
     [_routeOptionsView removeFromSuperview];
     
-    ReservationDetails *reservationDetails = [[ReservationDetails alloc]init];
-    reservationDetails.reservationStatus = @"pending";
-    reservationDetails.reservationDate = dateString;
-    reservationDetails.pickupLocation = _sharedLocation.pickupLocationText;
-    reservationDetails.dropOffLocation = _sharedLocation.dropoffLocationText;
-    reservationDetails.pickupTime = _routeOptionsView.timeHour;
-    reservationDetails.amOrpm = _routeOptionsView.amOrPm;
+    float chargeMileFactor = 1.24;
+    float chargeTimeFactor = 0.24;
+    float baseCharge = 2.00;
     
-    NSLog(@"Reservation: %@, date: %@, pickup: %@, dropoff: %@, time: %@ %@",reservationDetails.reservationStatus,reservationDetails.reservationDate, reservationDetails.pickupLocation,reservationDetails.dropOffLocation, reservationDetails.pickupTime, reservationDetails.amOrpm);
+    float totalCharge = (chargeMileFactor * _tripDistance) + (chargeTimeFactor * _timeForTrip) + baseCharge;
     
-    [reservationDetails addStartEndPointCoordinates:_sharedLocation.startRoute
+    _reservationDetails = [[ReservationDetails alloc]init];
+    _reservationDetails.reservationDate = dateString;
+    _reservationDetails.reservationStatus = @"PENDING";
+    _reservationDetails.pickupLocation = _sharedLocation.pickupLocationText;
+    _reservationDetails.dropOffLocation = _sharedLocation.dropoffLocationText;
+    _reservationDetails.pickupTime = _routeOptionsView.timeHour;
+    _reservationDetails.amOrpm = _routeOptionsView.amOrPm;
+    _reservationDetails.productType = _routeOptionsView.typeOfProduct;
+    _reservationDetails.estimatedDistance = [NSString stringWithFormat:@"%i",_tripDistance];
+    _reservationDetails.estimatedTravelTime = [NSString stringWithFormat:@"%.2f",_timeForTrip];
+    _reservationDetails.estimatedTripCharge = [NSString stringWithFormat:@"%.2f",totalCharge];
+
+    [_reservationDetails addStartEndPointCoordinates:_sharedLocation.startRoute
                                            endPoint:_sharedLocation.endRoute];
+    [_reservationDetails saveReservationDetailsToParse];
     
-    
-    [reservationDetails saveReservationDetailsToParse];
-    
-    _reservationReview = [[ReservationReview alloc]initWithFrame:CGRectMake(0, 30, self.view.frame.size.width, 270)];
+    _reservationReview = [[ReservationReview alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 270)];
     [_reservationReview setupReservationDetailsView:_calendarView.dateSelected
                                        monthReserve:_calendarView.dateMon
                                          dayReserve:_calendarView.dayOfWeek
                                             dayName:_calendarView.dateNum
-                                         pickupTime:_routeOptionsView.timeHour
-                                        typeProduct:_routeOptionsView.typeOfProduct];
+                                        typeProduct:_routeOptionsView.typeOfProduct
+                                  reservationObject:_reservationDetails];
     
     [self.view addSubview:_reservationReview];
+    [_calButton removeFromSuperview];
+    [_backgroundCalButton removeFromSuperview];
+    _canConfirmReservation = YES;
+    [_sharedVisitsTracking getAllReservations];
+    
 
 }
 
-
-- (void)addDrivers {
+-(void)extraRightItemDidPress {
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"DriversAvailableNow" ofType:@"plist"];
-    NSArray *drivers = [NSArray arrayWithContentsOfFile:filePath];
-    for (NSDictionary *driver in drivers) {
-        VisitAnnotation *annotation = [[VisitAnnotation alloc]init];
-        CGPoint point = CGPointFromString(driver[@"location"]);
-        annotation.coordinate = CLLocationCoordinate2DMake(point.x, point.y);
-        annotation.title = driver[@"name"];
-        annotation.typeOfAnnotation = [driver[@"type"] integerValue];
-        annotation.subtitle = driver[@"subtitle"];
-        [self.mapView addAnnotation:annotation];
+    if (_canConfirmReservation) {
+        [_reservationReview removeFromSuperview];
+        [_calendarView removeFromSuperview];
+        [_routeOptionsView removeFromSuperview];
+        [_chooseVisualView removeFromSuperview];
+        
+        _reservationReview = nil;
+        _calendarView = nil;
+        _routeOptionsView = nil;
+        _chooseVisualView = nil;
+        
+        
+        CGFloat width = CGRectGetWidth(self.scrollView.frame);
+        CGFloat height = CGRectGetHeight(self.scrollView.frame);
+        CGFloat x = self.scrollView.subviews.count * width;
+        
+        _scrollView = [[JT3DScrollView alloc]initWithFrame:CGRectMake(10, 60, self.view.frame.size.width - 40, self.view.frame.size.height -80)];
+        self.scrollView.delegate = self;
+        [self.view addSubview:_scrollView];
+        
+        NSLog(@"adding scrollview");
+        
+        GalleryView *cardTopic = [[GalleryView alloc]initWithFrame:CGRectMake(x, self.view.frame.size.height -400, 450, 700)
+                                                           andData:_reservationDetails.productType
+                                                         andPickup:_reservationDetails.pickupLocation
+                                                        andDropoff:_reservationDetails.dropOffLocation
+                                                           andHour:_reservationDetails.pickupTime
+                                                            andMin:@""
+                                                            onDate:_reservationDetails.reservationDate
+                                                        withCharge:_reservationDetails.estimatedTripCharge];
+        
+        
+        [self.scrollView addSubview:cardTopic];
+        self.scrollView.contentSize = CGSizeMake(x+width,height);
+        self.scrollView.effect = JT3DScrollViewEffectTranslation;
+
+        
+        _canConfirmReservation  = NO;
+        
+    } else {
+        _reservationDetails = nil;
+        [_mapView removeFromSuperview];
+        _mapView = nil;
+        
+        [self startNewReservation];
     }
+    
+
+    
 }
 
 -(void)gotoStart {
     
     
-    float spanX = 0.00225;
-    float spanY = 0.00225;
+    float spanX = 0.30225;
+    float spanY = 0.30225;
     LocationShareModel *locationShare = [LocationShareModel sharedModel];
     
     MKCoordinateRegion region;
     region.span.latitudeDelta = spanX;
     region.span.longitudeDelta = spanY;
-    region.center.latitude = locationShare.startRoute.latitude;
-    region.center.longitude = locationShare.startRoute.longitude;
+    region.center.latitude = locationShare.lastValidLocation.latitude;
+    region.center.longitude = locationShare.lastValidLocation.longitude;
     
     [self.mapView setRegion:region animated:YES];
     
@@ -382,6 +512,7 @@ int imageIndex = 0;
     
     LocationShareModel *locationShare = [LocationShareModel sharedModel];
 
+    [self removeAnnotations];
     
     VisitAnnotation *startAnnotation = [[VisitAnnotation alloc]init];
 
@@ -402,8 +533,11 @@ int imageIndex = 0;
     MKPlacemark *placemarkSrc = [[MKPlacemark alloc]initWithCoordinate:locationShare.startRoute addressDictionary:nil];
     MKPlacemark *placemarkDest = [[MKPlacemark alloc]initWithCoordinate:locationShare.endRoute addressDictionary:nil];
 
+    NSLog(@"Placemark start: %@, end: %@",placemarkSrc,placemarkDest);
+    
     MKMapItem *mapItemSrc = [[MKMapItem alloc]initWithPlacemark:placemarkSrc];
     MKMapItem *mapItemDest = [[MKMapItem alloc]initWithPlacemark:placemarkDest];
+    
     [self findDirectionsFrom:mapItemSrc to:mapItemDest];
     
 }
@@ -430,9 +564,19 @@ int imageIndex = 0;
          } else {
              //do something about the response, like draw it on map
              MKRoute *route = [response.routes firstObject];
-             [self.mapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+             float distanceForReservation = route.distance;
+             NSTimeInterval timeForRoute = route.expectedTravelTime;
+             float routeTime = timeForRoute;
+             int routeMin = routeTime/60;
+             distanceForReservation = distanceForReservation/1000;
+             float distanceInMiles = distanceForReservation * KM_TO_MILES;             
              
-         }
+             _tripDistance = distanceInMiles;
+             _timeForTrip = routeMin;
+             [self.mapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+             _sharedLocation.distance = distanceInMiles;
+             _sharedLocation.tripTimeMin = routeMin;
+            }
      }];
 }
 
@@ -454,6 +598,23 @@ int imageIndex = 0;
     return polylineRender;
 }
 
+-(void)showInitialMapAndGoToLcoation {
+    self.mapView.delegate = self;
+    self.mapView.showsUserLocation = YES;
+    self.mapView.userInteractionEnabled = YES;
+    
+    float spanX = 0.001000;
+    float spanY = 0.001000;
+    
+    NSLog(@"lat: %f, lon: %f",_sharedLocation.lastValidLocation.latitude, _sharedLocation.lastValidLocation.longitude);
+    
+    MKCoordinateRegion region;
+    region.span.latitudeDelta = spanX;
+    region.span.longitudeDelta = spanY;
+    region.center.latitude = _sharedLocation.lastValidLocation.latitude;
+    region.center.longitude = _sharedLocation.lastValidLocation.longitude;
+    [self.mapView setRegion:region animated:YES];
+}
 
 
 -(void)showMapAndGoToLocation {
@@ -473,11 +634,6 @@ int imageIndex = 0;
     
     [self.mapView setRegion:region animated:YES];
     
-    LocationShareModel *locationShare = [LocationShareModel sharedModel];
-    
-    
-    //MKMapCamera *newCamera = [MKMapCamera cameraLookingAtCenterCoordinate:locationShare.endRoute fromDistance:4000 pitch:90 heading:90];
-
     MKMapCamera *newCamera = [MKMapCamera cameraLookingAtCenterCoordinate:_sharedLocation.startRoute
                                                         fromEyeCoordinate:_sharedLocation.endRoute
                                                               eyeAltitude:1000];
@@ -488,35 +644,26 @@ int imageIndex = 0;
 }
 
 
--(void)initialMapView {
-    
-    self.mapView.delegate = self;
-    self.mapView.showsUserLocation = YES;
-    self.mapView.userInteractionEnabled = YES;
-    
-    float spanX = 0.00025;
-    float spanY = 0.00025;
-    
-    MKCoordinateRegion region;
-    region.span.latitudeDelta = spanX;
-    region.span.longitudeDelta = spanY;
-    region.center.latitude = _sharedLocation.lastValidLocation.latitude;
-    region.center.longitude = _sharedLocation.lastValidLocation.longitude;
-    
-    [self.mapView setRegion:region animated:YES];
-    
-}
-
-
 -(void)removeAnnotations {
 
+    for (id<MKAnnotation> annotation in self.mapView.annotations) {
+        
+        
+        if (![annotation isKindOfClass:[MKUserLocation class]] && ![annotation isKindOfClass:[VisitAnnotation class]]) {
+            [self.mapView removeAnnotation:annotation];
+        }
+    }
+    
+    for (id<MKOverlay> overlay in self.mapView.overlays) {
+        [self.mapView removeOverlay:overlay];
+    }
+    [self.mapView removeOverlays:self.mapView.overlays];
 
 }
 
 - (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
     
     
-
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {

@@ -10,7 +10,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>leashtime.com</key>
+			<key>jetzun.com</key>
 			<dict>
 				<key>NSIncludeSubdomains</key>
 				<true/>
@@ -41,6 +41,10 @@
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
 	<array>
+		<dict>
+			<key>LSApplicationQueriesScheme</key>
+			<string>uber</string>
+		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>

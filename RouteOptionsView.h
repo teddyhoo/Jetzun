@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "AKPickerView.h"
+#import "HMSegmentedControl.h"
 
-@interface RouteOptionsView : UIView
+@interface RouteOptionsView : UIView <UIScrollViewDelegate>
 
-@property (nonatomic,strong) AKPickerView *typeOfCar;
 @property (nonatomic,strong) AKPickerView *pickUpTimeHour;
-@property (nonatomic,strong) AKPickerView *pickUpTimeMinute;
+
+@property (nonatomic,strong) HMSegmentedControl *productPicker;
+@property (nonatomic,strong) HMSegmentedControl *numPassengerPicker;
 
 @property (nonatomic,strong) UIImageView *backDial;
 @property (nonatomic,strong) UIImageView *backDial2;

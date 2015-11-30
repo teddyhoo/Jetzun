@@ -10,8 +10,12 @@
 #import "DateTools.h"
 #import "VisitDetails.h"
 #import "ReservationDetails.h"
-
 #import <Parse/Parse.h>
+
+#define UBER_CLIENT_ID @"cyOf4riuRPm6Mups-8tDY21AWCAQG9n6"
+#define UBER_SERVER_TOKEN @"lJvq5gtGUEPkIN0Hszud-qwqTOHamhobdDwAmYtq"
+#define PARSE_APP_ID @"ZKMMb0AGM6XqxBvoUeRx627R7OV5QuXpEv3YHAlA"
+#define PARSE_CLIENT_KEY @"DbBSkhJiT0qqxPtSrDGKXDfEJ8Dq8IH6mRSkS8LY"
 
 @implementation VisitsAndTracking {
     
@@ -31,16 +35,14 @@
     return _sharedInstance;
 }
 
+-(NSString*)uberCredServer {
+    
+    return UBER_SERVER_TOKEN;
+}
 - (id)init
 {
     self = [super init];
     if (self) {
-        
-        coordinatesForVisits = [[NSMutableDictionary alloc]init];
-        arrayCoordForVisits = [[NSMutableArray alloc]init];
-        _clientData = [[NSMutableArray alloc]init];
-        _visitData = [[NSMutableArray alloc]init];
-
         _reservationsData = [[NSMutableArray alloc]init];
         
         self.isReachable = NO;
@@ -53,6 +55,10 @@
                                                     name:@"ReservationPosted"
                                                   object:nil];
         
+        [Parse enableLocalDatastore];
+        [Parse setApplicationId:@"ZKMMb0AGM6XqxBvoUeRx627R7OV5QuXpEv3YHAlA"
+                      clientKey:@"DbBSkhJiT0qqxPtSrDGKXDfEJ8Dq8IH6mRSkS8LY"];
+        
 
         [self setupDefaults];
         
@@ -60,6 +66,29 @@
     return self;
 }
 
+-(void)addReservation:(ReservationDetails*)reservation {
+    
+    
+}
+
+
+-(void)getAllReservations {
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Reservation"];
+    [query whereKey:@"Status" equalTo:@"PENDING"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            
+            for (PFObject *reservation in objects) {
+            }
+        }
+        
+    }];
+
+
+}
 -(void)addReservationDetails {
     
     
@@ -68,20 +97,6 @@
 
 -(void)setupDefaults {
     
-}
-
-
--(NSMutableArray *)getClientData {
-    return _clientData;
-}
-
-
--(NSMutableArray *)getVisitData {
-    return _visitData;
-}
-
--(NSMutableArray *)visitDataFromServer {
-    return _visitData;
 }
 
 
@@ -132,16 +147,9 @@
     
 }
 
--(NSMutableArray *)getTodayVisits {
-        return _visitData;
-}
-
-
 -(void)setUpReachability {
     
 }
-
-
 
 -(void) setDeviceType:(NSString*)typeDev {
     

@@ -32,9 +32,7 @@
     self.view.userInteractionEnabled = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     
-    
     _scrollView = [[JT3DScrollView alloc]initWithFrame:CGRectMake(40, 60, self.view.frame.size.width - 40, self.view.frame.size.height -80)];
-    
     self.scrollView.effect = JT3DScrollViewEffectTranslation;
     self.scrollView.delegate = self;
     
@@ -65,18 +63,6 @@
                                   initWithFrame:CGRectMake(x, 0, 380, 900)
                                   andData:imageName
                                   andCaption:captionString];
-        
-        
-        
-        
-        cardTopic.driverRating = [driverInfo objectForKey:@"DriverRating"];
-        cardTopic.driverVehicleMake = [driverInfo objectForKey:@"VehicleMake"];
-        cardTopic.driverVehicleModel = [driverInfo objectForKey:@"VehicleModel"];
-        cardTopic.driverVehicleYear = [driverInfo objectForKey:@"VehicleYear"];
-        cardTopic.driverProfileDescription = [driverInfo objectForKey:@"ProfileDescription"];
-        NSLog(@"%@",[driverInfo objectForKey:@"ProfileDescription"]);
-        
-        [cardTopic.vehiclePhoto setImage:[UIImage imageNamed:[driverInfo objectForKey:@"VehiclePictureFileName"]]];
         
         [cardTopic addDetails];
         

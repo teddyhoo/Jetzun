@@ -9,32 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "VisitDetails.h"
+#import <Parse/Parse.h>
+#import "ReservationDetails.h"
 
 
 @interface VisitsAndTracking : NSObject <CLLocationManagerDelegate, NSURLSessionDelegate> {
     
     NSMutableData *_responseData;
-    NSMutableDictionary *coordinatesForVisits;
-    NSMutableArray *arrayCoordForVisits;
-    
 }
 
 +(VisitsAndTracking *)sharedInstance;
 
-extern NSString *const pollingCompleteWithChanges;
-extern NSString *const pollingFailed;
-
-@property(nonatomic)NSTimer *timerRequest;              // Initial login, because UI loaded before data received
-@property(nonatomic)NSTimer *rollingSecondRequest;      // Background request to get latest visit data and sync with local copy
-@property(nonatomic)NSTimer *makeAnotherRequest;        // If request fails, redo
-
-@property(nonatomic,strong)NSNumber* totalCoordinatesForSession;
-@property(nonatomic)NSTimer *locationUpdateTimer;
-
-@property(nonatomic,strong)NSMutableArray *clientData;
-@property(nonatomic,strong)NSMutableArray *visitData;
 @property(nonatomic,strong)NSMutableArray *reservationsData;
-
+@property PFUser *currentUser;
+@property PFSession *currentSession;
 @property BOOL isReachable;
 @property BOOL isUnreachable;
 @property BOOL isReachableViaWWAN;
@@ -42,14 +30,16 @@ extern NSString *const pollingFailed;
 @property BOOL diagnosticsON;
 @property (nonatomic,copy) NSString *deviceType;
 
-// OPTION SETTINGS
-
 -(void)setDeviceType:(NSString*)typeDev;
+
 -(NSString*)tellDeviceType;
--(NSMutableArray *)getTodayVisits;
--(NSMutableArray *)getClientData;
--(NSMutableArray *)getVisitData;
--(void)changePollingFrequency:(NSNumber*)changePollingFrequencyTo;
+
 -(void)turnOffGPSTracking;
+
+-(NSString*)uberCredServer;
+
+-(void)getAllReservations;
+
+-(void)addReservation:(ReservationDetails*)reservation;
 
 @end

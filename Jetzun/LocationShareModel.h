@@ -29,6 +29,9 @@
 @property BOOL afterResume;
 @property BOOL turnOffGPSTracking;
 
+@property float distance;
+@property float tripTimeHour;
+@property float tripTimeMin;
 
 
 +(id)sharedModel;

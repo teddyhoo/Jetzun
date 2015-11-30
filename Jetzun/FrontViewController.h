@@ -25,8 +25,7 @@
 */
 
 #import <UIKit/UIKit.h>
-#import "UberKit.h"
 
-@interface FrontViewController : UIViewController <UberKitDelegate>
+@interface FrontViewController : UIViewController
 
 @end
